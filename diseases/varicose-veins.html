@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avis Hospitals | Varicose Veins</title>
+    <style>
+        :root {
+            --bar: #0f3b5f;
+            --cap: #2a2a2a;
+            --pill-bg: #ffffff;
+            --pill-text: #111;
+            --pill-stroke: #e5e7eb;
+            --h: 64px;
+            --radius: 14px;
+            --brand: #0e4a66;
+            --ink: #0b1f2a;
+            --surface: #d8e6ea;
+            --surface-light: #e9f0f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* ========== TOP BAR ========== */
+        .topbar {
+            position: relative;
+            height: var(--h);
+            background: var(--bar);
+            border-radius: var(--radius) var(--radius) 6px 6px;
+            overflow: visible;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+        }
+
+        .topbar::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -10px;
+            height: 10px;
+            background: var(--cap);
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .topbar__inner {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .pill {
+            border: 1px solid var(--pill-stroke);
+            background: var(--pill-bg);
+            color: var(--pill-text);
+            height: 30px;
+            line-height: 30px;
+            padding: 0 12px;
+            border-radius: 9999px;
+            font: 500 13px/30px system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .caret {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid #222;
+            transform: translateY(1px);
+        }
+
+        /* ========== MAIN HEADER ========== */
+        .main-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 70px;
+            background: var(--surface);
+            flex-wrap: wrap;
+        }
+
+        .main-header img {
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--brand);
+        }
+
+        .book-btn {
+            background-color: var(--brand);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: #08334d;
+        }
+
+        /* ========== HAMBURGER MENU ========== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            background: var(--brand);
+            height: 3px;
+            width: 22px;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background: var(--surface);
+                margin-top: 10px;
+                padding: 10px 0;
+                border-radius: 10px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .main-header {
+                padding: 15px 25px;
+            }
+
+            /* Hide desktop book button */
+            #book-btn-desktop {
+                display: none;
+            }
+
+            /* Book button inside nav menu */
+            #book-btn-mobile {
+                background-color: var(--brand);
+                color: #fff;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 6px;
+                font-size: 14px;
+                margin: 10px auto 0;
+                width: 80%;
+            }
+        }
+
+        /* MAIN SECTION (SEMI-CIRCLE) */
+        .semi-circle-section {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background-color: #d1e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .semi-circle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 250px;
+            background-color: #e2f3f3;
+            border-radius: 250px 250px 0 0;
+            z-index: 1;
+        }
+
+        .title {
+            position: relative;
+            z-index: 2;
+            color: #0e4a66;
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        @media (max-width: 600px) {
+            .semi-circle-section {
+                height: 200px;
+            }
+
+            .semi-circle {
+                width: 280px;
+                height: 140px;
+                border-radius: 140px 140px 0 0;
+            }
+
+            .title {
+                font-size: 22px;
+                margin-bottom: 55px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .semi-circle-section {
+                height: 180px;
+            }
+
+            .semi-circle {
+                width: 220px;
+                height: 110px;
+                border-radius: 110px 110px 0 0;
+            }
+
+            .title {
+                font-size: 20px;
+                margin-bottom: 45px;
+            }
+        }
+
+        /* MAIN CONTAINER */
+        .intro-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 80px 100px;
+            gap: 40px;
+            background-color: #f2fbfb;
+            flex-wrap: wrap;
+        }
+
+        /* LEFT SIDE TEXT */
+        .intro-text {
+            flex: 1 1 550px;
+        }
+
+        .intro-text h2 {
+            font-size: 28px;
+            color: #0e4a66;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .intro-text p {
+            font-size: 15px;
+            color: #1a1a1a;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        /* RIGHT SIDE IMAGES */
+        .intro-images {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .intro-images img {
+            width: 180px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .intro-images img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .intro-section {
+                flex-direction: column;
+                align-items: center;
+                padding: 60px 40px;
+                text-align: center;
+            }
+
+            .intro-text {
+                flex: 1 1 100%;
+            }
+
+            .intro-images {
+                flex: 1 1 100%;
+                justify-content: center;
+                margin-top: 25px;
+            }
+
+            .intro-images img {
+                width: 160px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .intro-text h2 {
+                font-size: 22px;
+            }
+
+            .intro-text p {
+                font-size: 14px;
+            }
+
+            .intro-images {
+                gap: 18px;
+            }
+
+            .intro-images img {
+                width: 140px;
+            }
+        }
+
+        /* SECTION */
+        .symptoms-section {
+            background-color: #e9f8f8;
+            text-align: center;
+            padding: 80px 60px;
+        }
+
+        .symptoms-section h2 {
+            font-size: 32px;
+            color: #0e2c3c;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        /* MAIN CONTAINER */
+        .symptoms-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: nowrap;
+            /* ensures all stay in one row */
+        }
+
+        /* LEFT AND RIGHT SYMPTOM LISTS */
+        .symptom-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .symptom {
+            display: flex;
+            align-items: center;
+
+            background-color: #f8ffff;
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0e2c3c;
+            box-shadow: 0 0 0 1px #d8e6ea;
+            transition: all 0.3s ease;
+            width: 350px;
+        }
+
+        .symptom:hover {
+            background-color: #d9eff0;
+        }
+
+        .circle {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #0e4a66;
+            flex-shrink: 0;
+        }
+
+        /* CENTER IMAGE WITH CURVED BOTTOM */
+        .symptom-image {
+            flex: 1;
+            max-width: 340px;
+            height: 480px;
+            background-color: #dfeeee;
+            border-radius: 180px 180px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .symptom-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 180px 180px 0 0;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .symptoms-container {
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+
+            .symptom-image {
+                max-width: 280px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .symptoms-section {
+                padding: 50px 20px;
+            }
+
+            .symptom-image {
+                width: 220px;
+                height: 300px;
+            }
+
+            .symptom {
+                font-size: 13px;
+                padding: 12px 16px;
+            }
+
+            .symptoms-section h2 {
+                font-size: 26px;
+            }
+
+            .circle {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        /* SECTION */
+        .causes-section {
+            background-color: #0e4a66;
+            color: #ffffff;
+            padding: 80px 100px;
+            text-align: center;
+            position: relative;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+        }
+
+        .causes-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        /* GRID LAYOUT */
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px 40px;
+            justify-items: center;
+        }
+
+        /* INDIVIDUAL BOX */
+        .cause-box {
+            background-color: #ffffff;
+            color: #0e2c3c;
+            padding: 20px 25px;
+            border-radius: 0 20px 0 0;
+            width: 100%;
+            max-width: 380px;
+            text-align: left;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cause-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cause-box h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0e4a66;
+            margin-bottom: 8px;
+        }
+
+        .cause-box p {
+            font-size: 14px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .causes-section {
+                padding: 60px 40px;
+            }
+
+            .cause-box {
+                max-width: 100%;
+            }
+
+            .causes-grid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+
+            }
+        }
+
+        @media (max-width: 600px) {
+            .causes-section {
+                padding: 50px 20px;
+            }
+
+            .causes-section h2 {
+                font-size: 22px;
+            }
+
+            .cause-box {
+                padding: 18px 20px;
+            }
+
+            .causes-grid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+
+            }
+        }
+
+        .section {
+            background-color: #e8f5f7;
+            padding: 80px 100px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: #1a1a3f;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 15px;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #d6e7ef;
+            border-radius: 10px;
+            padding: 25px 20px;
+            width: 220px;
+            height: 160px;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #04689f;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #444;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 50px 30px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+        .diagnosis-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 100px;
+            gap: 60px;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .text-content h2 {
+            color: #1a1a3f;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .text-content p {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.7;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .image-content {
+            flex: 1;
+        }
+
+        .image-content img {
+            width: 400px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .right-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+
+        }
+
+        .box {
+            border: 1px solid #b8dbe6;
+            border-radius: 20px;
+            border-top-right-radius: 60px;
+            border-bottom-right-radius: 60px;
+            padding: 25px 30px;
+            height: 120px;
+            width: 450px;
+            background-color: #fff;
+            transition: all 0.2s ease;
+            column-gap: 40px;
+
+        }
+
+        .box:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .box h3 {
+            font-size: 18px;
+            color: #04689f;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .box p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .diagnosis-section {
+                flex-direction: column;
+                padding: 50px 30px;
+                text-align: center;
+            }
+
+            .text-content p {
+                margin: 0 auto 30px auto;
+            }
+
+            .right-boxes {
+                align-items: center;
+            }
+
+            .box {
+                height: 120px;
+                width: 350px;
+            }
+        }
+
+        /* SECTION */
+        .tips-section {
+            background-color: #0e4a66;
+            text-align: center;
+            padding: 80px 100px;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+        }
+
+        .tips-section h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        /* CONTAINER FOR TWO BOXES */
+        .tips-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* COLUMN BOXES */
+        .tips-column {
+            background-color: #0d425b;
+            border-radius: 12px;
+            padding: 30px 25px;
+            width: 430px;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        /* EACH TIP */
+        .tip {
+            border: 1px solid #85b4c5;
+
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-align: left;
+            background-color: transparent;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .tip:hover {
+            background-color: #105877;
+            border-color: #a7d1e2;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .tips-section {
+                padding: 60px 40px;
+            }
+
+            .tips-container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tips-section {
+                padding: 50px 20px;
+            }
+
+            .tips-section h2 {
+                font-size: 20px;
+            }
+
+            .tips-column {
+                max-width: 100%;
+                padding: 25px 20px;
+            }
+
+            .tip {
+                font-size: 13px;
+            }
+        }
+
+        /* SECTION */
+        .info-section {
+            background-color: #ffffff;
+            padding: 80px 100px;
+            text-align: center;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* BOX STYLES */
+        .info-box {
+            background-color: #e9f6f6;
+            border-radius: 12px;
+            padding: 40px 35px;
+            text-align: left;
+            width: 100%;
+            max-width: 460px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box h3 {
+            color: #0b1530;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .info-box p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box ul li {
+            font-size: 14px;
+            color: #0b2838;
+            line-height: 1.8;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .info-box ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: #0e4a66;
+            border-radius: 50%;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .info-section {
+                padding: 60px 40px;
+            }
+
+            .info-box {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .info-section {
+                padding: 50px 20px;
+            }
+
+            .info-box {
+                padding: 30px 25px;
+            }
+
+            .info-box h3 {
+                font-size: 20px;
+            }
+
+            .info-box p {
+                font-size: 14px;
+            }
+
+            .info-box ul li {
+                font-size: 13px;
+            }
+        }
+
+        /* CONCLUSION SECTION */
+        .conclusion-section {
+            background-color: #0e4a66;
+            /* deep blue */
+            border-radius: 12px;
+            padding: 50px 80px;
+            margin: 40px auto;
+            max-width: 1100px;
+            text-align: left;
+            color: #ffffff;
+            line-height: 1.8;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .conclusion-section h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-section p {
+            font-size: 15px;
+            font-weight: 400;
+            color: #f0f9fb;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .conclusion-section {
+                padding: 40px 25px;
+                margin: 60px 15px;
+            }
+
+            .conclusion-section h3 {
+                font-size: 20px;
+            }
+
+            .conclusion-section p {
+                font-size: 14px;
+            }
+        }
+
+          .faq-section {
+            padding: 60px 10%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .faq-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .faq-left {
+            flex: 1;
+        }
+
+        .faq-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .faq-subtitle {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .faq-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .faq-image {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .faq-right {
+            flex: 1;
+        }
+
+        .accordion {
+            border-top: 1px solid #ccc;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .accordion-header {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 0;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover {
+            color: #0073e6;
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            padding: 0;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 200px;
+            padding: 10px 0 20px;
+        }
+
+        .accordion-item.active .accordion-header {
+            color: #0073e6;
+        }
+
+
+
+        .contact-appointment {
+            background-color: #0E4A66;
+            /* Blue background */
+            padding: 50px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Left form box */
+        .contact-form-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 400px;
+        }
+
+        .contact-form-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D1B41;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: none;
+        }
+
+        .consent {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form button {
+            background: #0E4A66;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #09344a;
+        }
+
+        /* Right side */
+        .contact-image-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .contact-image-box img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-image-box h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                flex-direction: column;
+            }
+
+            .faq-left,
+            .faq-right {
+                flex: 100%;
+            }
+
+            .faq-title {
+                font-size: 26px;
+            }
+
+            .faq-subtitle {
+                font-size: 14px;
+            }
+
+            .faq-description {
+                font-size: 13px;
+            }
+
+            .accordion-header {
+                font-size: 16px;
+                padding: 12px 0;
+            }
+
+            .accordion-item.active .accordion-body {
+                max-height: 300px;
+                /* allow more space for mobile */
+            }
+        }
+
+           /* ---------- Header Styles ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: #dceced;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0d3a4a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav a:hover {
+            color: #0d5174;
+        }
+
+        .btns {
+            background-color: #0d5174;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btns:hover {
+            background-color: #093e58;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="topbar__inner">
+            <button class="pill">English <span class="caret"></span></button>
+            <button class="pill">Select City <span class="caret"></span></button>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+   <header style="background-color: #D8E9E9;">
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About us</a>
+                <a href="#">Treatments</a>
+                <a href="#">Why choose us</a>
+                <a href="#">Resources</a>
+                <a href="#">Locations</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+
+            <div class="menu-icon">⋮</div>
+        </header>
+
+
+    <!-- Semi Circle Section -->
+    <section class="semi-circle-section" style="background-color: #D8E9E9;">
+        <div class="semi-circle"></div>
+        <h2 class="title">Varicose Veins</h2>
+    </section>
+
+    <section class="intro-section">
+        <!-- LEFT TEXT -->
+        <div class="intro-text">
+            <h2>Introduction</h2>
+            <p>
+                Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+                cosmetic concerns. Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting
+                the importance of early diagnosis and management for improved vein health and prevention of
+                complications. Primary keywords: varicose veins, vein treatment.
+            </p>
+            <p>
+                Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+                cosmetic concerns. Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting
+                the importance of early diagnosis and management for improved vein health and prevention of
+                complications. Primary keywords: varicose veins, vein treatment.
+            </p>
+        </div>
+
+        <!-- RIGHT IMAGES -->
+        <div class="intro-images">
+            <img src="../assets/1910 1.png" alt="Varicose Veins Leg">
+            <img src="../assets/1910 2.png" alt="Illustration of Varicose Veins">
+        </div>
+    </section>
+
+    <section class="symptoms-section">
+        <h2>Symptoms</h2>
+
+        <div class="symptoms-container">
+            <!-- LEFT LIST -->
+            <div class="symptom-list">
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Bulging, twisted veins visible under the skin</span>
+
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Legs feeling heavy or achy</span>
+
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Burning or throbbing sensation</span>
+
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Restless legs or tingling feeling</span>
+
+                </div>
+            </div>
+
+            <!-- CENTER IMAGE -->
+            <div style="width: 100%; height: 40%;">
+                <img src="../assets/AdobeStock_908902825.png" alt="Varicose Veins" style="width: 100%; height: 50%;">
+            </div>
+
+            <!-- RIGHT LIST -->
+            <div class="symptom-list">
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Muscle cramps, especially at night</span>
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Swelling in legs, ankles, or feet</span>
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Skin color changes near veins</span>
+                </div>
+                <div class="symptom">
+                    <div class="circle"></div>
+                    <span style="margin-left: 10px;">Skin hardening or darkening</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="causes-section">
+        <h2>Causes and Risk Factors of Varicose Veins</h2>
+
+        <div class="causes-grid">
+            <div class="cause-box">
+                <h4>Genetics</h4>
+                <p>Family history increases susceptibility.</p>
+            </div>
+
+            <div class="cause-box">
+                <h4>Pregnancy</h4>
+                <p>Increased blood volume and pressure on leg veins.</p>
+            </div>
+
+            <div class="cause-box">
+                <h4>Age</h4>
+                <p>Risk rises as veins lose elasticity over time.</p>
+            </div>
+
+            <div class="cause-box">
+                <h4>Obesity</h4>
+                <p>Excess weight puts additional strain on veins.</p>
+            </div>
+
+            <div class="cause-box">
+                <h4>Gender</h4>
+                <p>Women are more likely affected due to hormonal changes.</p>
+            </div>
+
+            <div class="cause-box">
+                <h4>Prolonged standing or sitting</h4>
+                <p>Occupations or habits that reduce circulation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Types of Varicose Veins</h2>
+        <p>
+            Ignoring varicose veins can lead to serious health problems that worsen over time.
+            Early intervention helps prevent complications and improves overall quality of life.
+        </p>
+        <div class="cards">
+            <div class="card">
+                <h3>Reticular Veins</h3>
+                <p>Blue or purple veins visible under the skin, usually larger than spider veins.</p>
+            </div>
+
+            <div class="card">
+                <h3>Spider Veins</h3>
+                <p>Tiny, web-like red or blue clusters near the skin surface.</p>
+            </div>
+
+            <div class="card">
+                <h3>Primary Varicose Veins</h3>
+                <p>Develop independently without another underlying health condition.</p>
+            </div>
+
+            <div class="card">
+                <h3>Secondary Varicose Veins</h3>
+                <p>Caused by another disorder, such as deep vein thrombosis (DVT).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="diagnosis-section">
+        <div class="text-content">
+            <h2>Diagnosis of Varicose Veins</h2>
+            <p>
+                Physicians usually begin with a visual and physical examination,<br>
+                assessing vein patterns and swelling. Diagnostic tools include:
+            </p>
+            <div class="image-content">
+                <img src="../assets/Rectangle 42427.png" alt="Doppler Ultrasound Diagnosis" />
+            </div>
+        </div>
+
+        <div class="right-boxes">
+            <div class="box">
+                <h3>Doppler Ultrasound</h3>
+                <p>Checks blood flow and detects valve problems.</p>
+            </div>
+
+            <div class="box">
+                <h3>Duplex Scan</h3>
+                <p>Combines ultrasound imaging with blood flow analysis for detailed assessment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Types of Varicose Veins</h2>
+        <p>
+            Ignoring varicose veins can lead to serious health problems that worsen over time.
+            Early intervention helps prevent complications and improves overall quality of life.
+        </p>
+        <div class="cards">
+            <div class="card">
+                <h3>Reticular Veins</h3>
+                <p>Blue or purple veins visible under the skin, usually larger than spider veins.</p>
+            </div>
+
+            <div class="card">
+                <h3>Spider Veins</h3>
+                <p>Tiny, web-like red or blue clusters near the skin surface.</p>
+            </div>
+
+            <div class="card">
+                <h3>Primary Varicose Veins</h3>
+                <p>Develop independently without another underlying health condition.</p>
+            </div>
+
+            <div class="card">
+                <h3>Secondary Varicose Veins</h3>
+                <p>Caused by another disorder, such as deep vein thrombosis (DVT).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tips-section">
+        <h2>Prevention And Lifestyle Tips<br>For Varicose Veins</h2>
+
+        <div class="tips-container">
+            <!-- LEFT COLUMN -->
+            <div class="tips-column">
+                <div class="tip">Regular exercise to boost circulation.</div>
+                <div class="tip">Maintain a healthy weight to reduce vein strain.</div>
+                <div class="tip">Avoid prolonged standing or sitting—take breaks to move.</div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="tips-column">
+                <div class="tip">Elevate legs periodically during the day.</div>
+                <div class="tip">Eat a high-fiber, low-salt diet to minimize vein pressure.</div>
+                <div class="tip">Wear comfortable clothing and shoes to support vascular health.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="info-container">
+
+            <!-- LEFT BOX -->
+            <div class="info-box">
+                <h3>Complications of Varicose Veins</h3>
+                <p>If untreated, varicose veins can lead to serious issues:</p>
+                <ul>
+                    <li>Venous ulcers:Slow-healing wounds near the ankles.</li>
+                    <li>Bleeding: Spontaneous or after minor trauma.</li>
+                    <li>Deep Vein Thrombosis: A potentially life-threatening condition.</li>
+                </ul>
+            </div>
+
+            <!-- RIGHT BOX -->
+            <div class="info-box">
+                <h3>When to See a Doctor</h3>
+                <p>Seek prompt medical attention if experiencing:</p>
+                <ul>
+                    <li>Sudden increase in leg swelling or pain.</li>
+                    <li>Skin breakdown or leg ulcers.</li>
+                    <li>Signs of infection, redness, or heat.</li>
+                    <li>Unexplained leg tenderness (possible DVT).</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="conclusion-section">
+        <h3>Conclusion</h3>
+        <p>
+            Recognizing the symptoms and risk factors of varicose veins is crucial for early and effective intervention
+            to prevent progression and complications. Varicose veins occur due to weakened or damaged vein valves that
+            cause blood to pool, leading to enlarged, twisted veins usually visible on the legs. Major risk factors
+            include family history, aging, female gender and hormonal changes (such as during pregnancy or menopause),
+            obesity, prolonged standing or sitting, and a sedentary lifestyle. Additionally, genetic predispositions and
+            certain occupational factors contribute to the likelihood of developing varicose veins. Understanding these
+            factors helps identify those at higher risk who may benefit from early consultation and preventive
+            strategies.
+        </p>
+    </section>
+
+    
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- Left Side -->
+            <div class="faq-left">
+                <p class="faq-subtitle">Got a question?</p>
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <img src="../assets/AdobeStock_599329045.png" alt="Doctor consulting patient" class="faq-image">
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="faq-right">
+                <p class="faq-description">
+                    Cover Symptoms, Causes, Prevention, And Treatments, Which Range From
+                    Self-Care Like Exercise And Compression Stockings To Medical Procedures
+                    Such As Sclerotherapy (Injections), Radiofrequency Ablation, And Laser Therapy.
+                </p>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Is varicose vein treatment painful ?</button>
+                        <div class="accordion-body">
+                            <p>Treatments are generally safe, minimally invasive, and designed to cause little to no
+                                pain.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item active">
+                        <button class="accordion-header">How long does recovery take ?</button>
+                        <div class="accordion-body">
+                            <p>
+                                Minor muscle strains might take weeks to months, while severe surgery could take many
+                                months to a year for complete recovery. With factors like age, overall health, the
+                                extent of the issue, and access to treatment or therapy playing a crucial role.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">Will varicose veins come back after treatment ?</button>
+                        <div class="accordion-body">
+                            <p>Recurrence can happen, but advanced treatments significantly lower the chances.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">Does insurance cover the treatment ?</button>
+                        <div class="accordion-body">
+                            <p>Most insurance plans cover treatment if it is medically necessary. Cosmetic procedures
+                                may not be covered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- JS: Enable Mobile Navigation -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

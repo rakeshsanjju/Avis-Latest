@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avis Hospitals | Varicose Veins</title>
+
+  <style>
+    /* ---------- Language & City Bar ---------- */
+.language-city-bar {
+  width: 100%;
+  background-color: #0D5174; /* Avis brand blue */
+  padding: 12px 30px;
+  display: flex;
+  justify-content: flex-end; /* align buttons to right */
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 10px;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ---------- Buttons (Selectors) ---------- */
+.selector {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  appearance: none; /* remove native dropdown arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 28px;
+}
+
+/* ---------- Hover / Focus Effects ---------- */
+.selector:hover {
+  background-color: #f1f1f1;
+}
+
+.selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 768px) {
+  .language-city-bar {
+    justify-content: center; /* center buttons on mobile */
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+
+  .selector {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+}
+
+    :root {
+      --bar: #0f3b5f;
+      --cap: #2a2a2a;
+      --pill-bg: #ffffff;
+      --pill-text: #111;
+      --pill-stroke: #e5e7eb;
+      --h: 64px;
+      --radius: 14px;
+      --brand: #0e4a66;
+      --ink: #0b1f2a;
+      --surface: #d8e6ea;
+      --surface-light: #e9f0f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      position: relative;
+      height: var(--h);
+      background: var(--bar);
+      border-radius: var(--radius) var(--radius) 6px 6px;
+      overflow: visible;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+    }
+
+    .topbar::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -10px;
+      height: 10px;
+      background: var(--cap);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .topbar__inner {
+      max-width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--pill-stroke);
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      border-radius: 9999px;
+      font: 500 13px/30px system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .caret {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #222;
+      transform: translateY(1px);
+    }
+
+    /* ========== MAIN HEADER ========== */
+    .main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 70px;
+      background: var(--surface);
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .main-header img {
+      height: 60px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--brand);
+    }
+
+    .book-btn {
+      background-color: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      background-color: #08334d;
+    }
+
+    /* ========== HAMBURGER MENU ========== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      background-color: var(--brand);
+      height: 3px;
+      width: 25px;
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    /* ========== SEMI-CIRCLE SECTION ========== */
+    .semi-circle-section {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background-color: #d1e3e3;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .semi-circle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 250px;
+      background-color: #e2f3f3;
+      border-radius: 250px 250px 0 0;
+      z-index: 1;
+    }
+
+    .title {
+      position: relative;
+      z-index: 2;
+      color: #0e4a66;
+      font-size: 36px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    /* ========== FILTER BUTTONS ========== */
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      margin-top: 5px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #0D5174;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover {
+      background-color: #093b56;
+    }
+
+    .button-sec {
+      margin-top: 40px;
+      margin-left: 40px;
+    }
+
+    /* ========== DOCTOR CARD ========== */
+    .card {
+      width: 480px;
+      padding: 25px;
+      background-color: #ffffff;
+      border: 2px solid #4AB7C3;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(74, 183, 195, 0.2);
+    }
+
+    .doc-card img {
+      height: 250px;
+      width: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-left: -90px;
+    }
+
+    .doc-data {
+      text-align: left;
+    }
+
+    .doc-data h4 {
+      color: #0D5174;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .doc-data p {
+      color: #3d596f;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .doc-data h5 {
+      color: #0D5174;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .main-doc {
+      background-color: #f8fafa;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+
+    .doc-profile {
+      display: flex;
+      flex-direction: row;
+      margin-top: 5px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-profile img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ========== MOBILE RESPONSIVE STYLES ========== */
+    @media (max-width: 768px) {
+      .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 25px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--surface);
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .semi-circle-section {
+        height: 200px;
+      }
+
+      .semi-circle {
+        width: 280px;
+        height: 140px;
+        border-radius: 140px 140px 0 0;
+      }
+
+      .title {
+        font-size: 22px;
+        margin-bottom: 55px;
+      }
+
+      .button-sec {
+        margin-left: 15px;
+      }
+
+      .filters {
+        justify-content: center;
+      }
+
+      .filter-btn {
+        font-size: 14px;
+        padding: 8px 18px;
+      }
+
+      .main-doc {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .card {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .doc-card img {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .doc-data {
+        text-align: center;
+      }
+
+      .doc-profile {
+        justify-content: center;
+      }
+    }
+
+    .testimonial-section {
+      text-align: center;
+      padding: 80px 50px;
+    }
+
+    .testimonial-tag {
+      background-color: #4AB7C3;
+      color: #ffffff;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .testimonial-section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+      background-color: #0E4A66;
+      border: 1.5px solid #4AB7C3;
+      border-radius: 20px;
+      width: 420px;
+      padding: 25px;
+      color: #e4e4e4;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .testimonial-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+    }
+
+    .stars {
+      color: #FFD700;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .client-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: -25px;
+    }
+
+    .client-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .client-img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #4AB7C3;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial-card {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+
+    .video-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .video-section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #ffffff;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .video-card {
+      position: relative;
+      width: 280px;
+      height: 160px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background-color: transparent;
+      /* removed any visible border background */
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      /* ✅ removed white border line */
+    }
+
+    .play-button::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 18px solid #0D5174;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .video-card {
+        width: 90%;
+        height: 180px;
+      }
+
+      .video-container {
+        gap: 25px;
+      }
+
+      .play-button {
+        width: 55px;
+        height: 55px;
+      }
+    }
+
+    .blog-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .blog-section h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #2a155c;
+      margin-bottom: 50px;
+    }
+
+    .blog-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .blog-card {
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.05);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      filter: brightness(0.6);
+    }
+
+    .blog-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffffff;
+      width: 90%;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .view-more-btn {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #0D5174;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 15px;
+      margin-top: 8px;
+      transition: 0.3s ease;
+    }
+
+    .view-more-btn:hover {
+      background-color: #0D5174;
+      color: #fff;
+    }
+
+   @media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .blog-card {
+    width: 90%;
+    height: 200px;
+  }
+
+  .blog-text {
+    font-size: 14px;
+  }
+
+  /* Force the button to move below text */
+  .view-more-btn {
+    display: block;
+    margin: 10px auto 0;
+  }
+}
+    .hospital-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hospital-section h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #2a155c;
+      margin-bottom: 40px;
+    }
+
+    /* Scroll Container */
+    .hospital-scroll {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 15px;
+      scrollbar-width: none;
+      /* Hide scrollbar for Firefox */
+    }
+
+    .hospital-scroll::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar for Chrome, Safari */
+    }
+
+    .hospital-card {
+      flex: 0 0 auto;
+      width: 230px;
+      background-color: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      border: 1.5px solid #cde8eb;
+    }
+
+    .hospital-card:hover {
+      transform: scale(1.05);
+    }
+
+    .hospital-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 18px 18px 0 0;
+      display: block;
+    }
+
+    .hospital-card p {
+      margin: 0;
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #0D5174;
+      border-top: 1px solid #d4ecef;
+    }
+
+    @media (max-width: 768px) {
+      .hospital-card {
+        width: 190px;
+      }
+
+      .hospital-card img {
+        height: 120px;
+      }
+    }
+
+    .why-section {
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .why-section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 50px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background-color: white;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .why-icon {
+      background-color: #C9DFDF;
+      border-radius: 50%;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .why-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .why-text h3 {
+      font-size: 16px;
+      color: #2a9ebf;
+      font-weight: 600;
+      margin: 0;
+      text-align: left;
+    }
+
+    .why-text p {
+      font-size: 13px;
+      color: #333;
+      margin: 5px 0 0;
+    }
+
+    @media (max-width: 600px) {
+      .why-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .why-icon {
+        margin-bottom: 10px;
+      }
+      .why-text h3{
+        text-align: center;
+      } 
+      .why-text h3 {
+        text-align: center;
+      }
+    }
+
+
+    .faq-section {
+      padding: 60px 10%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .faq-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .faq-left {
+      flex: 1;
+    }
+
+    .faq-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .faq-subtitle {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .faq-description {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .faq-image {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .faq-right {
+      flex: 1;
+    }
+
+    .accordion {
+      border-top: 1px solid #ccc;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .accordion-header {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 15px 0;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .accordion-header:hover {
+      color: #0073e6;
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0;
+    }
+
+    .accordion-item.active .accordion-body {
+      max-height: 200px;
+      padding: 10px 0 20px;
+    }
+
+    .accordion-item.active .accordion-header {
+      color: #0073e6;
+    }
+
+
+
+    .contact-appointment {
+      background-color: #0E4A66;
+      /* Blue background */
+      padding: 50px;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* Left form box */
+    .contact-form-box {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      flex: 1;
+      min-width: 320px;
+      max-width: 400px;
+    }
+
+    .contact-form-box h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2D1B41;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .contact-form textarea {
+      min-height: 100px;
+      resize: none;
+    }
+
+    .consent {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .contact-form button {
+      background: #0E4A66;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #09344a;
+    }
+
+    /* Right side */
+    .contact-image-box {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .contact-image-box img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-image-box h3 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .faq-container {
+        flex-direction: column;
+      }
+
+      .faq-left,
+      .faq-right {
+        flex: 100%;
+      }
+
+      .faq-title {
+        font-size: 26px;
+      }
+
+      .faq-subtitle {
+        font-size: 14px;
+      }
+
+      .faq-description {
+        font-size: 13px;
+      }
+
+      .accordion-header {
+        font-size: 16px;
+        padding: 12px 0;
+      }
+
+      .accordion-item.active .accordion-body {
+        max-height: 300px;
+        /* allow more space for mobile */
+      }
+    }
+
+         /* ---------- Header Styles ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: #dceced;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0d3a4a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav a:hover {
+            color: #0d5174;
+        }
+
+        .btns {
+            background-color: #0d5174;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btns:hover {
+            background-color: #093e58;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+  </style>
+</head>
+
+<body style="margin-left: 10px; margin-right: 10px;">
+  <!-- Top Bar -->
+ <!-- ---------- Language & City Selector Bar ---------- -->
+<div class="language-city-bar">
+  <div class="right-buttons">
+    <select class="selector">
+      <option>English</option>
+      <option>Telugu</option>
+      <option>Kannada</option>
+      <option>Tamil</option>
+      <option>Hindi</option>
+    </select>
+
+    <select class="selector">
+      <option>Select City</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+      <option>Vijayawada</option>
+      <option>Vizag</option>
+    </select>
+  </div>
+</div>
+
+
+  <!-- Main Header -->
+        <!-- header -->
+  <header style="background-color: #D8E9E9;"  font-family: Poppins", sans-serif;;">
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About us</a>
+                <a href="#">Treatments</a>
+                <a href="#">Why choose us</a>
+                <a href="#">Resources</a>
+                <a href="#">Locations</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+
+            <div class="menu-icon">⋮</div>
+        </header>
+
+  <!-- Semi Circle Section -->
+  <section class="semi-circle-section" style="background-color: #D8E9E9; >
+    <div class="semi-circle"></div>
+    <h2 class="title">Best Varicose Veins <br>Doctors in India</h2>
+  </section>
+
+  <!-- Filter + Doctor Card Section -->
+  <section class="button-sec">
+    <div class="filters">
+      <button class="filter-btn">Select state ▾</button>
+      <button class="filter-btn">Select Hospital Location ▾</button>
+    </div>
+
+    <!-- Doctor Rows -->
+    <section class="main-doc">
+      <div class="card">
+        <div class="doc-card">
+          <img src="../assets/Rectangle 42385.png" alt="Dr. Rajah V. Koppala" />
+        </div>
+        <div class="doc-data">
+          <h4>Dr. Rajah V. Koppala</h4>
+          <p>Vascular & Interventional Radiologist</p>
+          <p>MBBS, MD (Vascular & Interventional Radiology)</p>
+          <h5>30 Years Experience</h5>
+          <div class="doc-profile">
+            <img src="../assets/pic2.png" alt="Languages">
+            <p>Telugu, Hindi, English</p>
+          </div>
+          <div class="doc-profile">
+            <img src="../assets/pic1.png" alt="Location">
+            <p>Hyderabad</p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn">Call Now</button>
+            <button class="filter-btn">Book a Consultation</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="doc-card">
+          <img src="../assets/Rectangle 42385.png" alt="Dr. Rajah V. Koppala" />
+        </div>
+        <div class="doc-data">
+          <h4>Dr. Rajah V. Koppala</h4>
+          <p>Vascular & Interventional Radiologist</p>
+          <p>MBBS, MD (Vascular & Interventional Radiology)</p>
+          <h5>30 Years Experience</h5>
+          <div class="doc-profile">
+            <img src="../assets/pic2.png" alt="Languages">
+            <p>Telugu, Hindi, English</p>
+          </div>
+          <div class="doc-profile">
+            <img src="../assets/pic1.png" alt="Location">
+            <p>Hyderabad</p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn">Call Now</button>
+            <button class="filter-btn">Book a Consultation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="button-sec">
+    
+
+    <!-- Doctor Rows -->
+    <section class="main-doc">
+      <div class="card">
+        <div class="doc-card">
+          <img src="../assets/Rectangle 42385.png" alt="Dr. Rajah V. Koppala" />
+        </div>
+        <div class="doc-data">
+          <h4>Dr. Rajah V. Koppala</h4>
+          <p>Vascular & Interventional Radiologist</p>
+          <p>MBBS, MD (Vascular & Interventional Radiology)</p>
+          <h5>30 Years Experience</h5>
+          <div class="doc-profile">
+            <img src="../assets/pic2.png" alt="Languages">
+            <p>Telugu, Hindi, English</p>
+          </div>
+          <div class="doc-profile">
+            <img src="../assets/pic1.png" alt="Location">
+            <p>Hyderabad</p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn">Call Now</button>
+            <button class="filter-btn">Book a Consultation</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="doc-card">
+          <img src="../assets/Rectangle 42385.png" alt="Dr. Rajah V. Koppala" />
+        </div>
+        <div class="doc-data">
+          <h4>Dr. Rajah V. Koppala</h4>
+          <p>Vascular & Interventional Radiologist</p>
+          <p>MBBS, MD (Vascular & Interventional Radiology)</p>
+          <h5>30 Years Experience</h5>
+          <div class="doc-profile">
+            <img src="../assets/pic2.png" alt="Languages">
+            <p>Telugu, Hindi, English</p>
+          </div>
+          <div class="doc-profile">
+            <img src="../assets/pic1.png" alt="Location">
+            <p>Hyderabad</p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn">Call Now</button>
+            <button class="filter-btn">Book a Consultation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="testimonial-section" style="background-color: #0D5174;">
+    <span class="testimonial-tag">Testimonials</span>
+    <h2 style="color: #fff;">Clients Feedback</h2>
+
+    <div class="testimonial-cards">
+      <!-- Card 1 -->
+      <div class="testimonial-card">
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <div class="stars">★★★★★</div>
+        <div class="client-info">
+          <span class="client-name">Mrs. Anuradha Rao</span>
+          <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Mrs. Anuradha Rao" class="client-img">
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testimonial-card">
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <div class="stars">★★★★★</div>
+        <div class="client-info">
+          <span class="client-name">Pawan Kumar</span>
+          <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Pawan Kumar" class="client-img">
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testimonial-card">
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <div class="stars">★★★★★</div>
+        <div class="client-info">
+          <span class="client-name">Gayathra</span>
+          <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Gayathra" class="client-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section" style="background-color: #0D5174;">
+    <h2>Video Testimonials</h2>
+    <div class="video-container">
+      <!-- Video 1 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
+        </iframe>
+        <div class="play-button"></div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
+        </iframe>
+        <div class="play-button"></div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
+        </iframe>
+        <div class="play-button"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <h2>Blog</h2>
+
+    <div class="blog-container">
+      <!-- Card 1 -->
+      <div class="blog-card">
+        <img src="../assets/Rectangle 42432.png" alt="Blog Image 1">
+        <div class="blog-text">
+          Varicose Veins <br> Treatment & Expert Advice
+          <div class="view-more-btn">View more</div>
+        </div>
+      </div>
+
+      <!-- Card 2 (center card with View more button) -->
+      <div class="blog-card">
+        <img src="../assets/Rectangle 42432.png" alt="Blog Image 1">
+        <div class="blog-text">
+          Varicose Veins <br> Treatment & Expert Advice
+          <div class="view-more-btn">View more</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="blog-card">
+        <img src="../assets/Rectangle 42432.png" alt="Blog Image 3">
+        <div class="blog-text">
+          Varicose Veins <br> Treatment & Expert Advice
+          <div class="view-more-btn">View more</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="../assets/Rectangle 42432.png" alt="Blog Image 1">
+        <div class="blog-text">
+          Varicose Veins <br> Treatment & Expert Advice
+          <div class="view-more-btn">View more</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="blog-card">
+        <img src="../assets/Rectangle 42432.png" alt="Blog Image 3">
+        <div class="blog-text">
+          Varicose Veins <br> Treatment & Expert Advice
+          <div class="view-more-btn">View more</div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+  <section class="hospital-section" style="background-color: #D8E9E9;">
+    <h2>Our Varicose Vein Hospitals</h2>
+
+    <div class="hospital-scroll" id="autoScroll">
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Jubilee Hills">
+        <p>Jubilee Hills</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Kukatpally">
+        <p>Kukatpally</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Secunderabad">
+        <p>Secunderabad</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Khammam">
+        <p>Khammam</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Vijayawada">
+        <p>Vijayawada</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Rajahmundry">
+        <p>Rajahmundry</p>
+      </div>
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Vijayawada">
+        <p>Vijayawada</p>
+      </div>
+
+      <div class="hospital-card">
+        <img src="../assets/Rectangle 42436.png" alt="Rajahmundry">
+        <p>Rajahmundry</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section" style="background-color: #0D5174;">
+    <h2>Why Choose Our Doctors</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/handshake.png" alt="Trusted Doctors"></div>
+        <div class="why-text">
+          <h3>Trusted Doctors</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/approval.png" alt="Proven Results"></div>
+        <div class="why-text">
+          <h3>Proven Results</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/idea.png" alt="Modern Treatments"></div>
+        <div class="why-text">
+          <h3>Modern Treatments</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/health-checkup.png" alt="Longterm Care">
+        </div>
+        <div class="why-text">
+          <h3>Longterm Care</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/conference-call.png" alt="Personal Care">
+        </div>
+        <div class="why-text">
+          <h3>Personal Care</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon"><img src="https://img.icons8.com/ios/50/000000/artificial-intelligence.png"
+            alt="Latest Tech"></div>
+        <div class="why-text">
+          <h3>Latest Tech</h3>
+          <p>Experienced & Caring Doctors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="faq-section">
+    <div class="faq-container">
+      <!-- Left Side -->
+      <div class="faq-left">
+        <p class="faq-subtitle">Got a question?</p>
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <img src="../assets/AdobeStock_599329045.png" alt="Doctor consulting patient" class="faq-image">
+      </div>
+
+      <!-- Right Side -->
+      <div class="faq-right">
+        <p class="faq-description">
+          Cover Symptoms, Causes, Prevention, And Treatments, Which Range From
+          Self-Care Like Exercise And Compression Stockings To Medical Procedures
+          Such As Sclerotherapy (Injections), Radiofrequency Ablation, And Laser Therapy.
+        </p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">Is varicose vein treatment painful?</button>
+            <div class="accordion-body">
+              <p>Treatments are generally safe, minimally invasive, and designed to cause little to no pain.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">How long does recovery take?</button>
+            <div class="accordion-body">
+              <p>
+                Recovery time varies depending on treatment type and patient condition.
+                Most patients resume normal activities within days after modern procedures.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">Will varicose veins come back after treatment?</button>
+            <div class="accordion-body">
+              <p>Recurrence can happen, but advanced treatments significantly reduce the chances.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">Does insurance cover the treatment?</button>
+            <div class="accordion-body">
+              <p>Most insurance plans cover treatment if it’s medically necessary. Cosmetic procedures may not be
+                covered.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach(item => {
+      const header = item.querySelector(".accordion-header");
+      header.addEventListener("click", () => {
+        accordionItems.forEach(i => {
+          if (i !== item) i.classList.remove("active");
+        });
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+
+  <script>
+    // Auto-scroll logic
+    const scrollContainer = document.getElementById("autoScroll");
+    let scrollSpeed = 1; // Adjust speed here
+    let scrollDirection = 1;
+
+    function autoScroll() {
+      scrollContainer.scrollLeft += scrollSpeed * scrollDirection;
+
+      // Reverse direction at ends for infinite smooth loop
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollDirection = -1;
+      } else if (scrollContainer.scrollLeft <= 0) {
+        scrollDirection = 1;
+      }
+
+      requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+  </script>
+
+
+  <!-- JavaScript for Hamburger -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      toggleBtn.classList.toggle('open');
+    });
+  </script>
+
+</body>
+
+</html>

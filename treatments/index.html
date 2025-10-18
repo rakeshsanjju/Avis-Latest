@@ -1,0 +1,2011 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avis Hospitals</title>
+    <style>
+        /* ---------- Language & City Bar ---------- */
+        .language-city-bar {
+            width: 100%;
+            background-color: #0D5174;
+            /* Avis brand blue */
+            padding: 12px 30px;
+            display: flex;
+            justify-content: flex-end;
+            /* align buttons to right */
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .right-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* ---------- Buttons (Selectors) ---------- */
+        .selector {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            appearance: none;
+            /* remove native dropdown arrow */
+            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            padding-right: 28px;
+        }
+
+        /* ---------- Hover / Focus Effects ---------- */
+        .selector:hover {
+            background-color: #f1f1f1;
+        }
+
+        .selector:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+        }
+
+        /* ---------- Mobile Responsive ---------- */
+        @media (max-width: 768px) {
+            .language-city-bar {
+                justify-content: center;
+                /* center buttons on mobile */
+                flex-wrap: wrap;
+                padding: 10px 15px;
+            }
+
+            .selector {
+                font-size: 13px;
+                padding: 5px 12px;
+            }
+        }
+
+
+
+        :root {
+            --brand: #0f3b5f;
+            /* primary button & accents */
+            --ink: #0b1f2a;
+            /* dark text */
+            --muted: #49616a;
+            /* paragraph */
+            --surface: #d7e8e8;
+            /* hero background */
+            --surface-2: #cfe1e1;
+            /* wave overlay */
+            --stroke: #cdd9d9;
+            /* container stroke */
+            --radius: 26px;
+            /* outer rounded corners */
+            --shadow: 0 10px 30px rgba(16, 59, 95, .12);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0
+        }
+
+        body {
+            background: #fff;
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            color: var(--ink)
+        }
+
+        /* ===== Canvas (rounded section) ===== */
+        .canvas {
+            margin: 10px;
+            background: var(--surface);
+
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* header */
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 22px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand img {
+            height: 48px;
+            width: auto;
+            display: block;
+            border-radius: 6px;
+            background: #fff
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            margin-left: auto;
+            align-items: center
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #183640;
+            font-weight: 500
+        }
+
+        .cta {
+            margin-left: 12px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: none;
+            background: var(--brand);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+        }
+
+        .kebab {
+            margin-left: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #0b2c3a0f;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .kebab:before,
+        .kebab:after,
+        .kebab i {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #0e2a36;
+            border-radius: 50%;
+        }
+
+        .kebab i {
+            top: 15px
+        }
+
+        .kebab:before {
+            top: 8px
+        }
+
+        .kebab:after {
+            top: 22px
+        }
+
+        /* hero grid */
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+            padding: 40px 36px 56px;
+        }
+
+        /* ensure content is above background SVG */
+        .hero>* {
+            position: relative;
+            z-index: 1
+        }
+
+        .bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none
+        }
+
+        /* left copy */
+        .eyebrow {
+            color: #183640;
+            font-weight: 700;
+            letter-spacing: .02em;
+            margin: 8px 0 8px;
+        }
+
+        h1 {
+            font-size: clamp(32px, 8vw + 6px, 64px);
+            line-height: 1.05;
+            margin: 0 0 16px;
+            letter-spacing: -.02em;
+        }
+
+        .lead {
+            max-width: 560px;
+            color: var(--muted);
+            margin: 10px 0 26px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: #fff
+        }
+
+        .btn-ghost {
+            color: #183640
+        }
+
+        .btn-ghost svg {
+            width: 22px;
+            height: 22px;
+            flex: none
+        }
+
+        /* right doctor image inside oval */
+        .portrait {
+            justify-self: end;
+            width: 520px;
+            height: 540px;
+            background: #fff;
+            border-radius: 46% / 38%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+        }
+
+        .portrait img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center bottom;
+            background: #fff;
+        }
+
+        /* circle arrow buttons */
+        .arrow {
+            position: absolute;
+            right: 26px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #0e2a36;
+            display: grid;
+            place-items: center;
+            color: #0e2a36;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .arrow.left {
+            top: 48%
+        }
+
+        .arrow.right {
+            bottom: 34px;
+            border-color: #ffffff50;
+            color: #0e2a36;
+            background: #ffffff40;
+            backdrop-filter: blur(2px)
+        }
+
+        .arrow svg {
+            width: 20px;
+            height: 20px
+        }
+
+        /* floating white disk */
+        .dot {
+            position: absolute;
+            left: 60%;
+            top: 55%;
+            width: 84px;
+            height: 84px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            z-index: 1;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width:1100px) {
+            .portrait {
+                width: 440px;
+                height: 480px
+            }
+        }
+
+        @media (max-width:900px) {
+            .nav {
+                display: none
+            }
+
+            /* keep header simple on mobile */
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 28px 18px 32px;
+            }
+
+            .brand img {
+                height: 40px
+            }
+
+            .portrait {
+                justify-self: center;
+                width: min(88%, 360px);
+                aspect-ratio: 1 / 1.1;
+                /* consistent oval on phones */
+                height: auto;
+            }
+
+            .actions {
+                gap: 14px
+            }
+
+            .btn {
+                padding: 10px 14px;
+                border-radius: 9px
+            }
+
+            .btn-ghost svg {
+                width: 18px;
+                height: 18px
+            }
+
+            .dot {
+                width: 56px;
+                height: 56px;
+                left: 62%;
+                top: 64%;
+            }
+
+            .arrow {
+                display: none
+            }
+
+            /* hide arrows on mobile like screenshot */
+            /* simplify background on phones */
+            .bg circle {
+                display: none
+            }
+
+            .bg path:first-of-type {
+                opacity: .35
+            }
+        }
+
+        @media (max-width:480px) {
+            .canvas {
+                margin: 8px;
+                border-radius: 18px
+            }
+
+            .top {
+                padding: 12px 14px
+            }
+
+            h1 {
+                font-size: clamp(30px, 9.5vw, 40px);
+                line-height: 1.08;
+            }
+
+            .lead {
+                font-size: 14px;
+                margin: 8px 0 18px
+            }
+        }
+
+
+
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            gap: 30px;
+            background: #083B5C;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .section .text {
+            flex: 1;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .section .image-area {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section .image-area img {
+            max-width: 220px;
+            border-radius: 12px;
+        }
+
+        .symptoms {
+            text-align: center;
+            padding: 40px 20px;
+            background: #0a3e5c;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .symptoms h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .symptom-boxes {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .symptom-box {
+            background: #083B5C;
+            color: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            font-size: 16px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        /* Hover Effect */
+        .symptom-box:hover {
+            background: #fff;
+            color: #083B5C;
+            border: 1px solid #083B5C;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .section .image-area {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+
+            .section .image-area img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 350px;
+            }
+
+            .symptom-boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .symptom-box {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .sections {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .sections h2 {
+            font-size: 28px;
+            color: #1A0B2E;
+            margin-bottom: 10px;
+        }
+
+        .sections p {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: #fff;
+            border: 2px solid #0D5174;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .card h3 {
+            color: #0D5174;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* Highlighted Middle Card */
+        .card.highlight {
+
+            min-width: 250px;
+            max-width: 300px;
+            background: #0D5174;
+            border: 2px solid #fff;
+
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .card.highlight h3 {
+            color: #fff;
+        }
+
+        .card.highlight p {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .card,
+            .card.highlight {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        .treatments {
+            background-color: #0D5174;
+            width: 100%;
+            height: auto;
+            padding-bottom: 40px;
+        }
+
+        .treatment-card {
+            height: 300px;
+            width: 250px;
+            background-color: #0F394F;
+            border-radius: 30px;
+            padding-left: 10px;
+            margin-top: 60px;
+
+        }
+
+        .treatment-sec {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .treatment-img {
+            height: 200px;
+            width: 230px;
+            margin-top: -50px;
+
+        }
+
+        .para {
+            text-align: center;
+            font-size: 12px;
+            margin-right: 5px;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .treatment-sec {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                background-color: #0D5174;
+            }
+
+            .treatment-card {
+                width: 90%;
+                max-width: 300px;
+                height: auto;
+                padding: 20px;
+            }
+
+            .treatment-img {
+                width: 100%;
+                height: auto;
+                margin-top: -60px;
+            }
+
+            .para {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+        }
+
+        .choose-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .choose-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0D1B2A;
+            margin-bottom: 10px;
+        }
+
+        .choose-section p {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .choose-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .choose-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 350px;
+            max-width: 400px;
+            /* ✅ increased width */
+        }
+
+        .choose-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .choose-item.highlight {
+            background: #D9F0F0;
+            font-weight: bold;
+        }
+
+        .choose-item span {
+            flex: 1;
+            text-align: left;
+        }
+
+        .choose-item .icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #0D5174;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .choose-image {
+            height: 300px;
+        }
+
+        .choose-image img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* ✅ Mobile Responsive */
+        @media (max-width: 768px) {
+            .choose-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .choose-list {
+                max-width: 100%;
+            }
+
+            .choose-image {
+                max-width: 280px;
+            }
+        }
+
+        /* testimonials */
+        .white-card {
+            width: 350px;
+            height: 200px;
+            border: 2px solid #fff;
+            /* ✅ white border */
+            border-radius: 12px;
+            /* ✅ rounded corners */
+            background: #0c4a6e;
+            /* dark background so white border shows */
+            color: #fff;
+            padding: 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: auto;
+            height: 250px;
+        }
+
+        /* ✅ Mobile layout (up to 768px) */
+        @media (max-width: 768px) {
+            .testimonials {
+                flex-direction: column;
+                align-items: center;
+                /* center each card */
+                height: 650px;
+            }
+
+            .white-card {
+                width: 90%;
+                /* take most of screen width */
+                height: auto;
+                /* auto height for text */
+            }
+        }
+
+        .faq-section {
+            padding: 60px 10%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .faq-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .faq-left {
+            flex: 1;
+        }
+
+        .faq-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .faq-subtitle {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .faq-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .faq-image {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .faq-right {
+            flex: 1;
+        }
+
+        .accordion {
+            border-top: 1px solid #ccc;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .accordion-header {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 0;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover {
+            color: #0073e6;
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            padding: 0;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 200px;
+            padding: 10px 0 20px;
+        }
+
+        .accordion-item.active .accordion-header {
+            color: #0073e6;
+        }
+
+
+
+        .contact-appointment {
+            background-color: #0E4A66;
+            /* Blue background */
+            padding: 50px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Left form box */
+        .contact-form-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 400px;
+        }
+
+        .contact-form-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D1B41;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: none;
+        }
+
+        .consent {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form button {
+            background: #0E4A66;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #09344a;
+        }
+
+        /* Right side */
+        .contact-image-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .contact-image-box img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-image-box h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                flex-direction: column;
+            }
+
+            .faq-left,
+            .faq-right {
+                flex: 100%;
+            }
+
+            .faq-title {
+                font-size: 26px;
+            }
+
+            .faq-subtitle {
+                font-size: 14px;
+            }
+
+            .faq-description {
+                font-size: 13px;
+            }
+
+            .accordion-header {
+                font-size: 16px;
+                padding: 12px 0;
+            }
+
+            .accordion-item.active .accordion-body {
+                max-height: 300px;
+                /* allow more space for mobile */
+            }
+        }
+
+        .contact-appointment {
+            background-color: #0E4A66;
+            /* Blue background */
+            padding: 50px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            height: 570px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Left form box */
+        .contact-form-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 400px;
+
+        }
+
+        .contact-form-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D1B41;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: none;
+        }
+
+        /* ✅ Fixed checkbox alignment */
+        .consent {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 20px;
+            gap: 8px;
+            /* space between checkbox and text */
+        }
+
+        .consent input[type="checkbox"] {
+            margin: 0;
+            /* remove default spacing */
+        }
+
+        .contact-form button {
+            background: #0E4A66;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #09344a;
+        }
+
+        /* Right side */
+        .contact-image-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .contact-image-box img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-image-box h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .contact-appointment {
+            background-color: #0E4A66;
+            /* Blue background */
+            padding: 50px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Left form box */
+        .contact-form-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            min-width: 320px;
+            max-width: 400px;
+        }
+
+        .contact-form-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D1B41;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: none;
+        }
+
+        /* ✅ Checkbox row */
+        .consent {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 20px;
+            gap: 8px;
+        }
+
+        .consent input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        #submitBtn {
+            background: #0E4A66;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: not-allowed;
+            /* disabled look */
+            opacity: 0.6;
+            transition: background 0.3s, opacity 0.3s, cursor 0.3s;
+        }
+
+        #submitBtn.enabled {
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        #submitBtn.enabled:hover {
+            background: #09344a;
+        }
+
+        /* Right side */
+        .contact-image-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .contact-image-box img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-image-box h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        /* ✅ Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-appointment {
+                padding: 30px 20px;
+                height: auto;
+                /* remove fixed height for mobile */
+                border-radius: 0;
+                /* full width look */
+            }
+
+            .contact-wrapper {
+                flex-direction: column;
+                /* stack form and image */
+                align-items: stretch;
+                gap: 25px;
+            }
+
+            .contact-form-box {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .contact-form-box h2 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+
+            .consent {
+                font-size: 12px;
+                gap: 6px;
+            }
+
+
+
+            .consent input[type="checkbox"] {
+                width: 14px;
+                height: 14px;
+            }
+
+
+            #submitBtn {
+                width: 100%;
+                /* full-width button on mobile */
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .contact-image-box img {
+                border-radius: 10px;
+                margin-bottom: 15px;
+            }
+
+            .contact-image-box h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-box h2 {
+                font-size: 18px;
+            }
+
+            .contact-image-box h3 {
+                font-size: 18px;
+            }
+
+            #submitBtn {
+                font-size: 14px;
+            }
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0E4A66;
+            /* Avis Blue */
+            padding: 15px 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar .logo a {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #0D5174;
+            /* text colour */
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFf;
+            /* gold hover, you can change if needed */
+        }
+
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 250px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown-content li {
+            padding: 8px 15px;
+        }
+
+        .dropdown-content a {
+            color: #0E4A66;
+            font-size: 15px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background: #f0f0f0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Divider inside dropdown */
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 8px 0;
+        }
+
+        /* ---------- Header Styles ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: #dceced;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0d3a4a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0d5174;
+        }
+
+        .btns {
+            background-color: #0d5174;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btns:hover {
+            background-color: #093e58;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <main class="canvas">
+        <!-- ---------- Language & City Selector Bar ---------- -->
+        <div class="language-city-bar">
+            <div class="right-buttons">
+                <select class="selector">
+                    <option>English</option>
+                    <option>Telugu</option>
+                    <option>Kannada</option>
+                    <option>Tamil</option>
+                    <option>Hindi</option>
+                </select>
+
+                <select class="selector">
+                    <option>Select City</option>
+                    <option>Hyderabad</option>
+                    <option>Bengaluru</option>
+                    <option>Chennai</option>
+                    <option>Vijayawada</option>
+                    <option>Vizag</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- header -->
+
+        <header style="background-color: #D8E9E9;">
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About us</a>
+                <a href="#">Treatments</a>
+                <a href="#">Why choose us</a>
+                <a href="#">Resources</a>
+                <a href="#">Locations</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+
+            <div class="menu-icon">⋮</div>
+        </header>
+
+        <!-- hero -->
+        <section class="hero">
+            <div style="align-content: center;">
+                <div class="eyebrow">Expert Treatment</div>
+                <h1>Leading Varicose<br />Veins Care in India</h1>
+                <p class="lead">
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+
+                <div class="actions">
+                    <a class="btn btn-primary" href="#">Book A Meet</a>
+                    <a class="btn btn-primary" href="#">Schedule a call </a>
+
+                </div>
+            </div>
+
+            <figure class="doctor-figure" aria-label="Doctor">
+                <img src="../assets/AdobeStock_377949512.png" alt="Doctor portrait" loading="lazy" decoding="async"
+                    style="width: 300; height: 300px;" />
+            </figure>
+
+            <!-- arrows -->
+
+
+            <!-- floating white disk -->
+
+
+            <!-- decorative SVG (waves + thin arcs) -->
+            <svg class="bg" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
+                <!-- soft base wave from left to right -->
+                <path d="M0,520 C320,420 520,380 860,430 1140,470 1280,520 1600,460 L1600,800 L0,800 Z"
+                    fill="var(--surface-2)" opacity="0.55" />
+                <!-- right cut-out curve (matching the screenshot right edge shape) -->
+                <path d="M1300,130 C1490,260 1540,420 1540,520 1540,620 1490,700 1300,740 L1300,130 Z" fill="#fff"
+                    opacity=".0" />
+                <!-- thin circle arcs (white strokes) -->
+                <circle cx="1120" cy="190" r="220" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1" />
+                <circle cx="1120" cy="190" r="330" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width="1" />
+            </svg>
+        </section>
+    </main>
+
+    <div class="section">
+        <div class="text">
+            <h2>What are Varicose Veins?</h2>
+            <p>
+                Varicose veins are swollen, twisted blood vessels that appear just beneath
+                the skin, usually on the legs, feet, or ankles. They often look blue or purple
+                and may feel painful or itchy. Smaller veins, called spider veins, can also
+                develop nearby and appear as fine red or purple lines on the skin.
+            </p>
+            <p>
+                While varicose veins are usually not dangerous, they can be uncomfortable
+                or bothersome in appearance. In severe cases, they may cause complications
+                such as blood clots. Many symptoms can be managed at home, but more serious
+                cases may require medical treatments like injections, laser therapy, or surgery.
+            </p>
+        </div>
+        <div class="image-area">
+            <img src="../assets/AdobeStock_167618810.png" alt="Varicose Veins Legs"
+                style="width: 600px; height: 250px;">
+            <img src="../assets/AdobeStock_337620036.png" alt="Vein Diagram"
+                style="width: 200px; height: 150px; margin-top: 70px;">
+        </div>
+    </div>
+
+    <!-- Symptoms Section -->
+    <div class="symptoms">
+        <h3>Common Symptoms</h3>
+        <div class="symptom-boxes">
+            <div class="symptom-box">Swollen, twisted veins (legs)</div>
+            <div class="symptom-box">Pain, heaviness, itching</div>
+            <div class="symptom-box white">Night cramps, skin discoloration</div>
+        </div>
+    </div>
+
+    <div class="sections">
+        <h2>Why Treatment is Needed</h2>
+        <p>
+            Ignoring varicose veins can lead to serious health problems that worsen over time.
+            Early intervention helps prevent complications and improves overall quality of life.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Risk 1</h3>
+                <p>Worsening pain and swelling</p>
+            </div>
+            <div class="card highlight">
+                <h3>Risk 2</h3>
+                <p>Skin ulcers and bleeding</p>
+            </div>
+            <div class="card">
+                <h3>Risk 3</h3>
+                <p>Risk of blood clots (DVT)</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="treatments">
+        <h2 style="color: white; text-align: center; padding-top: 50px;">Treatment Options Offered</h2>
+        <section class="treatment-sec">
+            <div class="treatment-card">
+                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
+                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
+                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
+
+            </div>
+            <div class="treatment-card">
+                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
+                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
+                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
+
+            </div>
+            <div class="treatment-card">
+                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
+                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
+                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
+
+            </div>
+            <div class="treatment-card">
+                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
+                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
+                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
+
+            </div>
+        </section>
+
+
+
+
+    </section>
+    <section class="choose-section">
+        <h2>Why Choose us</h2>
+        <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat.
+        </p>
+
+        <div class="choose-container">
+            <!-- Left Features -->
+            <div class="choose-list">
+                <div class="choose-item highlight">
+                    <span>15+ Years of Experience</span>
+                    <div class="icon">✓</div>
+                </div>
+                <div class="choose-item">
+                    <span>US-FDA Approved Technology</span>
+                    <div class="icon">✓</div>
+                </div>
+                <div class="choose-item">
+                    <span>Day-care Procedures (No Admission)</span>
+                    <div class="icon">✓</div>
+                </div>
+            </div>
+
+            <!-- Center Image -->
+            <div>
+                <img src="../assets/AdobeStock_908902825.png" style="width: 70%; height: 70%;" alt="Doctor">
+            </div>
+
+            <!-- Right Features -->
+            <div class="choose-list">
+                <div class="choose-item">
+                    <span>24/7 Emergency & Post-op Support</span>
+                    <div class="icon">✓</div>
+                </div>
+                <div class="choose-item">
+                    <span>Experienced Vascular Specialists</span>
+                    <div class="icon">✓</div>
+                </div>
+                <div class="choose-item">
+                    <span>Experienced Vascular Specialists</span>
+                    <div class="icon">✓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #0D5174;" class="test">
+        <div class="tag" style="padding-top: 20px;">
+            <center>
+                <span class="dot2" style="text-align: center; color: #fff; "> Testimonials</span>
+                <span class="dot2"></span>
+            </center>
+
+        </div>
+        <h4 style="text-align:center; color: #fff;">Clients Feedback</h4>
+        <div class="testimonials">
+            <div class="white-card">
+                <div>
+                    <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
+                        ad
+                        minim veniam..</p>
+
+
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 130px;">
+                    <div>
+                        <span>⭐⭐⭐⭐⭐</span>
+                        <p style="margin-top: -5px;">Rakesh Dasari</p>
+                    </div>
+                    <div>
+                        <img src="../assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="white-card">
+                <div>
+                    <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
+                        ad
+                        minim veniam..</p>
+
+
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 150px;">
+                    <div>
+                        <span>⭐⭐⭐⭐⭐</span>
+                        <p style="margin-top: -5px;">Rakesh Dasari</p>
+                    </div>
+                    <div>
+                        <img src="../assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="white-card">
+                <div>
+                    <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
+                        ad
+                        minim veniam..</p>
+
+
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 150px;">
+                    <div>
+                        <span>⭐⭐⭐⭐⭐</span>
+                        <p style="margin-top: -5px;">Rakesh Dasari</p>
+                    </div>
+                    <div>
+                        <img src="../assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- Left Side -->
+            <div class="faq-left">
+                <p class="faq-subtitle">Got a question?</p>
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <img src="../assets/AdobeStock_599329045.png" alt="Doctor consulting patient" class="faq-image">
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="faq-right">
+                <p class="faq-description">
+                    Cover Symptoms, Causes, Prevention, And Treatments, Which Range From
+                    Self-Care Like Exercise And Compression Stockings To Medical Procedures
+                    Such As Sclerotherapy (Injections), Radiofrequency Ablation, And Laser Therapy.
+                </p>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Is varicose vein treatment painful ?</button>
+                        <div class="accordion-body">
+                            <p>Treatments are generally safe, minimally invasive, and designed to cause little to no
+                                pain.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item active">
+                        <button class="accordion-header">How long does recovery take ?</button>
+                        <div class="accordion-body">
+                            <p>
+                                Minor muscle strains might take weeks to months, while severe surgery could take many
+                                months to a year for complete recovery. With factors like age, overall health, the
+                                extent of the issue, and access to treatment or therapy playing a crucial role.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">Will varicose veins come back after treatment ?</button>
+                        <div class="accordion-body">
+                            <p>Recurrence can happen, but advanced treatments significantly lower the chances.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">Does insurance cover the treatment ?</button>
+                        <div class="accordion-body">
+                            <p>Most insurance plans cover treatment if it is medically necessary. Cosmetic procedures
+                                may not be covered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact-appointment">
+        <div class="contact-wrapper">
+
+            <!-- Left Side Form -->
+            <div class="contact-form-box">
+                <h2>Have Questions?<br>Get In Touch!</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email Id" required>
+                    <input type="tel" placeholder="Mobile No" required>
+                    <textarea placeholder="Message"></textarea>
+
+                    <!-- Checkbox row -->
+                    <label class="consent">
+                        <input type="checkbox" id="consentCheckbox">
+                        <span>I Agree That My Submitted Data.</span>
+                    </label>
+
+                    <button type="submit" id="submitBtn" disabled>Send Message</button>
+                </form>
+            </div>
+
+            <!-- Right Side Image + Text -->
+            <div class="contact-image-box">
+                <img src="../assets/hospital-10.jpg 1 (1).png" alt="Doctor with patient">
+                <h3>Book Your Appointment Today</h3>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Accordion functionality with only one open at a time
+        const accordions = document.querySelectorAll(".accordion");
+        accordions.forEach(acc => {
+            acc.querySelector(".accordion-header").addEventListener("click", () => {
+                accordions.forEach(a => {
+                    if (a !== acc) a.classList.remove("active");
+                });
+                acc.classList.toggle("active");
+            });
+        });
+    </script>
+
+
+
+    <script>
+        (() => {
+            const prefersReduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function animateCount(el) {
+                const end = parseFloat(el.dataset.value || '0');
+                const decimals = parseInt(el.dataset.decimals || '0', 10);
+                const duration = parseInt(el.dataset.duration || '1500', 10);
+                const start = 0;
+                const formatter = (v) => v.toLocaleString(undefined, {
+                    minimumFractionDigits: decimals, maximumFractionDigits: decimals
+                });
+
+                if (prefersReduced || duration <= 0) {
+                    el.textContent = formatter(end);
+                    return;
+                }
+
+                let startTime = null;
+                function frame(ts) {
+                    if (!startTime) startTime = ts;
+                    const progress = Math.min((ts - startTime) / duration, 1);
+                    // easeOutCubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const value = start + (end - start) * eased;
+                    el.textContent = formatter(progress < 1 ? value : end);
+                    if (progress < 1) requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+            }
+
+            function setup() {
+                const nums = document.querySelectorAll('.stats .num');
+                if (!('IntersectionObserver' in window)) {
+                    nums.forEach(n => animateCount(n));
+                    return;
+                }
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            if (!el.dataset.started) {
+                                el.dataset.started = 'true';
+                                animateCount(el);
+                            }
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                nums.forEach(n => io.observe(n));
+            }
+
+            document.readyState === 'loading'
+                ? document.addEventListener('DOMContentLoaded', setup)
+                : setup();
+        })();
+    </script>
+
+    <script>
+        document.querySelectorAll(".accordion-header").forEach(header => {
+            header.addEventListener("click", () => {
+                const item = header.parentElement;
+                item.classList.toggle("active");
+
+                // Close others
+                document.querySelectorAll(".accordion-item").forEach(i => {
+                    if (i !== item) i.classList.remove("active");
+                });
+            });
+        });
+    </script>
+    <script>
+        const checkbox = document.getElementById("consentCheckbox");
+        const submitBtn = document.getElementById("submitBtn");
+
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add("enabled");
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove("enabled");
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
