@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avis Hospitals | Varicose Veins</title>
+
+  <style>
+    /* ---------- Language & City Bar ---------- */
+.language-city-bar {
+  width: 100%;
+  background-color: #0D5174; /* Avis brand blue */
+  padding: 12px 30px;
+  display: flex;
+  justify-content: flex-end; /* align buttons to right */
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 10px;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ---------- Buttons (Selectors) ---------- */
+.selector {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  appearance: none; /* remove native dropdown arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 28px;
+}
+
+/* ---------- Hover / Focus Effects ---------- */
+.selector:hover {
+  background-color: #f1f1f1;
+}
+
+.selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 768px) {
+  .language-city-bar {
+    justify-content: center; /* center buttons on mobile */
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+
+  .selector {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+}
+
+    :root {
+      --bar: #0f3b5f;
+      --cap: #2a2a2a;
+      --pill-bg: #ffffff;
+      --pill-text: #111;
+      --pill-stroke: #e5e7eb;
+      --h: 64px;
+      --radius: 14px;
+      --brand: #0e4a66;
+      --ink: #0b1f2a;
+      --surface: #d8e6ea;
+      --surface-light: #e9f0f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      position: relative;
+      height: var(--h);
+      background: var(--bar);
+      border-radius: var(--radius) var(--radius) 6px 6px;
+      overflow: visible;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+    }
+
+    .topbar::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -10px;
+      height: 10px;
+      background: var(--cap);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .topbar__inner {
+      max-width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--pill-stroke);
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      border-radius: 9999px;
+      font: 500 13px/30px system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .caret {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #222;
+      transform: translateY(1px);
+    }
+
+    /* ========== MAIN HEADER ========== */
+    .main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 70px;
+      background: var(--surface);
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .main-header img {
+      height: 60px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--brand);
+    }
+
+    .book-btn {
+      background-color: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      background-color: #08334d;
+    }
+
+    /* ========== HAMBURGER MENU ========== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      background-color: var(--brand);
+      height: 3px;
+      width: 25px;
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    /* ========== SEMI-CIRCLE SECTION ========== */
+    .semi-circle-section {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background-color: #d1e3e3;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .semi-circle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 250px;
+      background-color: #e2f3f3;
+      border-radius: 250px 250px 0 0;
+      z-index: 1;
+    }
+
+    .title {
+      position: relative;
+      z-index: 2;
+      color: #0e4a66;
+      font-size: 36px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    /* ========== FILTER BUTTONS ========== */
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      margin-top: 5px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #0D5174;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover {
+      background-color: #093b56;
+    }
+
+    .button-sec {
+      margin-top: 40px;
+      margin-left: 40px;
+    }
+
+
+         /* ---------- Header Styles ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: #dceced;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0d3a4a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav a:hover {
+            color: #0d5174;
+        }
+
+        .btns {
+            background-color: #0d5174;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btns:hover {
+            background-color: #093e58;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+  </style>
+</head>
+
+<body style="margin-left: 10px; margin-right: 10px;">
+  <!-- Top Bar -->
+ <!-- ---------- Language & City Selector Bar ---------- -->
+<div class="language-city-bar">
+  <div class="right-buttons">
+    <select class="selector">
+      <option>English</option>
+      <option>Telugu</option>
+      <option>Kannada</option>
+      <option>Tamil</option>
+      <option>Hindi</option>
+    </select>
+
+    <select class="selector">
+      <option>Select City</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+      <option>Vijayawada</option>
+      <option>Vizag</option>
+    </select>
+  </div>
+</div>
+
+
+  <!-- Main Header -->
+        <!-- header -->
+  <header style="background-color: #D8E9E9;"  >
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/">About us</a>
+                <a href="../treatments/index.html">Treatments</a>
+                <a href="../diseases/varicose-veins.html">Diseases</a>
+                <a href="../doctors/index.html">Doctors</a>
+                <a href="#">Locations</a>
+                <a href="../">Blogs</a>
+                <a href="#">Contact Us</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+
+            <div class="menu-icon">⋮</div>
+        </header>
+
+  <!-- Semi Circle Section -->
+  <section class="semi-circle-section"  >
+    <div class="semi-circle"></div>
+    <h2 class="title">Best Varicose Veins <br>Doctors in India</h2>
+  </section>
+
+  
+</body>
+
+</html>
