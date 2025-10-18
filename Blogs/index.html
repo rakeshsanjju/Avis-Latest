@@ -8,64 +8,68 @@
 
   <style>
     /* ---------- Language & City Bar ---------- */
-.language-city-bar {
-  width: 100%;
-  background-color: #0D5174; /* Avis brand blue */
-  padding: 12px 30px;
-  display: flex;
-  justify-content: flex-end; /* align buttons to right */
-  align-items: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin-top: 10px;
-}
+    .language-city-bar {
+      width: 100%;
+      background-color: #0D5174;
+      /* Avis brand blue */
+      padding: 12px 30px;
+      display: flex;
+      justify-content: flex-end;
+      /* align buttons to right */
+      align-items: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin-top: 10px;
+    }
 
-.right-buttons {
-  display: flex;
-  gap: 10px;
-}
+    .right-buttons {
+      display: flex;
+      gap: 10px;
+    }
 
-/* ---------- Buttons (Selectors) ---------- */
-.selector {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  appearance: none; /* remove native dropdown arrow */
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
-  padding-right: 28px;
-}
+    /* ---------- Buttons (Selectors) ---------- */
+    .selector {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      appearance: none;
+      /* remove native dropdown arrow */
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px;
+      padding-right: 28px;
+    }
 
-/* ---------- Hover / Focus Effects ---------- */
-.selector:hover {
-  background-color: #f1f1f1;
-}
+    /* ---------- Hover / Focus Effects ---------- */
+    .selector:hover {
+      background-color: #f1f1f1;
+    }
 
-.selector:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
-}
+    .selector:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+    }
 
-/* ---------- Mobile Responsive ---------- */
-@media (max-width: 768px) {
-  .language-city-bar {
-    justify-content: center; /* center buttons on mobile */
-    flex-wrap: wrap;
-    padding: 10px 15px;
-  }
+    /* ---------- Mobile Responsive ---------- */
+    @media (max-width: 768px) {
+      .language-city-bar {
+        justify-content: center;
+        /* center buttons on mobile */
+        flex-wrap: wrap;
+        padding: 10px 15px;
+      }
 
-  .selector {
-    font-size: 13px;
-    padding: 5px 12px;
-  }
-}
+      .selector {
+        font-size: 13px;
+        padding: 5px 12px;
+      }
+    }
 
     :root {
       --bar: #0f3b5f;
@@ -281,135 +285,683 @@
     }
 
 
-         /* ---------- Header Styles ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+    /* ---------- Header Styles ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-        header {
-            width: 100%;
-            background-color: #dceced;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-        }
+    header {
+      width: 100%;
+      background-color: #dceced;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
 
-        .logo img {
-            height: 50px;
-        }
+    .logo img {
+      height: 50px;
+    }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #0d3a4a;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s ease;
-            font-family: "Poppins", sans-serif;
-        }
+    nav a {
+      text-decoration: none;
+      color: #0d3a4a;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      font-family: "Poppins", sans-serif;
+    }
 
-        nav a:hover {
-            color: #0d5174;
-        }
+    nav a:hover {
+      color: #0d5174;
+    }
 
-        .btns {
-            background-color: #0d5174;
-            color: white;
-            padding: 8px 18px;
-            border: none;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+    .btns {
+      background-color: #0d5174;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        .btns:hover {
-            background-color: #093e58;
-        }
+    .btns:hover {
+      background-color: #093e58;
+    }
 
-        .menu-icon {
-            display: none;
-            font-size: 22px;
-            cursor: pointer;
-        }
+    .menu-icon {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
 
-        @media (max-width: 900px) {
-            nav {
-                display: none;
-            }
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
 
-            .menu-icon {
-                display: block;
-            }
-        }
+      .menu-icon {
+        display: block;
+      }
+    }
 
+    /* ---------- Slider Container ---------- */
+    .slider {
+      background: #f0f5f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin-top: -40px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 90%;
+
+      height: 550px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* ---------- Overlay Content ---------- */
+    .content {
+      position: absolute;
+      left: 50px;
+      bottom: 60px;
+      color: #fff;
+      max-width: 400px;
+    }
+
+    .content h2 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #ffffff;
+      color: #0D5174;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0D5174;
+      color: #fff;
+    }
+
+    /* ---------- Arrows ---------- */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      color: #0D5174;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .arrow:hover {
+      background: #0D5174;
+      color: #fff;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    /* ---------- Progress Bar ---------- */
+    .progress {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: #ffffff;
+      transition: width 5s linear;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        left: 20px;
+        bottom: 40px;
+        max-width: 90%;
+      }
+
+      .content h2 {
+        font-size: 20px;
+      }
+
+      .content p {
+        font-size: 13px;
+      }
+    }
+
+    .articles-section {
+    background: #e8f5f7;
+    padding: 40px 60px;
+    border-radius: 20px;
+  }
+
+  .articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .articles-header h2 {
+    color: #1a0836;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .more-btn {
+    background: #0d5174;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+
+  .more-btn:hover {
+    background: #093e58;
+  }
+
+    /* ---------- Card Layout ---------- */
+  .article-cards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .article-card {
+    background: transparent;
+    width: 300px;
+    position: relative;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .article-card img {
+    width: 90%;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ---------- Overlapping Text Card ---------- */
+  .article-content {
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    top: -30px; /* overlap upward */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .article-content h3 {
+    font-size: 15px;
+    color: #0d5174;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .read-btn {
+    background: #0d5174;
+    color: #fff;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .read-btn:hover {
+    background: #093e58;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 768px) {
+    .articles-section {
+      padding: 30px 20px;
+    }
+
+    .articles-header h2 {
+      font-size: 22px;
+    }
+
+    .article-card {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .article-card img {
+      width: 100%;
+    }
+
+    .article-content {
+      width: 100%;
+      top: -25px;
+    }
+  }
   </style>
 </head>
 
 <body style="margin-left: 10px; margin-right: 10px;">
   <!-- Top Bar -->
- <!-- ---------- Language & City Selector Bar ---------- -->
-<div class="language-city-bar">
-  <div class="right-buttons">
-    <select class="selector">
-      <option>English</option>
-      <option>Telugu</option>
-      <option>Kannada</option>
-      <option>Tamil</option>
-      <option>Hindi</option>
-    </select>
+  <!-- ---------- Language & City Selector Bar ---------- -->
+  <div class="language-city-bar">
+    <div class="right-buttons">
+      <select class="selector">
+        <option>English</option>
+        <option>Telugu</option>
+        <option>Kannada</option>
+        <option>Tamil</option>
+        <option>Hindi</option>
+      </select>
 
-    <select class="selector">
-      <option>Select City</option>
-      <option>Hyderabad</option>
-      <option>Bengaluru</option>
-      <option>Chennai</option>
-      <option>Vijayawada</option>
-      <option>Vizag</option>
-    </select>
+      <select class="selector">
+        <option>Select City</option>
+        <option>Hyderabad</option>
+        <option>Bengaluru</option>
+        <option>Chennai</option>
+        <option>Vijayawada</option>
+        <option>Vizag</option>
+      </select>
+    </div>
   </div>
-</div>
 
 
   <!-- Main Header -->
-        <!-- header -->
-  <header style="background-color: #D8E9E9;"  >
-            <div class="logo">
-                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
-            </div>
+  <!-- header -->
+  <header style="background-color: #D8E9E9;">
+    <div class="logo">
+      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+    </div>
 
-            <nav>
-                <a href="/index.html">Home</a>
-                <a href="/">About us</a>
-                <a href="../treatments/index.html">Treatments</a>
-                <a href="../diseases/varicose-veins.html">Diseases</a>
-                <a href="../doctors/index.html">Doctors</a>
-                <a href="#">Locations</a>
-                <a href="../Blogs/index.html">Blogs</a>
-                <a href="#">Contact Us</a>
-            </nav>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/">About us</a>
+      <a href="../treatments/index.html">Treatments</a>
+      <a href="../diseases/varicose-veins.html">Diseases</a>
+      <a href="../doctors/index.html">Doctors</a>
+      <a href="#">Locations</a>
+      <a href="../Blogs/index.html">Blogs</a>
+      <a href="#">Contact Us</a>
+    </nav>
 
-            <button class="btns">Book Appointment</button>
+    <button class="btns">Book Appointment</button>
 
-            <div class="menu-icon">⋮</div>
-        </header>
+    <div class="menu-icon">⋮</div>
+  </header>
+
 
   <!-- Semi Circle Section -->
-  <section class="semi-circle-section"  >
+  <section class="semi-circle-section">
     <div class="semi-circle"></div>
-    <h2 class="title">Best Varicose Veins <br>Doctors in India</h2>
+    <h2 class="title">Blogs </h2>
+  </section>
+  <section class="slider">
+    <div class="slider-container">
+      <div class="slide active" style="background-image: url('../assets/Rectangle\ 42440.png');">
+        <div class="content">
+          <h2>What to expect after Venaseal procedure?</h2>
+          <p>There are various treatment options available if you are suffering from varicose veins, such as lifestyle
+            changes.</p>
+          <button class="btn">View Article</button>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('../assets/Rectangle\ 42440.png');">
+        <div class="content">
+          <h2>Painless Varicose Veins Laser Treatment</h2>
+          <p>Quick recovery, minimal downtime, and scar-free procedure using advanced laser technology.</p>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('../assets/Rectangle\ 42440.png');">
+        <div class="content">
+          <h2>Know More About Sclerotherapy</h2>
+          <p>A simple, safe, and effective treatment option for spider and varicose veins.</p>
+          <button class="btn">View Details</button>
+        </div>
+      </div>
+
+      <button class="arrow left">&#10094;</button>
+      <button class="arrow right">&#10095;</button>
+
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+
   </section>
 
+   <section class="articles-section" style="background-color: #e8f5f7 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2>Varicose Veins</h2>
+      <button class="more-btn">More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="articles-section" style="background-color: #0D5174 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2 style="color: white;">Varicose Veins</h2>
+      <button class="more-btns" style="background-color: white; color:#0D5174; width: 130px ; height: 35px; border-radius: 25px; border: none;" >More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
   
+   <section class="articles-section" style="background-color: #e8f5f7 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2>Varicose Veins</h2>
+      <button class="more-btn">More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="articles-section" style="background-color: #0D5174 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2 style="color: white;">Varicose Veins</h2>
+      <button class="more-btns" style="background-color: white; color:#0D5174; width: 130px ; height: 35px; border-radius: 25px; border: none;" >More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+   <section class="articles-section" style="background-color: #e8f5f7 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2>Varicose Veins</h2>
+      <button class="more-btn">More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="articles-section" style="background-color: #0D5174 ; margin-top: 20px;">
+    <div class="articles-header">
+      <h2 style="color: white;">Varicose Veins</h2>
+      <button class="more-btns" style="background-color: white; color:#0D5174; width: 130px ; height: 35px; border-radius: 25px; border: none;" >More Articles</button>
+    </div>
+
+    <div class="article-cards">
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Finding the Best Vascular Surgeon near you</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
+        <div class="article-content">
+          <h3>Expert Varicocele Treatment in Hyderabad?</h3>
+          <button class="read-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prev = document.querySelector('.arrow.left');
+    const next = document.querySelector('.arrow.right');
+    const progressBar = document.querySelector('.progress-bar');
+    let current = 0;
+    let timer;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      progressBar.style.width = '0';
+      setTimeout(() => (progressBar.style.width = '100%'), 50);
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    prev.addEventListener('click', () => {
+      prevSlide();
+      resetTimer();
+    });
+    next.addEventListener('click', () => {
+      nextSlide();
+      resetTimer();
+    });
+
+    function startTimer() {
+      timer = setInterval(nextSlide, 5000);
+      progressBar.style.width = '100%';
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      progressBar.style.width = '0';
+      setTimeout(startTimer, 100);
+    }
+
+    startTimer();
+  </script>
+
 </body>
 
 </html>
