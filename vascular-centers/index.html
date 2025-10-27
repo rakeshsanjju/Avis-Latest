@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ---------- Top Bar ---------- */
+        .language-city-bar {
+            width: 100%;
+            background-color: #0D5174;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: flex-end;
+            /* keeps them on right side */
+            align-items: center;
+            gap: 10px;
+            /* spacing between dropdowns */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* ---------- Dropdown Selectors ---------- */
+        .selector {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            padding-right: 28px;
+            min-width: 140px;
+        }
+
+        .selector:hover {
+            background-color: #f1f1f1;
+        }
+
+        .selector:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+        }
+
+        /* ---------- Mobile Responsive ---------- */
+        @media (max-width: 768px) {
+            .language-city-bar {
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 10px 15px;
+                gap: 8px;
+            }
+
+            .selector {
+                font-size: 13px;
+                padding: 5px 12px;
+                min-width: 120px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #0b1f2a;
+            overflow-x: hidden;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            width: 100%;
+            background-color: #dceced;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0d3a4a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0d5174;
+        }
+
+        .btns {
+            background-color: #0d5174;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btns:hover {
+            background-color: #093e58;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        .help-section {
+            background-color: #e5f2f4;
+            padding: 50px 40px;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+
+        }
+
+        .help-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .help-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .help-text h2 {
+            color: #0D5174;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .help-text p {
+            color: #2d2d2d;
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .help-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-buttons,
+        .right-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .help-btn {
+            background-color: #0D5174;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .help-btn:hover {
+            background-color: #09374e;
+        }
+
+        .help-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .help-image img {
+            width: 333px;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* ---------- Mobile Responsive ---------- */
+        @media (max-width: 900px) {
+            .help-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .help-text h2 {
+                font-size: 28px;
+            }
+
+            .help-text p {
+                font-size: 15px;
+                margin: 0 auto 20px;
+            }
+
+            .help-buttons {
+                justify-content: center;
+            }
+
+            .help-btn {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+
+            .help-image img {
+                width: 70%;
+                margin-top: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .help-section {
+                padding: 35px 20px;
+            }
+
+            .help-text h2 {
+                font-size: 24px;
+            }
+
+            .help-btn {
+                font-size: 13.5px;
+                padding: 9px 14px;
+            }
+
+            .help-image img {
+                width: 90%;
+            }
+        }
+
+        /* ---------- Contact Section ---------- */
+        .contact-section {
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .contact-section h2 {
+            color: #1a1133;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* ---------- Form Layout ---------- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: none;
+            font-size: 15px;
+        }
+
+        /* ---------- Submit Button ---------- */
+        .submit-btn {
+            background-color: #0D5174;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 15px;
+            margin: 10px auto 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #093b53;
+        }
+
+        /* ---------- Mobile Responsive ---------- */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .contact-section h2 {
+                font-size: 24px;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+        .counter-section {
+            background-color: #f2fbfc;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 30px 10px;
+            border-radius: 10px;
+            max-width: 1000px;
+            margin: 40px auto;
+            margin-top: -30px;
+        }
+
+        .counter-box {
+            text-align: center;
+            color: #0d5174;
+            min-width: 200px;
+            margin: 15px 0;
+        }
+
+        .counter-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .counter-box p {
+            font-size: 14px;
+            color: #14455f;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .counter-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .veins-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: #ffffff;
+        }
+
+        .veins-section h2 {
+            color: #1a1133;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .veins-section p {
+            color: #333333;
+            font-size: 15px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .veins-section {
+                padding: 15px 20px;
+            }
+
+            .veins-section h2 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .veins-section p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+        .vvh-banner {
+            width: 400px;
+            height: 50px;
+            background: #0D5174;
+            border-top-right-radius: 30px;
+            /* right-top = 30px */
+            border-bottom-right-radius: 30px;
+            /* right-bottom = 30px */
+            display: flex;
+            align-items: center;
+            /* vertical centring */
+            justify-content: center;
+            /* horizontal centring */
+            padding: 0 12px;
+            margin-left: 150px;
+            /* optional: keeps text off the edges */
+        }
+
+        .vvh-banner h2 {
+            color: #fff;
+            font-size: 16px;
+            /* adjust as needed */
+            margin: 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+            .vvh-banner {
+                width: 90%;
+                /* fluid width on mobile */
+                height: 56px;
+                /* a bit taller for readability */
+                margin: 12px auto 0;
+                /* center horizontally */
+                padding: 0 10px;
+                /* comfy side padding */
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+
+            .vvh-banner h2 {
+                font-size: 14px;
+                /* slightly smaller text */
+                line-height: 1.3;
+            }
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1.5px solid #4AB7C3;
+            border-radius: 5px;
+            padding: 14px;
+            width: 450px;
+            height: 270px;
+            background: #fff;
+
+            /* allow the image to stick out */
+            overflow: visible;
+
+            margin-left: 200px;
+            margin-top: 30px;
+        }
+        .info-cards {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1.5px solid #4AB7C3;
+            border-radius: 5px;
+            padding: 14px;
+            width: 450px;
+            height: 270px;
+            background: #fff;
+
+            /* allow the image to stick out */
+            overflow: visible;
+
+            margin-left: 200px;
+           
+        }
+
+        .card-img {
+            width: 260px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+
+            /* push the image 80px outside the left border */
+            margin-left: -100px;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #0D5174;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .card-link {
+            font-size: 14px;
+            text-decoration: none;
+            color: #0D5174;
+            border-bottom: 1px dashed #0D5174;
+            width: fit-content;
+        }
+
+        /* Mobile */
+   
+
+        .cards-row {
+            display: flex;
+            justify-content: center;
+            /* even space around/between cards */
+            align-items: stretch;
+            gap: 24px;
+            /* consistent gap */
+            flex-wrap: wrap;
+            /* wrap on small screens */
+            margin: 20px 0;
+            margin-left: 80px;
+        }
+
+        /* Ensure prior margins don’t push cards */
+        .cards-row .info-card {
+            margin: 0 !important;
+        }
+
+      
+        .image{
+            margin-left: 40px;
+        }
+
+        /* ------- Tablet (<= 900px) ------- */
+@media (max-width: 900px) {
+  .cards-row {
+    margin-left: 0;
+    padding: 0 16px;
+    justify-content: center;
+    gap: 20px;
+  }
+  .info-card,
+  .info-cards {
+    width: 100%;
+    max-width: 520px;
+    margin: 16px auto 0;
+    height: auto;            /* let height grow with content */
+  }
+}
+
+/* ------- Mobile (<= 600px) ------- */
+@media (max-width: 600px) {
+  .info-card,
+  .info-cards {
+    flex-direction: column;  /* stack image above text */
+    align-items: stretch;
+    width: 100%;
+    max-width: 360px;
+    margin: 12px auto 0;     /* centered */
+    padding: 12px;
+    height: auto;
+  }
+
+  .card-img {
+    margin-left: 0;          /* no overflow on mobile */
+    width: 100%;
+    height: 180px;
+  }
+
+  .card-content {
+    gap: 6px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+    white-space: normal;     /* allow wrap on small screens */
+  }
+
+  .card-content p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .cards-row {
+    gap: 16px;
+    padding: 0 12px;
+  }
+}
+
+/* ------- Extra small (<= 400px) ------- */
+@media (max-width: 400px) {
+  .card-img { height: 160px; }
+  .card-content h3 { font-size: 15px; }
+  .card-content p { font-size: 12.5px; }
+}
+
+/* ===================== HEADER ===================== */
+header {
+  width: 100%;
+  background-color: #d8e9e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1200;
+}
+.logo img {
+  height: 50px;
+}
+.btns {
+  background-color: #0D5174;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btns:hover { background-color: #093e58; }
+
+/* ===================== NAVIGATION (DESKTOP) ===================== */
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #0d3a4a;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #0D5174;
+}
+
+/* ===================== DROPDOWN (DESKTOP) ===================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  color: #0d3a4a;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  top: 36px;
+  left: 0;
+  z-index: 999;
+}
+.dropdown-content a {
+  color: #0D5174;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+.dropdown-content a:hover {
+  background-color: #D8E9E9;
+  color: #06394d;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===================== HAMBURGER ICON ===================== */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #0D5174;
+  user-select: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 1300;
+}
+.menu-icon:hover { transform: scale(1.1); }
+.menu-icon.active { color: #ffffff; }
+
+/* ===================== MOBILE NAVIGATION ===================== */
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: #0D5174;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 80px 24px 40px;
+    gap: 0;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 1100;
+    overflow-y: auto;
+  }
+  .nav-links.active { right: 0; }
+
+  .nav-links a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a:hover {
+    color: #CFE1E1;
+  }
+
+  /* Dropdown inside mobile menu */
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background: #0D5174;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+    max-height: 1000px; /* ✅ ensures it expands fully */
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .dropdown-content a {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 0 8px 8px;
+    border: none;
+    display: block;
+    border-bottom: none;
+  }
+
+  .dropdown-content a:hover {
+    background: #093B52;
+  }
+
+  /* Overlay behind mobile menu */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1050;
+  }
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide desktop button */
+  .btns { display: none; }
+  .menu-icon { display: block; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .nav-links a { font-size: 16px; }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Language & City Selector -->
+    <div class="language-city-bar">
+        <select class="selector">
+            <option>English</option>
+            <option>Telugu</option>
+            <option>Kannada</option>
+            <option>Tamil</option>
+        </select>
+
+        <select class="selector">
+            <option>Select City</option>
+            <option>Hyderabad</option>
+            <option>Bengaluru</option>
+            <option>Chennai</option>
+            <option>Pune</option>
+        </select>
+    </div>
+
+
+    <!-- Header -->
+  
+   <header>
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../about-us/index.html">About Us</a>
+
+                <div class="dropdown">
+                    <a href="../treatments/index.html" class="dropbtn">Treatments</a>
+                    <div class="dropdown-content">
+                        <a href="../fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+                        <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+                        <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+                        <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+                        <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+                        <a href="../fw-service/lymphedema.html">Lymphedema</a>
+                        <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
+                        <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+                        <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
+                    </div>
+                </div>
+                </div>
+
+                <a href="#">Diseases</a>
+                <a href="../our-doctors/index.html">Doctors</a>
+
+                <div class="dropdown">
+                    <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+                    <div class="dropdown-content">
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
+                          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+                        <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+                    </div>
+                </div>
+
+                <a href="../Blogs/index.html">Blogs</a>
+                <a href="../contact.html">Contact Us</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+            <div class="menu-icon" id="menu-toggle">☰</div>
+        </header>
+
+
+
+    <section class="help-section" style="background-color: #D8E9E9;">
+        <div class="help-container">
+            <div class="help-text">
+                <h2>We’re Here to Help You</h2>
+                <p>
+                    Need assistance or want to book an appointment? Our team will guide you at every step.
+                </p>
+
+                <div class="help-buttons">
+                    <div class="left-buttons">
+                        <button class="help-btn"> Call Us: +91 98456 78654</button>
+                        <button class="help-btn"> Whatsapp: +91 98456 78654</button>
+                    </div>
+
+                    <div class="right-buttons">
+                        <button class="help-btn"> Book an Appointment</button>
+                        <button class="help-btn"> Mail: info@website.com</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="help-image">
+                <img src="../assets/contact-1.png" alt="Nurse with patient">
+            </div>
+        </div>
+    </section>
+    <section class="counter-section">
+        <div class="counter-box">
+            <h3 class="counter" data-target="25">0</h3>
+            <p>Centres</p>
+        </div>
+        <div class="counter-box">
+            <h3 class="counter" data-target="30">0</h3>
+            <p>Years of Experience</p>
+        </div>
+        <div class="counter-box">
+            <h3 class="counter" data-target="98">0</h3>
+            <p>Success Rate</p>
+        </div>
+        <div class="counter-box">
+            <h3 class="counter" data-target="55000">0</h3>
+            <p>Trusted Patients<br></p>
+        </div>
+    </section>
+    <section class="veins-section">
+        <h2>Best Varicose Veins Hospitals in India</h2>
+        <p>
+            Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+            cosmetic concerns.
+            Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting the importance of early
+            diagnosis and
+            management for improved vein health and prevention of complications. Primary keywords: varicose veins, vein
+            treatment.
+            Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+            cosmetic concerns.
+            Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting the importance of early
+            diagnosis and
+            management for improved vein health and prevention of complications. Primary keywords: varicose veins, vein
+            treatment.
+        </p>
+    </section>
+    <section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+     <section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+     <section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+     <section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+     <section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 150; // smaller = faster
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target + (counter.dataset.target == "98" ? "%" : "+");
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger animation when section is visible
+        const section = document.querySelector('.counter-section');
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.disconnect(); // run once
+            }
+        });
+        observer.observe(section);
+    </script>
+
+<script>
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+// Create overlay dynamically
+const overlay = document.createElement("div");
+overlay.classList.add("menu-overlay");
+document.body.appendChild(overlay);
+
+// Toggle side menu
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const isActive = navLinks.classList.toggle("active");
+  overlay.classList.toggle("active", isActive);
+  menuToggle.textContent = isActive ? "✕" : "☰";
+  menuToggle.classList.toggle("active", isActive);
+});
+
+// Close when clicking outside
+overlay.addEventListener("click", closeMenu);
+
+// Mobile dropdowns
+document.querySelectorAll(".dropdown > .dropbtn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    if (window.innerWidth <= 900) {
+      const parent = this.parentElement;
+      const submenu = parent.querySelector(".dropdown-content");
+
+      if (submenu) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isActive = parent.classList.toggle("active");
+
+        document.querySelectorAll(".dropdown").forEach((drop) => {
+          if (drop !== parent) {
+            drop.classList.remove("active");
+            const otherSub = drop.querySelector(".dropdown-content");
+            if (otherSub) otherSub.style.maxHeight = null;
+          }
+        });
+
+        submenu.style.maxHeight = isActive ? submenu.scrollHeight + "px" : null;
+      }
+    }
+  });
+});
+
+// Close when clicking submenu link
+document.querySelectorAll(".dropdown-content a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+// Close menu for non-dropdown links
+document.querySelectorAll(".nav-links > a:not(.dropbtn)").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+function closeMenu() {
+  navLinks.classList.remove("active");
+  overlay.classList.remove("active");
+  menuToggle.textContent = "☰";
+  menuToggle.classList.remove("active");
+  document.querySelectorAll(".dropdown").forEach((drop) => {
+    drop.classList.remove("active");
+    const submenu = drop.querySelector(".dropdown-content");
+    if (submenu) submenu.style.maxHeight = null;
+  });
+}
+
+// Reset submenus when resizing to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    document.querySelectorAll(".dropdown-content").forEach((sub) => {
+      sub.style.maxHeight = null;
+    });
+  }
+});
+</script>
+
+
+
+
+</body>
+
+</html>

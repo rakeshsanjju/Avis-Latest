@@ -634,6 +634,199 @@
       top: -25px;
     }
   }
+
+  
+/* ===================== HEADER ===================== */
+header {
+  width: 100%;
+  background-color: #d8e9e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1200;
+}
+.logo img {
+  height: 50px;
+}
+.btns {
+  background-color: #0D5174;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btns:hover { background-color: #093e58; }
+
+/* ===================== NAVIGATION (DESKTOP) ===================== */
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #0d3a4a;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #0D5174;
+}
+
+/* ===================== DROPDOWN (DESKTOP) ===================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  color: #0d3a4a;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  top: 36px;
+  left: 0;
+  z-index: 999;
+}
+.dropdown-content a {
+  color: #0D5174;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+.dropdown-content a:hover {
+  background-color: #D8E9E9;
+  color: #06394d;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===================== HAMBURGER ICON ===================== */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #0D5174;
+  user-select: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 1300;
+}
+.menu-icon:hover { transform: scale(1.1); }
+.menu-icon.active { color: #ffffff; }
+
+/* ===================== MOBILE NAVIGATION ===================== */
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: #0D5174;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 80px 24px 40px;
+    gap: 0;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 1100;
+    overflow-y: auto;
+  }
+  .nav-links.active { right: 0; }
+
+  .nav-links a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a:hover {
+    color: #CFE1E1;
+  }
+
+  /* Dropdown inside mobile menu */
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background: #0D5174;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+    max-height: 1000px; /* ✅ ensures it expands fully */
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .dropdown-content a {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 0 8px 8px;
+    border: none;
+    display: block;
+    border-bottom: none;
+  }
+
+  .dropdown-content a:hover {
+    background: #093B52;
+  }
+
+  /* Overlay behind mobile menu */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1050;
+  }
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide desktop button */
+  .btns { display: none; }
+  .menu-icon { display: block; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .nav-links a { font-size: 16px; }
+}
   </style>
 </head>
 
@@ -664,26 +857,55 @@
 
   <!-- Main Header -->
   <!-- header -->
-  <header style="background-color: #D8E9E9;">
-    <div class="logo">
-      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
-    </div>
+  <header>
+            <div class="logo">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
 
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/">About us</a>
-      <a href="../treatments/index.html">Treatments</a>
-      <a href="../diseases/varicose-veins.html">Diseases</a>
-      <a href="../doctors/index.html">Doctors</a>
-      <a href="#">Locations</a>
-      <a href="../Blogs/index.html">Blogs</a>
-      <a href="#">Contact Us</a>
-    </nav>
+            <nav class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./about-us/index.html">About Us</a>
 
-    <button class="btns">Book Appointment</button>
+                <div class="dropdown">
+                    <a href="./treatments/index.html" class="dropbtn">Treatments</a>
+                    <div class="dropdown-content">
+                        <a href="./fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+                        <a href="./fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+                        <a href="./fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+                        <a href="./fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+                        <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+                        <a href="./fw-service/lymphedema.html">Lymphedema</a>
+                        <a href="./fw-service/fibroids-treatment.html">Fibroids</a>
+                        <a href="./fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+                        <a href="./fw-service/varicocele-treatment.html">Varicocele</a>
+                    </div>
+                </div>
+                </div>
 
-    <div class="menu-icon">⋮</div>
-  </header>
+                <a href="#">Diseases</a>
+                <a href="./our-doctors/index.html">Doctors</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Locations</a>
+                    <div class="dropdown-content">
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
+                          <a href="./vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+                    </div>
+                </div>
+
+                <a href="./Blogs/index.html">Blogs</a>
+                <a href="../contact.html">Contact Us</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+            <div class="menu-icon" id="menu-toggle">☰</div>
+        </header>
+
 
 
   <!-- Semi Circle Section -->
@@ -975,6 +1197,87 @@
 
     startTimer();
   </script>
+
+  <!-- =============== JAVASCRIPT =============== -->
+<script>
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+// Create overlay dynamically
+const overlay = document.createElement("div");
+overlay.classList.add("menu-overlay");
+document.body.appendChild(overlay);
+
+// Toggle side menu
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const isActive = navLinks.classList.toggle("active");
+  overlay.classList.toggle("active", isActive);
+  menuToggle.textContent = isActive ? "✕" : "☰";
+  menuToggle.classList.toggle("active", isActive);
+});
+
+// Close when clicking outside
+overlay.addEventListener("click", closeMenu);
+
+// Mobile dropdowns
+document.querySelectorAll(".dropdown > .dropbtn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    if (window.innerWidth <= 900) {
+      const parent = this.parentElement;
+      const submenu = parent.querySelector(".dropdown-content");
+
+      if (submenu) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isActive = parent.classList.toggle("active");
+
+        document.querySelectorAll(".dropdown").forEach((drop) => {
+          if (drop !== parent) {
+            drop.classList.remove("active");
+            const otherSub = drop.querySelector(".dropdown-content");
+            if (otherSub) otherSub.style.maxHeight = null;
+          }
+        });
+
+        submenu.style.maxHeight = isActive ? submenu.scrollHeight + "px" : null;
+      }
+    }
+  });
+});
+
+// Close when clicking submenu link
+document.querySelectorAll(".dropdown-content a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+// Close menu for non-dropdown links
+document.querySelectorAll(".nav-links > a:not(.dropbtn)").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+function closeMenu() {
+  navLinks.classList.remove("active");
+  overlay.classList.remove("active");
+  menuToggle.textContent = "☰";
+  menuToggle.classList.remove("active");
+  document.querySelectorAll(".dropdown").forEach((drop) => {
+    drop.classList.remove("active");
+    const submenu = drop.querySelector(".dropdown-content");
+    if (submenu) submenu.style.maxHeight = null;
+  });
+}
+
+// Reset submenus when resizing to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    document.querySelectorAll(".dropdown-content").forEach((sub) => {
+      sub.style.maxHeight = null;
+    });
+  }
+});
+</script>
 
 </body>
 

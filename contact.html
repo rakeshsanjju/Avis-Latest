@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* ---------- Top Bar ---------- */
+  .language-city-bar {
+    width: 100%;
+    background-color: #0D5174;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: flex-end; /* keeps them on right side */
+    align-items: center;
+    gap: 10px; /* spacing between dropdowns */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 10px;
+  }
+
+  /* ---------- Dropdown Selectors ---------- */
+  .selector {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 28px;
+    min-width: 140px;
+  }
+
+  .selector:hover {
+    background-color: #f1f1f1;
+  }
+
+  .selector:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+  }
+
+  /* ---------- Mobile Responsive ---------- */
+  @media (max-width: 768px) {
+    .language-city-bar {
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 15px;
+      gap: 8px;
+    }
+
+    .selector {
+      font-size: 13px;
+      padding: 5px 12px;
+      min-width: 120px;
+    }
+  }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #0b1f2a;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      width: 100%;
+      background-color: #dceced;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0d3a4a;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0d5174;
+    }
+
+    .btns {
+      background-color: #0d5174;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btns:hover {
+      background-color: #093e58;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+
+    .help-section {
+      background-color: #e5f2f4;
+      padding: 50px 40px;
+      font-family: 'Montserrat', sans-serif;
+      width: 100%;
+    
+    }
+
+    .help-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .help-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .help-text h2 {
+      color: #0D5174;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .help-text p {
+      color: #2d2d2d;
+      font-size: 16px;
+      margin-bottom: 25px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .help-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .left-buttons,
+    .right-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .help-btn {
+      background-color: #0D5174;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    .help-btn:hover {
+      background-color: #09374e;
+    }
+
+    .help-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .help-image img {
+      width: 333px;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    /* ---------- Mobile Responsive ---------- */
+    @media (max-width: 900px) {
+      .help-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .help-text h2 {
+        font-size: 28px;
+      }
+
+      .help-text p {
+        font-size: 15px;
+        margin: 0 auto 20px;
+      }
+
+      .help-buttons {
+        justify-content: center;
+      }
+
+      .help-btn {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+
+      .help-image img {
+        width: 70%;
+        margin-top: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .help-section {
+        padding: 35px 20px;
+      }
+
+      .help-text h2 {
+        font-size: 24px;
+      }
+
+      .help-btn {
+        font-size: 13.5px;
+        padding: 9px 14px;
+      }
+
+      .help-image img {
+        width: 90%;
+      }
+    }
+     /* ---------- Contact Section ---------- */
+  .contact-section {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .contact-section h2 {
+    color: #1a1133;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  /* ---------- Form Layout ---------- */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+
+  .form-row input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    font-size: 15px;
+  }
+
+  /* ---------- Submit Button ---------- */
+  .submit-btn {
+    background-color: #0D5174;
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    margin: 10px auto 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #093b53;
+  }
+
+  /* ---------- Mobile Responsive ---------- */
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-section h2 {
+      font-size: 24px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  /* ===================== HEADER ===================== */
+header {
+  width: 100%;
+  background-color: #d8e9e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1200;
+}
+.logo img {
+  height: 50px;
+}
+.btns {
+  background-color: #0D5174;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btns:hover { background-color: #093e58; }
+
+/* ===================== NAVIGATION (DESKTOP) ===================== */
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #0d3a4a;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #0D5174;
+}
+
+/* ===================== DROPDOWN (DESKTOP) ===================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  color: #0d3a4a;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  top: 36px;
+  left: 0;
+  z-index: 999;
+}
+.dropdown-content a {
+  color: #0D5174;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+.dropdown-content a:hover {
+  background-color: #D8E9E9;
+  color: #06394d;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===================== HAMBURGER ICON ===================== */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #0D5174;
+  user-select: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 1300;
+}
+.menu-icon:hover { transform: scale(1.1); }
+.menu-icon.active { color: #ffffff; }
+
+/* ===================== MOBILE NAVIGATION ===================== */
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: #0D5174;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 80px 24px 40px;
+    gap: 0;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 1100;
+    overflow-y: auto;
+  }
+  .nav-links.active { right: 0; }
+
+  .nav-links a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a:hover {
+    color: #CFE1E1;
+  }
+
+  /* Dropdown inside mobile menu */
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background: #0D5174;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+    max-height: 1000px; /* ✅ ensures it expands fully */
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .dropdown-content a {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 0 8px 8px;
+    border: none;
+    display: block;
+    border-bottom: none;
+  }
+
+  .dropdown-content a:hover {
+    background: #093B52;
+  }
+
+  /* Overlay behind mobile menu */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1050;
+  }
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide desktop button */
+  .btns { display: none; }
+  .menu-icon { display: block; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .nav-links a { font-size: 16px; }
+}
+  </style>
+</head>
+
+<body>
+  <!-- Language & City Selector -->
+ <div class="language-city-bar">
+  <select class="selector">
+    <option>English</option>
+    <option>Telugu</option>
+    <option>Kannada</option>
+    <option>Tamil</option>
+  </select>
+
+  <select class="selector">
+    <option>Select City</option>
+    <option>Hyderabad</option>
+    <option>Bengaluru</option>
+    <option>Chennai</option>
+    <option>Pune</option>
+  </select>
+</div>
+
+
+  <!-- Header -->
+    <header>
+            <div class="logo">
+                <img src="./assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <nav class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./about-us/index.html">About Us</a>
+
+                <div class="dropdown">
+                    <a href="./treatments/index.html" class="dropbtn">Treatments</a>
+                    <div class="dropdown-content">
+                        <a href="./fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+                        <a href="./fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+                        <a href="./fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+                        <a href="./fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+                        <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+                        <a href="./fw-service/lymphedema.html">Lymphedema</a>
+                        <a href="./fw-service/fibroids-treatment.html">Fibroids</a>
+                        <a href="./fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+                        <a href="./fw-service/varicocele-treatment.html">Varicocele</a>
+                    </div>
+                </div>
+                </div>
+
+                <a href="#">Diseases</a>
+                <a href="./our-doctors/index.html">Doctors</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Locations</a>
+                    <div class="dropdown-content">
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
+                          <a href="./vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+                    </div>
+                </div>
+
+                <a href="./Blogs/index.html">Blogs</a>
+                <a href="./contact.html">Contact Us</a>
+            </nav>
+
+            <button class="btns">Book Appointment</button>
+            <div class="menu-icon" id="menu-toggle">☰</div>
+        </header>
+
+  <section class="help-section" style="background-color: #D8E9E9;" >
+    <div class="help-container">
+      <div class="help-text">
+        <h2>We’re Here to Help You</h2>
+        <p>
+          Need assistance or want to book an appointment? Our team will guide you at every step.
+        </p>
+
+        <div class="help-buttons">
+          <div class="left-buttons">
+            <button class="help-btn"> Call Us: +91 98456 78654</button>
+            <button class="help-btn"> Whatsapp: +91 98456 78654</button>
+          </div>
+
+          <div class="right-buttons">
+            <button class="help-btn"> Book an Appointment</button>
+            <button class="help-btn"> Mail: info@website.com</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-image">
+        <img src="./assets/contact.png" alt="Nurse with patient">
+      </div>
+    </div>
+  </section>
+  <section class="contact-section">
+  <h2>Have Questions? Get In Touch!</h2>
+
+  <form class="contact-form">
+    <div class="form-row">
+      <input type="text" placeholder="Name" required>
+      <input type="text" placeholder="Phone Number" required>
+    </div>
+
+    <div class="form-row">
+      <input type="email" placeholder="Email Id" required>
+      <input type="text" placeholder="City / Preferred Branch">
+    </div>
+
+    <textarea placeholder="Message" rows="4"></textarea>
+
+    <button type="submit" class="submit-btn">Submit Enquiry</button>
+  </form>
+</section>
+
+
+
+
+</body>
+
+</html>
