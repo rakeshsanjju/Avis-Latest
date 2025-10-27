@@ -388,76 +388,273 @@
             }
         }
 
-        .treatments {
-            background-color: #0D5174;
-            width: 100%;
-            height: auto;
-            padding-bottom: 40px;
+        .veins-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: #ffffff;
         }
 
-        .treatment {
-            background-color: #fff;
-            width: 100%;
-            height: auto;
-            padding-bottom: 40px;
+        .veins-section h2 {
+            color: #1a1133;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .treatment-card {
-            height: 300px;
-            width: 250px;
-            background-color: #0F394F;
-            border-radius: 30px;
-            padding-left: 10px;
-            margin-top: 60px;
-
-        }
-
-        .treatment-sec {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        .treatment-img {
-            height: 200px;
-            width: 230px;
-            margin-top: -50px;
-
-        }
-
-        .para {
-            text-align: center;
-            font-size: 12px;
-            margin-right: 5px;
-            color: #fff;
+        .veins-section p {
+            color: #333333;
+            font-size: 15px;
+            line-height: 1.7;
+            text-align: justify;
         }
 
         @media (max-width: 768px) {
-            .treatment-sec {
-                flex-direction: column;
-                align-items: center;
-                height: auto;
-                background-color: #0D5174;
+            .veins-section {
+                padding: 15px 20px;
             }
 
-            .treatment-card {
-                width: 90%;
-                max-width: 300px;
-                height: auto;
-                padding: 20px;
+            .veins-section h2 {
+                font-size: 20px;
+                text-align: center;
             }
 
-            .treatment-img {
-                width: 100%;
-                height: auto;
-                margin-top: -60px;
-            }
-
-            .para {
+            .veins-section p {
                 font-size: 14px;
-                margin: 10px 0;
+                line-height: 1.6;
             }
         }
+
+        .vvh-banner {
+            width: 400px;
+            height: 50px;
+            background: #0D5174;
+            border-top-right-radius: 30px;
+            /* right-top = 30px */
+            border-bottom-right-radius: 30px;
+            /* right-bottom = 30px */
+            display: flex;
+            align-items: center;
+            /* vertical centring */
+            justify-content: center;
+            /* horizontal centring */
+            padding: 0 12px;
+            margin-left: 150px;
+            /* optional: keeps text off the edges */
+        }
+
+        .vvh-banner h2 {
+            color: #fff;
+            font-size: 16px;
+            /* adjust as needed */
+            margin: 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+            .vvh-banner {
+                width: 90%;
+                /* fluid width on mobile */
+                height: 56px;
+                /* a bit taller for readability */
+                margin: 12px auto 0;
+                /* center horizontally */
+                padding: 0 10px;
+                /* comfy side padding */
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+
+            .vvh-banner h2 {
+                font-size: 14px;
+                /* slightly smaller text */
+                line-height: 1.3;
+            }
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1.5px solid #4AB7C3;
+            border-radius: 5px;
+            padding: 14px;
+            width: 850px;
+            height: 270px;
+            background: #fff;
+
+            /* allow the image to stick out */
+            overflow: visible;
+
+            margin-left: 200px;
+            margin-top: 30px;
+        }
+
+        .info-cards {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1.5px solid #4AB7C3;
+            border-radius: 5px;
+            padding: 14px;
+            width: 450px;
+            height: 270px;
+            background: #fff;
+
+            /* allow the image to stick out */
+            overflow: visible;
+
+            margin-left: 200px;
+
+        }
+
+        .card-img {
+            width: 360px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+
+            /* push the image 80px outside the left border */
+            margin-left: -100px;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #0D5174;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .card-link {
+            font-size: 14px;
+            text-decoration: none;
+            color: #0D5174;
+            border-bottom: 1px dashed #0D5174;
+            width: fit-content;
+        }
+
+        /* Mobile */
+
+
+        .cards-row {
+            display: flex;
+            justify-content: center;
+            /* even space around/between cards */
+            align-items: stretch;
+            gap: 24px;
+            /* consistent gap */
+            flex-wrap: wrap;
+            /* wrap on small screens */
+            margin: 20px 0;
+            margin-left: 80px;
+        }
+
+        /* Ensure prior margins don’t push cards */
+        .cards-row .info-card {
+            margin: 0 !important;
+        }
+
+
+        .image {
+            margin-left: 40px;
+        }
+
+        /* ------- Tablet (<= 900px) ------- */
+        @media (max-width: 900px) {
+            .cards-row {
+                margin-left: 0;
+                padding: 0 16px;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .info-card,
+            .info-cards {
+                width: 100%;
+                max-width: 520px;
+                margin: 16px auto 0;
+                height: auto;
+                /* let height grow with content */
+            }
+        }
+
+        /* ------- Mobile (<= 600px) ------- */
+        @media (max-width: 600px) {
+
+            .info-card,
+            .info-cards {
+                flex-direction: column;
+                /* stack image above text */
+                align-items: stretch;
+                width: 100%;
+                max-width: 360px;
+                margin: 12px auto 0;
+                /* centered */
+                padding: 12px;
+                height: auto;
+            }
+
+            .card-img {
+                margin-left: 0;
+                /* no overflow on mobile */
+                width: 100%;
+                height: 180px;
+            }
+
+            .card-content {
+                gap: 6px;
+            }
+
+            .card-content h3 {
+                font-size: 16px;
+                white-space: normal;
+                /* allow wrap on small screens */
+            }
+
+            .card-content p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .cards-row {
+                gap: 16px;
+                padding: 0 12px;
+            }
+        }
+
+        /* ------- Extra small (<= 400px) ------- */
+        @media (max-width: 400px) {
+            .card-img {
+                height: 160px;
+            }
+
+            .card-content h3 {
+                font-size: 15px;
+            }
+
+            .card-content p {
+                font-size: 12.5px;
+            }
+        }
+
 
         /* ===================== HEADER ===================== */
         header {
@@ -682,563 +879,61 @@
             }
         }
 
-        .testimonial-section {
-            text-align: center;
-            padding: 80px 50px;
+        footer {
+            background-color: #c9dede;
+            padding: 40px 60px 10px;
+            color: #0b1f2a;
         }
 
-        .testimonial-tag {
-            background-color: #4AB7C3;
-            color: #ffffff;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .testimonial-section h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 50px;
-        }
-
-        .testimonial-cards {
+        .footer-container {
             display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .testimonial-card {
-            background-color: #0E4A66;
-            border: 1.5px solid #4AB7C3;
-            border-radius: 20px;
-            width: 330px;
-            padding: 25px;
-            color: #e4e4e4;
-            text-align: left;
-            position: relative;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .testimonial-card p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #e0e0e0;
-            margin-bottom: 30px;
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-top: -25px;
-        }
-
-        .client-name {
-            font-size: 14px;
-            font-weight: 500;
-            color: #ffffff;
-        }
-
-        .client-img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #4AB7C3;
-        }
-
-        @media (max-width: 900px) {
-            .testimonial-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .testimonial-card {
-                width: 100%;
-                max-width: 360px;
-            }
-        }
-
-        .video-section {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .video-section h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
             gap: 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 30px;
         }
 
-        .video-card {
-            position: relative;
-            width: 280px;
-            height: 160px;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            background-color: transparent;
-            /* removed any visible border background */
+        .footer-column img {
+            width: 190px;
         }
 
-        .video-card:hover {
-            transform: scale(1.05);
+        .footer-column h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .video-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            display: block;
+        .footer-column p,
+        .footer-column a {
+            font-size: 13px;
+            color: #0b1f2a;
+            text-decoration: none;
+            line-height: 1.8;
         }
 
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            /* ✅ removed white border line */
+        .footer-column a:hover {
+            text-decoration: underline;
         }
 
-        .play-button::before {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 18px solid #0D5174;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .video-card {
-                width: 90%;
-                height: 180px;
-            }
-
-            .video-container {
-                gap: 25px;
-            }
-
-            .play-button {
-                width: 55px;
-                height: 55px;
-            }
-        }
-
-        .articles-section {
-            background-color: #e8f5f7;
-            margin-top: 20px;
-            padding: 40px 30px;
-            border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .articles-header {
+        /* bottom note */
+        .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #0b1f2a;
         }
 
-        .articles-header h2 {
-            color: #0D1B2A;
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .more-btn {
-            background-color: #0D1B2A;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .more-btn:hover {
-            background-color: #13385B;
-        }
-
-        .article-cards {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .article-card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            width: 30%;
-            min-width: 280px;
-            max-width: 360px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-        }
-
-        .article-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
-
-        .article-content {
-            padding: 18px;
-            text-align: center;
-        }
-
-        .article-content h3 {
-            font-size: 16px;
-            color: #0D1B2A;
-            font-weight: 600;
-            margin-bottom: 12px;
-            min-height: 50px;
-        }
-
-        .read-btn {
-            background-color: #0D5174;
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .read-btn:hover {
-            background-color: #09425C;
-        }
-
-        /* ---------- Mobile Responsive View ---------- */
-        @media (max-width: 1024px) {
-            .article-card {
-                width: 45%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .articles-header {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
-            .article-cards {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .article-card {
-                width: 90%;
-                max-width: 400px;
-            }
-
-            .article-content h3 {
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .articles-section {
-                padding: 25px 15px;
-            }
-
-            .articles-header h2 {
-                font-size: 20px;
-            }
-
-            .article-content h3 {
-                font-size: 14px;
-                line-height: 1.5;
-            }
-
-            .read-btn {
-                font-size: 12px;
-                padding: 7px 16px;
-            }
-
-            .more-btn {
-                font-size: 13px;
-                padding: 8px 16px;
-            }
-        }
-
-        .vvh-banner {
-            width: 400px;
-            height: 50px;
-            background: #0D5174;
-            border-top-right-radius: 30px;
-            /* right-top = 30px */
-            border-bottom-right-radius: 30px;
-            /* right-bottom = 30px */
-            display: flex;
-            align-items: center;
-            /* vertical centring */
-            justify-content: center;
-            /* horizontal centring */
-            padding: 0 12px;
-            margin-left: 150px;
-            /* optional: keeps text off the edges */
-        }
-
-        .vvh-banner h2 {
-            color: #fff;
-            font-size: 16px;
-            /* adjust as needed */
-            margin: 0;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        @media (max-width: 600px) {
-            .vvh-banner {
-                width: 90%;
-                /* fluid width on mobile */
-                height: 56px;
-                /* a bit taller for readability */
-                margin: 12px auto 0;
-                /* center horizontally */
-                padding: 0 10px;
-                /* comfy side padding */
-                border-top-right-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-
-            .vvh-banner h2 {
-                font-size: 14px;
-                /* slightly smaller text */
-                line-height: 1.3;
-            }
-        }
-
-        .info-card {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            border: 1.5px solid #4AB7C3;
-            border-radius: 5px;
-            padding: 14px;
-            width: 450px;
-            height: 270px;
-            background: #fff;
-
-            /* allow the image to stick out */
-            overflow: visible;
-
-            margin-left: 200px;
-            margin-top: 30px;
-        }
-
-        .info-cards {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            border: 1.5px solid #4AB7C3;
-            border-radius: 5px;
-            padding: 14px;
-            width: 450px;
-            height: 270px;
-            background: #fff;
-
-            /* allow the image to stick out */
-            overflow: visible;
-
-            margin-left: 200px;
-
-        }
-
-        .card-img {
-            width: 260px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-
-            /* push the image 80px outside the left border */
-            margin-left: -100px;
-        }
-
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 8px;
-            overflow: hidden;
-        }
-
-        .card-content h3 {
-            margin: 0;
-            font-size: 18px;
-            color: #0D5174;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .card-content p {
-            margin: 0;
-            color: #333;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .card-link {
-            font-size: 14px;
+        .footer-bottom a {
             text-decoration: none;
-            color: #0D5174;
-            border-bottom: 1px dashed #0D5174;
-            width: fit-content;
+            color: #0b1f2a;
+            margin-left: 10px;
         }
 
-        /* Mobile */
-
-
-        .cards-row {
-            display: flex;
-            justify-content: center;
-            /* even space around/between cards */
-            align-items: stretch;
-            gap: 24px;
-            /* consistent gap */
-            flex-wrap: wrap;
-            /* wrap on small screens */
-            margin: 20px 0;
-            margin-left: 80px;
-        }
-
-        /* Ensure prior margins don’t push cards */
-        .cards-row .info-card {
-            margin: 0 !important;
-        }
-
-
-        .image {
-            margin-left: 40px;
-        }
-
-        /* ------- Tablet (<= 900px) ------- */
-        @media (max-width: 900px) {
-            .cards-row {
-                margin-left: 0;
-                padding: 0 16px;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .info-card,
-            .info-cards {
-                width: 100%;
-                max-width: 520px;
-                margin: 16px auto 0;
-                height: auto;
-                /* let height grow with content */
-            }
-        }
-
-        /* ------- Mobile (<= 600px) ------- */
-        @media (max-width: 600px) {
-
-            .info-card,
-            .info-cards {
-                flex-direction: column;
-                /* stack image above text */
-                align-items: stretch;
-                width: 100%;
-                max-width: 360px;
-                margin: 12px auto 0;
-                /* centered */
-                padding: 12px;
-                height: auto;
-            }
-
-            .card-img {
-                margin-left: 0;
-                /* no overflow on mobile */
-                width: 100%;
-                height: 180px;
-            }
-
-            .card-content {
-                gap: 6px;
-            }
-
-            .card-content h3 {
-                font-size: 16px;
-                white-space: normal;
-                /* allow wrap on small screens */
-            }
-
-            .card-content p {
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-            .cards-row {
-                gap: 16px;
-                padding: 0 12px;
-            }
-        }
-
-        /* ------- Extra small (<= 400px) ------- */
-        @media (max-width: 400px) {
-            .card-img {
-                height: 160px;
-            }
-
-            .card-content h3 {
-                font-size: 15px;
-            }
-
-            .card-content p {
-                font-size: 12.5px;
-            }
+        .footer-bottom a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -1272,7 +967,7 @@
 
         <nav class="nav-links">
             <a href="../index.html">Home</a>
-            <a href="../about-us/index.html">About Us</a>
+            <a href="#">About Us</a>
 
             <div class="dropdown">
                 <a href="../treatments/index.html" class="dropbtn">Treatments</a>
@@ -1281,11 +976,12 @@
                     <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
                     <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
                     <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
-                    <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
-                    <a href="../fw-service/lymphedema.html">Lymphedema</a>
-                    <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
+                    <a href="../fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+                     <a href="../fw-service/lymphedema.html">Lymphedema</a>
+                    <a href="../fw-service/fibroids-treatment.html">Fibroids </a>
                     <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
-                    <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
+                    <a href="../fw-service/varicocele-treatment.html">Varicocele </a>
+                </div>
                 </div>
             </div>
 
@@ -1357,188 +1053,24 @@
             <p>Trusted Patients<br></p>
         </div>
     </section>
-
-    <section class="treatments">
-        <h2 style="color: white; text-align: center; padding-top: 50px;">Disease and Conditions We Treat<br> In
-            Kukatpally</h2>
-        <section class="treatment-sec">
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-        </section>
-
-
-
-
+    <section class="veins-section">
+        <h2>Best Varicose Veins Hospitals in India</h2>
+        <p>
+            Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+            cosmetic concerns.
+            Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting the importance of early
+            diagnosis and
+            management for improved vein health and prevention of complications. Primary keywords: varicose veins, vein
+            treatment.
+            Varicose veins are enlarged, twisted veins that often appear on the legs and can cause discomfort or
+            cosmetic concerns.
+            Affecting up to 20% of adults, varicose veins can worsen if untreated, highlighting the importance of early
+            diagnosis and
+            management for improved vein health and prevention of complications. Primary keywords: varicose veins, vein
+            treatment.
+        </p>
     </section>
-    <section class="treatment">
-        <h2 style="color: #0D5174; text-align: center; padding-top: 50px;">Our Top Treatment Options For
-            <br>Varicose Veins in Kukatpally
-        </h2>
-        <section class="treatment-sec">
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-            <div class="treatment-card">
-                <img src="../assets/Rectangle 42395.png" class="treatment-img" />
-                <h4 style="text-align: center;  color: #fff;">Laser Treatment <br> (EVLT)</h4>
-                <p class="para"> Minimally invasive, scar-free, with just 1-day recovery.</p>
-
-            </div>
-        </section>
-
-
-
-
-    </section>
-
-    <section class="testimonial-section" style="background-color: #0D5174;">
-        <span class="testimonial-tag">Testimonials</span>
-        <h2 style="color: #fff;">Clients Feedback</h2>
-
-        <div class="testimonial-cards">
-            <!-- Card 1 -->
-            <div class="testimonial-card">
-                <p>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                </p>
-                <div class="stars">★★★★★</div>
-                <div class="client-info">
-                    <span class="client-name">Mrs. Anuradha Rao</span>
-                    <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Mrs. Anuradha Rao" class="client-img">
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="testimonial-card">
-                <p>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                </p>
-                <div class="stars">★★★★★</div>
-                <div class="client-info">
-                    <span class="client-name">Pawan Kumar</span>
-                    <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Pawan Kumar" class="client-img">
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="testimonial-card">
-                <p>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                </p>
-                <div class="stars">★★★★★</div>
-                <div class="client-info">
-                    <span class="client-name">Gayathra</span>
-                    <img src="https://i.ibb.co/5K7kJxY/avatar1.jpg" alt="Gayathra" class="client-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="video-section" style="background-color: #0D5174;">
-        <h2>Video Testimonials</h2>
-        <div class="video-container">
-            <!-- Video 1 -->
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
-                </iframe>
-                <div class="play-button"></div>
-            </div>
-
-            <!-- Video 2 -->
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
-                </iframe>
-                <div class="play-button"></div>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/F0ON2iXeA20" title="Testimonial 1" allowfullscreen>
-                </iframe>
-                <div class="play-button"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="articles-section" style="background-color: #e8f5f7 ; margin-top: 20px;">
-        <div class="articles-header">
-            <h2>Related Blogs</h2>
-            <button class="more-btn">More Articles</button>
-        </div>
-
-        <div class="article-cards">
-            <div class="article-card">
-                <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
-                <div class="article-content">
-                    <h3>How to Find the Best Vascular Surgeon in Hyderabad</h3>
-                    <button class="read-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="article-card">
-                <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
-                <div class="article-content">
-                    <h3>Finding the Best Vascular Surgeon near you</h3>
-                    <button class="read-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="article-card">
-                <img src="../assets/Rectangle 42440.png" alt="Doctor performing procedure">
-                <div class="article-content">
-                    <h3>Expert Varicocele Treatment in Hyderabad?</h3>
-                    <button class="read-btn">Read More</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section style="margin-top: 30px;">
+    <section>
         <div class="vvh-banner">
             <h2>Our Varicose Veins Hospitals in Telangana</h2>
         </div>
@@ -1549,6 +1081,9 @@
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
                     <h3>Avis Hospital Jublieehills</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
+                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
+                        aliquet nunc, ac faucibus magna risus et purus.</p>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1570,31 +1105,7 @@
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
-                <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
 
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/email.png" style="height:20px;" />
-                        <p style="margin-left:10px;">info@avishospitals.com</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
-                        <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Row wrapper -->
@@ -1604,6 +1115,9 @@
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
                     <h3>Avis Hospital Jublieehills</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
+                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
+                        aliquet nunc, ac faucibus magna risus et purus.</p>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1625,11 +1139,19 @@
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="info-cards">
+
+        </div>
+
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
                     <h3>Avis Hospital Jublieehills</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
+                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
+                        aliquet nunc, ac faucibus magna risus et purus.</p>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1650,11 +1172,84 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
 
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Jublieehills</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
+                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
+                        aliquet nunc, ac faucibus magna risus et purus.</p>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
     </section>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <div class="footer-column">
+                <h4>Need Help?</h4>
+                <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+                    <a href="tel:+919989527715">+91 9989527715</a><br>
+                    Jubilee Hills, Hyderabad
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms & Conditions</a><br>
+                <a href="#">Refund Cancellation</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <a href="#">Face book</a><br>
+                <a href="#">Twitter</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">Youtube</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>All Right Reserved © 2025</span>
+            <span>
+                <a href="#">Privacy Policy</a> /
+                <a href="#">Terms & Conditions</a>
+            </span>
+        </div>
+    </footer>
 
 
 
@@ -1786,7 +1381,7 @@
         });
     </script>
 
-   
+
 
 
 

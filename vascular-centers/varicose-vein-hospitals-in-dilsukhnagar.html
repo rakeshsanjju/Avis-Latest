@@ -1240,6 +1240,63 @@
                 font-size: 12.5px;
             }
         }
+
+        footer {
+            background-color: #c9dede;
+            padding: 40px 60px 10px;
+            color: #0b1f2a;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 30px;
+        }
+
+        .footer-column img {
+            width: 190px;
+        }
+
+        .footer-column h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 13px;
+            color: #0b1f2a;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        /* bottom note */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #0b1f2a;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+            color: #0b1f2a;
+            margin-left: 10px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -1655,7 +1712,44 @@
 
     </section>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
 
+            <div class="footer-column">
+                <h4>Need Help?</h4>
+                <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+                    <a href="tel:+919989527715">+91 9989527715</a><br>
+                    Jubilee Hills, Hyderabad
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms & Conditions</a><br>
+                <a href="#">Refund Cancellation</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <a href="#">Face book</a><br>
+                <a href="#">Twitter</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">Youtube</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>All Right Reserved © 2025</span>
+            <span>
+                <a href="#">Privacy Policy</a> /
+                <a href="#">Terms & Conditions</a>
+            </span>
+        </div>
+    </footer>
 
 
 
@@ -1785,6 +1879,7 @@
             }
         });
     </script>
+
 
 
 

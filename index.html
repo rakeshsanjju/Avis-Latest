@@ -918,6 +918,8 @@
             /* allow cutout overlap */
             box-shadow: var(--shadow);
             min-height: 320px;
+            margin-left: 100px;
+
         }
 
         /* Background gradient + photo */
@@ -1978,6 +1980,64 @@
                 font-size: 16px;
             }
         }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background-color: #c9dede;
+            padding: 40px 60px 10px;
+            color: #0b1f2a;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 30px;
+        }
+
+        .footer-column img {
+            width: 190px;
+        }
+
+        .footer-column h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 13px;
+            color: #0b1f2a;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        /* bottom note */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #0b1f2a;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+            color: #0b1f2a;
+            margin-left: 10px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -2044,7 +2104,7 @@
                         <a href="./vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
                         <a href="./vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
                         <a href="./vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
-                          <a href="./vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+                        <a href="./vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
                         <a href="./vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
                     </div>
                 </div>
@@ -2272,27 +2332,30 @@
         </div>
     </section>
 
+    
+        <section class="cta-banner" aria-label="Need a Doctor for Check-up">
+            <!-- Background image + tint -->
+            <div class="panel-bg" aria-hidden="true">
+                <img class="bg-photo" src="./assets/Rectangle 42383.png" alt="">
+                <div class="bg-tint"></div>
+            </div>
 
-    <section class="cta-banner" aria-label="Need a Doctor for Check-up">
-        <!-- Background image + tint -->
-        <div class="panel-bg" aria-hidden="true">
-            <img class="bg-photo" src="./assets/Rectangle 42383.png" alt="">
-            <div class="bg-tint"></div>
-        </div>
+            <!-- Text -->
+            <div class="cta-inner">
+                <h4>Need a Doctor for Check-up?</h4>
+                <p class="sub">Your first step towards the right solution.<br>Call for an Appointment.</p>
+                <a class="phone" href="tel:+919989527715">+91 9989527715</a>
+            </div>
 
-        <!-- Text -->
-        <div class="cta-inner">
-            <h4>Need a Doctor for Check-up?</h4>
-            <p class="sub">Your first step towards the right solution.<br>Call for an Appointment.</p>
-            <a class="phone" href="tel:+919989527715">+91 9989527715</a>
-        </div>
+            <!-- Doctor cut-out -->
+            <figure class="cutout" aria-hidden="true">
+                <img src="./assets/doctor-examining-elderly-patient-with-venous-thrombosis-varicose-veins-generative-ai 1.png"
+                    alt="">
+            </figure>
+        </section>
 
-        <!-- Doctor cut-out -->
-        <figure class="cutout" aria-hidden="true">
-            <img src="./assets/doctor-examining-elderly-patient-with-venous-thrombosis-varicose-veins-generative-ai 1.png"
-                alt="">
-        </figure>
-    </section>
+ 
+
 
 
 
@@ -2368,8 +2431,7 @@
                     <h3
                         style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
                         Dr. Rajah V. Koppala</h3>
-                    <h5
-                        style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: -20px;">
+                    <h5 style="color: #0D5174; display: flex; justify-content: center; align-items: center; ">
                         Vascular & Interventional Radiologist
                     </h5>
                 </div>
@@ -2380,8 +2442,7 @@
                     <h3
                         style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
                         Dr. Rajah V. Koppala</h3>
-                    <h5
-                        style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: -20px;">
+                    <h5 style="color: #0D5174; display: flex; justify-content: center; align-items: center; ">
                         Vascular & Interventional Radiologist
                     </h5>
                 </div>
@@ -2392,8 +2453,7 @@
                     <h3
                         style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
                         Dr. Rajah V. Koppala</h3>
-                    <h5
-                        style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: -20px;">
+                    <h5 style="color: #0D5174; display: flex; justify-content: center; align-items: center; ">
                         Vascular & Interventional Radiologist
                     </h5>
                 </div>
@@ -2529,6 +2589,45 @@
 
 
     </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="./assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+            </div>
+
+            <div class="footer-column">
+                <h4>Need Help?</h4>
+                <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+                    <a href="tel:+919989527715">+91 9989527715</a><br>
+                    Jubilee Hills, Hyderabad
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms & Conditions</a><br>
+                <a href="#">Refund Cancellation</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <a href="#">Face book</a><br>
+                <a href="#">Twitter</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">Youtube</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>All Right Reserved © 2025</span>
+            <span>
+                <a href="#">Privacy Policy</a> /
+                <a href="#">Terms & Conditions</a>
+            </span>
+        </div>
+    </footer>
 
 
 
