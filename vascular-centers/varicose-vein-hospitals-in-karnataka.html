@@ -509,14 +509,20 @@
 
         }
 
-        .card-img {
-            width: 360px;
+      .card-img {
+            display: block;
+            /* ✅ ensures width/height apply correctly */
+            width: 300px;
+            /* fixed width */
             height: 200px;
+            /* fixed height */
             object-fit: cover;
+            /* keeps aspect ratio inside box */
             border-radius: 8px;
-
-            /* push the image 80px outside the left border */
+            flex-shrink: 0;
+            /* ✅ prevents flexbox parent from resizing it */
             margin-left: -100px;
+            /* push image left by 100px */
         }
 
         .card-content {
@@ -1072,15 +1078,15 @@
     </section>
     <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in Karnataka</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/download (7).jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Mysore</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>
@@ -1112,9 +1118,9 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/download (8).jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Mangalore</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>
@@ -1146,9 +1152,9 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/download (9).jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Bangalore</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>
@@ -1180,9 +1186,9 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/download (10).jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Belagavi</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>

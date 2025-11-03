@@ -510,15 +510,20 @@
         }
 
         .card-img {
-            width: 360px;
+            display: block;
+            /* ✅ ensures width/height apply correctly */
+            width: 300px;
+            /* fixed width */
             height: 200px;
+            /* fixed height */
             object-fit: cover;
+            /* keeps aspect ratio inside box */
             border-radius: 8px;
-
-            /* push the image 80px outside the left border */
+            flex-shrink: 0;
+            /* ✅ prevents flexbox parent from resizing it */
             margin-left: -100px;
+            /* push image left by 100px */
         }
-
         .card-content {
             display: flex;
             flex-direction: column;
@@ -1072,15 +1077,49 @@
     </section>
     <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in West Bengal</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/download (14).jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Durgapur</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
+                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
+                        aliquet nunc, ac faucibus magna risus et purus.</p>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
+                            Telangana, 500033
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/download (15).jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Siliguri</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>
@@ -1114,7 +1153,7 @@
             <div class="info-card">
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Kolkata</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
                         dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
                         aliquet nunc, ac faucibus magna risus et purus.</p>
@@ -1142,73 +1181,7 @@
 
         </div>
 
-        <!-- Row wrapper -->
-        <div class="cards-row">
-            <!-- Card 1 -->
-            <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
-                <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
-                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
-                        aliquet nunc, ac faucibus magna risus et purus.</p>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/email.png" style="height:20px;" />
-                        <p style="margin-left:10px;">info@avishospitals.com</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
-                        <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <!-- Row wrapper -->
-        <div class="cards-row">
-            <!-- Card 1 -->
-            <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
-                <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eros ut lorem tincidunt
-                        dignissim. Nulla facilisi. Suspendisse suscipit, velit in fringilla viverra, lorem sapien
-                        aliquet nunc, ac faucibus magna risus et purus.</p>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/email.png" style="height:20px;" />
-                        <p style="margin-left:10px;">info@avishospitals.com</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
-                        <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
+    
 
     </section>
 

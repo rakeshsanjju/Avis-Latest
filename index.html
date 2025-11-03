@@ -7,7 +7,7 @@
   <title>Avis Hospitals | Static Header</title>
 
   <style>
-   /* ===========================================================
+      /* ===========================================================
        TOP LANGUAGE–CITY BAR
        =========================================================== */
     .language-city-bar {
@@ -134,35 +134,41 @@
       color: #0d5174;
     }
 
-    /* Dropdown container */
+    /* ===========================================================
+       DROPDOWN MENU
+       =========================================================== */
     .dropdown {
-      display: inline-block;
       position: relative;
+      display: inline-block;
     }
 
     .dropbtn {
       cursor: pointer;
+      display: inline-block;
+      padding: 10px 0;
+      color: #0d3a4a;
+      font-weight: 500;
+      text-decoration: none;
     }
 
-    /* Dropdown content */
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #ffffff;
-      min-width: 200px;
+      min-width: 220px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
-      top: 40px;
+      top: 100%;
       left: 0;
-      z-index: 99;
+      z-index: 9999;
     }
 
-    /* Dropdown links */
     .dropdown-content a {
       color: #0D5174;
       padding: 10px 16px;
       display: block;
       text-align: left;
+      text-decoration: none;
       border-bottom: 1px solid #eee;
     }
 
@@ -170,76 +176,61 @@
       background-color: #f5f9ff;
     }
 
-    /* Show dropdown on hover (desktop only) */
-    @media (min-width: 901px) {
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+    /* ✅ Keep dropdown open while hovering anywhere inside it */
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     /* ---------- MOBILE HEADER ---------- */
     @media (max-width: 900px) {
-  nav {
-    flex-direction: column;
-    background-color: #d8e9e9;
-    position: fixed;
-    top: 113px;
-    right: -100%;
-    width: 70%;
-    height: calc(100vh - 130px);
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.4s ease;
-    z-index: 1800;
-    border-top-left-radius: 20px;
+      nav {
+        flex-direction: column;
+        background-color: #d8e9e9;
+        position: fixed;
+        top: 113px;
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - 130px);
+        padding: 40px 0;
+        text-align: center;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+        z-index: 1800;
+        border-top-left-radius: 20px;
+        overflow-y: auto;
+      }
 
-    /* ✅ Allow scrolling inside menu */
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
-  }
+      nav.active {
+        right: 0;
+      }
 
-  /* Optional: hide scrollbar for cleaner UI (works in Chrome/Safari) */
-  nav::-webkit-scrollbar {
-    width: 6px;
-  }
-  nav::-webkit-scrollbar-thumb {
-    background: #aaa;
-    border-radius: 10px;
-  }
+      .menu-icon {
+        display: block;
+      }
 
-  nav.active {
-    right: 0;
-  }
+      .btns {
+        display: none;
+      }
 
-  nav a {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    display: block;
-  }
+      nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
+      }
 
-  .menu-icon {
-    display: block;
-  }
+      /* Mobile dropdown */
+      .dropdown-content {
+        position: static;
+        background: #fff;
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+      }
 
-  .btns {
-    display: none;
-  }
-
-  /* Mobile dropdown fix */
-  .dropdown-content {
-    position: static;
-    background: #fff;
-    box-shadow: none;
-    border-radius: 0;
-    display: none;
-  }
-
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-}
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+    }
 
 
     /* ===========================================================
@@ -1232,7 +1223,7 @@
       </div>
       <a href="./our-doctors/index.html">Doctors</a>
       <div class="dropdown">
-        <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+        <a href="./vascular-centers/index.html" class="dropbtn">Locations</a>
         <div class="dropdown-content">
           <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
           <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
@@ -1530,6 +1521,51 @@
           </h5>
         </div>
       </div>
+      
+    </div>
+  </section>
+   <section style="background-image: url('./assets/Group\ 143874.png'); 
+                 background-size: cover; 
+                 background-position: center; 
+                 padding: 60px 20px; 
+                 color: #fff;">
+  
+
+    <div class="doc-order">
+      <div>
+        <img class="doc-img" src="./assets/Rectangle 42384.png" />
+        <div class="doc-card">
+          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
+            Dr. Rajah V. Koppala</h3>
+          <h5
+            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
+            Vascular & Interventional Radiologist
+          </h5>
+        </div>
+      </div>
+      <div>
+        <img class="doc-img" src="./assets/Rectangle 42384.png" />
+        <div class="doc-card">
+          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
+            Dr. Rajah V. Koppala</h3>
+          <h5
+            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
+            Vascular & Interventional Radiologist
+          </h5>
+        </div>
+      </div>
+      <div>
+        <img class="doc-img" src="./assets/Rectangle 42384.png" />
+        <div class="doc-card">
+          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
+            Dr. Rajah V. Koppala</h3>
+          <h5
+            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
+            Vascular & Interventional Radiologist
+          </h5>
+        </div>
+      </div>
+      
     </div>
   </section>
 
