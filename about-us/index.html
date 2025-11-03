@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avis Hospitals | Varicose Veins</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avis Hospitals | Static Header</title>
 
   <style>
-    /* ---------- Language & City Bar ---------- */
+    /* ===========================================================
+       TOP LANGUAGE–CITY BAR
+       =========================================================== */
     .language-city-bar {
       width: 100%;
       background-color: #0D5174;
@@ -15,14 +17,11 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      margin-top: 10px;
-    }
-
-    .right-buttons {
-      display: flex;
       gap: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2000;
     }
 
     .selector {
@@ -40,15 +39,7 @@
       background-position: right 10px center;
       background-size: 12px;
       padding-right: 28px;
-    }
-
-    .selector:hover {
-      background-color: #f1f1f1;
-    }
-
-    .selector:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
+      min-width: 140px;
     }
 
     @media (max-width: 768px) {
@@ -60,10 +51,13 @@
 
       .selector {
         font-size: 13px;
-        padding: 5px 12px;
+        min-width: 120px;
       }
     }
 
+    /* ===========================================================
+       BASIC RESET
+       =========================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -75,16 +69,24 @@
       background: #ffffff;
       color: #0b1f2a;
       overflow-x: hidden;
+      padding-top: 145px;
     }
 
-    /* ---------- Header ---------- */
+    /* ===========================================================
+       MAIN HEADER
+       =========================================================== */
     header {
       width: 100%;
-      background-color: #dceced;
+      background-color: #d8e9e9;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 40px;
+      position: fixed;
+      top: 40px;
+      left: 0;
+      z-index: 1900;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     .logo img {
@@ -95,6 +97,7 @@
       display: flex;
       align-items: center;
       gap: 30px;
+      transition: all 0.3s ease;
     }
 
     nav a {
@@ -126,103 +129,190 @@
 
     .menu-icon {
       display: none;
-      font-size: 22px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #0d5174;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropbtn {
       cursor: pointer;
     }
 
-    @media (max-width: 900px) {
-      nav {
-        display: none;
-      }
+    /* Dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      top: 40px;
+      left: 0;
+      z-index: 99;
+    }
 
-      .menu-icon {
+    /* Dropdown links */
+    .dropdown-content a {
+      color: #0D5174;
+      padding: 10px 16px;
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f9ff;
+    }
+
+    /* Show dropdown on hover (desktop only) */
+    @media (min-width: 901px) {
+      .dropdown:hover .dropdown-content {
         display: block;
       }
     }
 
-    /* ---------- Hero Section ---------- */
-    .hero-section {
-      width: 1225px;
-      border-radius: 15px;
-      overflow: hidden;
-      position: relative;
-      margin-top: 40px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
+    /* ---------- MOBILE HEADER ---------- */
+  @media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    background-color: #d8e9e9;
+    position: fixed;
+    top: 113px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 130px);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 1800;
+    border-top-left-radius: 20px;
 
-    .hero-image {
-      width: 100%;
-      height: 400px;
-      background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
+    /* ✅ Allow scrolling inside menu */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
 
-    .hero-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(13, 81, 116, 0.55);
-    }
+  /* Optional: hide scrollbar for cleaner UI (works in Chrome/Safari) */
+  nav::-webkit-scrollbar {
+    width: 6px;
+  }
+  nav::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 10px;
+  }
 
-    .hero-text {
-      position: relative;
-      text-align: center;
-      color: #fff;
-      z-index: 2;
-    }
+  nav.active {
+    right: 0;
+  }
 
-    .hero-text h1 {
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 1.3;
-      max-width: 700px;
-    }
+  nav a {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: block;
+  }
 
-    @media (max-width: 1024px) {
-      .hero-section {
-        width: 100%;
-      }
+  .menu-icon {
+    display: block;
+  }
 
-      .hero-image {
-        height: 320px;
-      }
+  .btns {
+    display: none;
+  }
 
-      .hero-text h1 {
-        font-size: 30px;
-        max-width: 600px;
-      }
-    }
+  /* Mobile dropdown fix */
+  .dropdown-content {
+    position: static;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    display: none;
+  }
 
-    @media (max-width: 768px) {
-      .hero-image {
-        height: 280px;
-      }
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+}
 
-      .hero-text h1 {
-        font-size: 24px;
-        max-width: 90%;
-      }
+ /* ===========================================================
+       Hero Banner
+    =========================================================== */
 
-      .hero-section {
-        width: 100%;
-      }
-    }
+  /* ===========================================================
+   Hero Banner (responsive centered)
+   =========================================================== */
+.hero-section {
+  width: 100%;
+  max-width: 1225px;         /* keeps nice width on large screens */
+  margin: 0 auto;            /* centers it */
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
 
-    @media (max-width: 480px) {
-      .hero-image {
-        height: 240px;
-      }
+.hero-image {
+  width: 100%;
+  height: 400px;
+  background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80')
+              center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
-      .hero-text h1 {
-        font-size: 20px;
-        line-height: 1.4;
-      }
-    }
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 81, 116, 0.55);
+}
 
-    /* ---------- Stats Box ---------- */
+.hero-text {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 700px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hero-image { height: 320px; }
+  .hero-text h1 {
+    font-size: 30px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image { height: 280px; }
+  .hero-text h1 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .hero-image { height: 240px; }
+  .hero-text h1 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+
+ /* ---------- Stats Box ---------- */
     .stats-box {
       width: 85%;
       max-width: 950px;
@@ -396,233 +486,9 @@
       }
     }
 
-    /* -------------header------ */
 
 
-    /* ===================== HEADER ===================== */
-    header {
-      width: 100%;
-      background-color: #d8e9e9;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-      position: relative;
-      z-index: 1200;
-    }
-
-    .logo img {
-      height: 50px;
-    }
-
-    .btns {
-      background-color: #0D5174;
-      color: white;
-      padding: 8px 18px;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btns:hover {
-      background-color: #093e58;
-    }
-
-    /* ===================== NAVIGATION (DESKTOP) ===================== */
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #0d3a4a;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #0D5174;
-    }
-
-    /* ===================== DROPDOWN (DESKTOP) ===================== */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropbtn {
-      color: #0d3a4a;
-      text-decoration: none;
-      padding: 8px 12px;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ffffff;
-      min-width: 220px;
-      box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
-      border-radius: 6px;
-      top: 36px;
-      left: 0;
-      z-index: 999;
-    }
-
-    .dropdown-content a {
-      color: #0D5174;
-      padding: 10px 16px;
-      text-decoration: none;
-      display: block;
-      font-weight: 500;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #D8E9E9;
-      color: #06394d;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* ===================== HAMBURGER ICON ===================== */
-    .menu-icon {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-      color: #0D5174;
-      user-select: none;
-      transition: transform 0.3s ease, color 0.3s ease;
-      z-index: 1300;
-    }
-
-    .menu-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .menu-icon.active {
-      color: #ffffff;
-    }
-
-    /* ===================== MOBILE NAVIGATION ===================== */
-    @media (max-width: 900px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100%;
-        background: #0D5174;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 80px 24px 40px;
-        gap: 0;
-        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
-        transition: right 0.4s ease;
-        z-index: 1100;
-        overflow-y: auto;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-links a {
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 18px;
-        width: 100%;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .nav-links a:hover {
-        color: #CFE1E1;
-      }
-
-      /* Dropdown inside mobile menu */
-      .dropdown {
-        width: 100%;
-      }
-
-      .dropdown-content {
-        position: relative;
-        background: #0D5174;
-        box-shadow: none;
-        border-radius: 0;
-        width: 100%;
-        margin-left: 0;
-        padding-left: 10px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s ease;
-      }
-
-      .dropdown.active .dropdown-content {
-        display: block;
-        max-height: 1000px;
-        /* ✅ ensures it expands fully */
-        padding-top: 6px;
-        padding-bottom: 6px;
-      }
-
-      .dropdown-content a {
-        color: #ffffff;
-        font-size: 16px;
-        padding: 8px 0 8px 8px;
-        border: none;
-        display: block;
-        border-bottom: none;
-      }
-
-      .dropdown-content a:hover {
-        background: #093B52;
-      }
-
-      /* Overlay behind mobile menu */
-      .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1050;
-      }
-
-      .menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Hide desktop button */
-      .btns {
-        display: none;
-      }
-
-      .menu-icon {
-        display: block;
-      }
-    }
-
-    /* Small phones */
-    @media (max-width: 480px) {
-      .nav-links a {
-        font-size: 16px;
-      }
-    }
-
-    .doc-order {
+  .doc-order {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -841,148 +707,146 @@
         margin: 10px 0;
       }
     }
-            /* ================= FOOTER ================= */
-footer {
-  background-color: #c9dede;
-  padding: 40px 60px 10px;
-  color: #0b1f2a;
-}
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 30px;
-}
 
-.footer-column img {
-  width: 190px;
-}
+    /* ===========================================================
+       FOOTER
+       =========================================================== */
+    footer {
+      background-color: #c9dede;
+      padding: 40px 60px 10px;
+      color: #0b1f2a;
+    }
 
-.footer-column h4 {
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 30px;
+    }
 
-.footer-column p,
-.footer-column a {
-  font-size: 13px;
-  color: #0b1f2a;
-  text-decoration: none;
-  line-height: 1.8;
-}
+    .footer-column img {
+      width: 190px;
+    }
 
-.footer-column a:hover {
-  text-decoration: underline;
-}
+    .footer-column h4 {
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
 
-/* bottom note */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  margin-top: 10px;
-  color: #0b1f2a;
-}
+    .footer-column p,
+    .footer-column a {
+      font-size: 13px;
+      color: #0b1f2a;
+      text-decoration: none;
+      line-height: 1.8;
+    }
 
-.footer-bottom a {
-  text-decoration: none;
-  color: #0b1f2a;
-  margin-left: 10px;
-}
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 10px;
+    }
 
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
+    .footer-bottom a {
+      text-decoration: none;
+      color: #0b1f2a;
+      margin-left: 10px;
+    }
   </style>
 </head>
 
-<body style="margin-left: 10px; margin-right: 10px;">
-  <!-- Language & City Selector -->
-  <div class="language-city-bar">
-    <div class="right-buttons">
-      <select class="selector">
-        <option>English</option>
-        <option>Telugu</option>
-        <option>Kannada</option>
-        <option>Tamil</option>
-        <option>Hindi</option>
-      </select>
+<body>
 
-      <select class="selector">
-        <option>Select City</option>
-        <option>Hyderabad</option>
-        <option>Bengaluru</option>
-        <option>Chennai</option>
-        <option>Vijayawada</option>
-        <option>Vizag</option>
-      </select>
-    </div>
+  <!-- LANGUAGE–CITY BAR -->
+  <div class="language-city-bar">
+    <select class="selector">
+      <option>English</option>
+      <option>Telugu</option>
+      <option>Kannada</option>
+      <option>Tamil</option>
+    </select>
+
+    <select class="selector">
+      <option>Select City</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+      <option>Pune</option>
+    </select>
   </div>
 
-  <!-- Header -->
-    <header>
-            <div class="logo">
-                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
-            </div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+    </div>
 
-            <nav class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../about-us/index.html">About Us</a>
+    <nav class="nav-links" id="nav-menu">
+      <a href="./index.html">Home</a>
 
-                <div class="dropdown">
-                    <a href="../treatments/index.html" class="dropbtn">Treatments</a>
-                    <div class="dropdown-content">
-                        <a href="../fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
-                        <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
-                        <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
-                        <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
-                        <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
-                        <a href="../fw-service/lymphedema.html">Lymphedema</a>
-                        <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
-                        <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
-                        <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
-                    </div>
-                </div>
-                </div>
+      <div class="dropdown">
+        <a href="./about-us/index.html" class="dropbtn">About Us</a>
+        <div class="dropdown-content">
+          <a href="./about-us/announcements.html">Announcements</a>
+          <a href="./about-us/achievements.html">Achievements</a>
+          <a href="./about-us/testimonials.html">Testimonials</a>
+          <a href="./about-us/faqs.html">FAQs</a>
+        </div>
+      </div>
 
-                <a href="#">Diseases</a>
-                <a href="../our-doctors/index.html">Doctors</a>
+      <div class="dropdown">
+        <a href="./treatments/index.html" class="dropbtn">Treatments</a>
+        <div class="dropdown-content">
+          <a href="../fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+          <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+          <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+          <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+          <a href="../fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+          <a href="../fw-service/lymphedema.html">Lymphedema</a>
+          <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
+          <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+          <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
+        </div>
+      </div>
 
-                <div class="dropdown">
-                    <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
-                    <div class="dropdown-content">
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
-                          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
-                    </div>
-                </div>
+      <a href="./our-doctors/index.html">Doctors</a>
 
-                <a href="../Blogs/index.html">Blogs</a>
-                <a href="../contact.html">Contact Us</a>
-            </nav>
+      <div class="dropdown">
+        <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+        <div class="dropdown-content">
+          <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+        </div>
+      </div>
 
-            <button class="btns">Book Appointment</button>
-            <div class="menu-icon" id="menu-toggle">☰</div>
-        </header>
+      <a href="./Blogs/index.html">Blogs</a>
+      <a href="./contact.html">Contact Us</a>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
+    <button class="btns">Book Appointment</button>
+    <div class="menu-icon" id="menu-toggle">☰</div>
+  </header>
+
+
+  <!-- banner Content -->
+<section class="hero-section">
     <div class="hero-image">
       <div class="hero-text">
         <h1>India's only Hospital<br>For End-to-End Vein Care.</h1>
       </div>
     </div>
   </section>
-
   <!-- Stats Box -->
   <div class="stats-box">
     <div class="stat-item">
@@ -1120,6 +984,8 @@ footer {
     </div>
   </section>
 
+  <!-- why Choose us section -->
+
   <section class="treatments">
     <h2 style="color: white; text-align: center; padding-top: 50px; margin-bottom: 30px;"> Why Choose Us</h2>
     <section class="treatment-sec">
@@ -1181,124 +1047,65 @@ footer {
 
 
   </section>
+  
+
+
   <footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+      </div>
+
+      <div class="footer-column">
+        <h4>Need Help?</h4>
+        <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+          <a href="tel:+919989527715">+91 9989527715</a><br>
+          Jubilee Hills, Hyderabad
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a><br>
+        <a href="#">Terms & Conditions</a><br>
+        <a href="#">Refund Cancellation</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Social Media</h4>
+        <a href="#">Facebook</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Instagram</a><br>
+        <a href="#">Youtube</a>
+      </div>
     </div>
 
-    <div class="footer-column">
-      <h4>Need Help?</h4>
-      <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
-      <a href="tel:+919989527715">+91 9989527715</a><br>
-      Jubilee Hills, Hyderabad</p>
+    <div class="footer-bottom">
+      <span>All Right Reserved © 2025</span>
+      <span><a href="#">Privacy Policy</a> / <a href="#">Terms & Conditions</a></span>
     </div>
+  </footer>
 
-    <div class="footer-column">
-      <h4>Legal</h4>
-      <a href="#">Privacy Policy</a><br>
-      <a href="#">Terms & Conditions</a><br>
-      <a href="#">Refund Cancellation</a>
-    </div>
-
-    <div class="footer-column">
-      <h4>Social Media</h4>
-      <a href="#">Face book</a><br>
-      <a href="#">Twitter</a><br>
-      <a href="#">Instagram</a><br>
-      <a href="#">Youtube</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <span>All Right Reserved © 2025</span>
-    <span>
-      <a href="#">Privacy Policy</a> / 
-      <a href="#">Terms & Conditions</a>
-    </span>
-  </div>
-</footer>
-
-
+  <!-- ✅ MOBILE MENU SCRIPT -->
   <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
-    // Create overlay dynamically
-    const overlay = document.createElement("div");
-    overlay.classList.add("menu-overlay");
-    document.body.appendChild(overlay);
-
-    // Toggle side menu
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isActive = navLinks.classList.toggle("active");
-      overlay.classList.toggle("active", isActive);
-      menuToggle.textContent = isActive ? "✕" : "☰";
-      menuToggle.classList.toggle("active", isActive);
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
 
-    // Close when clicking outside
-    overlay.addEventListener("click", closeMenu);
-
-    // Mobile dropdowns
-    document.querySelectorAll(".dropdown > .dropbtn").forEach((btn) => {
-      btn.addEventListener("click", function (e) {
+    // Toggle dropdowns on mobile tap
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
         if (window.innerWidth <= 900) {
-          const parent = this.parentElement;
-          const submenu = parent.querySelector(".dropdown-content");
-
-          if (submenu) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const isActive = parent.classList.toggle("active");
-
-            document.querySelectorAll(".dropdown").forEach((drop) => {
-              if (drop !== parent) {
-                drop.classList.remove("active");
-                const otherSub = drop.querySelector(".dropdown-content");
-                if (otherSub) otherSub.style.maxHeight = null;
-              }
-            });
-
-            submenu.style.maxHeight = isActive ? submenu.scrollHeight + "px" : null;
-          }
+          e.preventDefault();
+          const parent = btn.parentElement;
+          parent.classList.toggle('active');
         }
       });
     });
-
-    // Close when clicking submenu link
-    document.querySelectorAll(".dropdown-content a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    // Close menu for non-dropdown links
-    document.querySelectorAll(".nav-links > a:not(.dropbtn)").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    function closeMenu() {
-      navLinks.classList.remove("active");
-      overlay.classList.remove("active");
-      menuToggle.textContent = "☰";
-      menuToggle.classList.remove("active");
-      document.querySelectorAll(".dropdown").forEach((drop) => {
-        drop.classList.remove("active");
-        const submenu = drop.querySelector(".dropdown-content");
-        if (submenu) submenu.style.maxHeight = null;
-      });
-    }
-
-    // Reset submenus when resizing to desktop
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        document.querySelectorAll(".dropdown-content").forEach((sub) => {
-          sub.style.maxHeight = null;
-        });
-      }
-    });
   </script>
-</body>
 
+</body>
 </html>

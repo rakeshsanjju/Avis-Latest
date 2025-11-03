@@ -1,434 +1,390 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Avis Hospitals</title>
-    <style>
-        /* ---------- Language & City Bar ---------- */
-        .language-city-bar {
-            width: 100%;
-            background-color: #0D5174;
-            /* Avis brand blue */
-            padding: 12px 30px;
-            display: flex;
-            justify-content: flex-end;
-            /* align buttons to right */
-            align-items: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avis Hospitals | Static Header</title>
 
-        .right-buttons {
-            display: flex;
-            gap: 10px;
-        }
+  <style>
+    /* ===========================================================
+       TOP LANGUAGE–CITY BAR
+       =========================================================== */
+    .language-city-bar {
+      width: 100%;
+      background-color: #0D5174;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2000;
+    }
 
-        /* ---------- Buttons (Selectors) ---------- */
-        .selector {
-            background-color: #fff;
-            color: #000;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
-            cursor: pointer;
-            appearance: none;
-            /* remove native dropdown arrow */
-            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 12px;
-            padding-right: 28px;
-        }
+    .selector {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px;
+      padding-right: 28px;
+      min-width: 140px;
+    }
 
-        /* ---------- Hover / Focus Effects ---------- */
-        .selector:hover {
-            background-color: #f1f1f1;
-        }
+    @media (max-width: 768px) {
+      .language-city-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 15px;
+      }
 
-        .selector:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(13, 81, 116, 0.3);
-        }
+      .selector {
+        font-size: 13px;
+        min-width: 120px;
+      }
+    }
 
-        /* ---------- Mobile Responsive ---------- */
-        @media (max-width: 768px) {
-            .language-city-bar {
-                justify-content: center;
-                /* center buttons on mobile */
-                flex-wrap: wrap;
-                padding: 10px 15px;
-            }
+    /* ===========================================================
+       BASIC RESET
+       =========================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-            .selector {
-                font-size: 13px;
-                padding: 5px 12px;
-            }
-        }
+    body {
+      background: #ffffff;
+      color: #0b1f2a;
+      overflow-x: hidden;
+      padding-top: 145px;
+    }
 
+    /* ===========================================================
+       MAIN HEADER
+       =========================================================== */
+    header {
+      width: 100%;
+      background-color: #d8e9e9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: fixed;
+      top: 40px;
+      left: 0;
+      z-index: 1900;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
+    .logo img {
+      height: 50px;
+    }
 
-        :root {
-            --brand: #0f3b5f;
-            /* primary button & accents */
-            --ink: #0b1f2a;
-            /* dark text */
-            --muted: #49616a;
-            /* paragraph */
-            --surface: #d7e8e8;
-            /* hero background */
-            --surface-2: #cfe1e1;
-            /* wave overlay */
-            --stroke: #cdd9d9;
-            /* container stroke */
-            --radius: 26px;
-            /* outer rounded corners */
-            --shadow: 0 10px 30px rgba(16, 59, 95, .12);
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      transition: all 0.3s ease;
+    }
 
-        * {
-            box-sizing: border-box
-        }
+    nav a {
+      text-decoration: none;
+      color: #0d3a4a;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
 
-        html,
-        body {
-            margin: 0
-        }
+    nav a:hover {
+      color: #0d5174;
+    }
 
-        body {
-            background: #fff;
-            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial;
-            color: var(--ink)
-        }
+    .btns {
+      background-color: #0d5174;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        /* ===== Canvas (rounded section) ===== */
-        .canvas {
-            margin: 10px;
-            background: var(--surface);
+    .btns:hover {
+      background-color: #093e58;
+    }
 
-            border: 1px solid var(--stroke);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            position: relative;
-        }
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #0d5174;
+    }
 
-        /* header */
-        .top {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 14px 22px;
-        }
+    /* Dropdown container */
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
+    .dropbtn {
+      cursor: pointer;
+    }
 
-        .brand img {
-            height: 48px;
-            width: auto;
-            display: block;
-            border-radius: 6px;
-            background: #fff
-        }
+    /* Dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      top: 40px;
+      left: 0;
+      z-index: 99;
+    }
 
-        .nav {
-            display: flex;
-            gap: 28px;
-            margin-left: auto;
-            align-items: center
-        }
+    /* Dropdown links */
+    .dropdown-content a {
+      color: #0D5174;
+      padding: 10px 16px;
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
 
-        .nav a {
-            text-decoration: none;
-            color: #183640;
-            font-weight: 500
-        }
+    .dropdown-content a:hover {
+      background-color: #f5f9ff;
+    }
 
-        .cta {
-            margin-left: 12px;
-            padding: 10px 18px;
-            border-radius: 10px;
-            border: none;
-            background: var(--brand);
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-        }
+    /* Show dropdown on hover (desktop only) */
+    @media (min-width: 901px) {
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
 
-        .kebab {
-            margin-left: 12px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: #0b2c3a0f;
-            position: relative;
-            cursor: pointer;
-        }
+    /* ---------- MOBILE HEADER ---------- */
+  @media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    background-color: #d8e9e9;
+    position: fixed;
+    top: 113px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 130px);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 1800;
+    border-top-left-radius: 20px;
 
-        .kebab:before,
-        .kebab:after,
-        .kebab i {
-            content: "";
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 6px;
-            background: #0e2a36;
-            border-radius: 50%;
-        }
+    /* ✅ Allow scrolling inside menu */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
 
-        .kebab i {
-            top: 15px
-        }
+  /* Optional: hide scrollbar for cleaner UI (works in Chrome/Safari) */
+  nav::-webkit-scrollbar {
+    width: 6px;
+  }
+  nav::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 10px;
+  }
 
-        .kebab:before {
-            top: 8px
-        }
+  nav.active {
+    right: 0;
+  }
 
-        .kebab:after {
-            top: 22px
-        }
+  nav a {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: block;
+  }
 
-        /* hero grid */
-        .hero {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 30px;
-            padding: 40px 36px 56px;
-        }
+  .menu-icon {
+    display: block;
+  }
 
-        /* ensure content is above background SVG */
-        .hero>* {
-            position: relative;
-            z-index: 1
-        }
+  .btns {
+    display: none;
+  }
 
-        .bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none
-        }
+  /* Mobile dropdown fix */
+  .dropdown-content {
+    position: static;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    display: none;
+  }
 
-        /* left copy */
-        .eyebrow {
-            color: #183640;
-            font-weight: 700;
-            letter-spacing: .02em;
-            margin: 8px 0 8px;
-        }
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+}
 
-        h1 {
-            font-size: clamp(32px, 8vw + 6px, 64px);
-            line-height: 1.05;
-            margin: 0 0 16px;
-            letter-spacing: -.02em;
-        }
+ /* ===========================================================
+       Hero Banner
+    =========================================================== */
+ /* ===========================================================
+       HERO SECTION
+       =========================================================== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 8%;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      background-color: #e3eff0;
+      margin-top: -50px;
+    }
 
-        .lead {
-            max-width: 560px;
-            color: var(--muted);
-            margin: 10px 0 26px;
-        }
+    .hero-text {
+      flex: 1 1 45%;
+      max-width: 550px;
+    }
 
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap
-        }
+    .hero-text h4 {
+      font-size: 1rem;
+      color: #133A45;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 20px;
+    }
 
-        .btn-primary {
-            background: var(--brand);
-            color: #fff
-        }
+    .hero-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 35px;
+    }
 
-        .btn-ghost {
-            color: #183640
-        }
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-        .btn-ghost svg {
-            width: 22px;
-            height: 22px;
-            flex: none
-        }
+    .btn-primary {
+      background-color: #0D5174;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        /* right doctor image inside oval */
-        .portrait {
-            justify-self: end;
-            width: 520px;
-            height: 540px;
-            background: #fff;
-            border-radius: 46% / 38%;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
-        }
+    .btn-primary:hover {
+      background-color: #08384f;
+    }
 
-        .portrait img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center bottom;
-            background: #fff;
-        }
+    .btn-outline {
+      background-color: transparent;
+      border: 1.5px solid #0D5174;
+      color: #0D5174;
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        /* circle arrow buttons */
-        .arrow {
-            position: absolute;
-            right: 26px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid #0e2a36;
-            display: grid;
-            place-items: center;
-            color: #0e2a36;
-            cursor: pointer;
-            z-index: 2;
-        }
+    .btn-outline:hover {
+      background-color: #0D5174;
+      color: #fff;
+    }
 
-        .arrow.left {
-            top: 48%
-        }
+    .hero-img {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .arrow.right {
-            bottom: 34px;
-            border-color: #ffffff50;
-            color: #0e2a36;
-            background: #ffffff40;
-            backdrop-filter: blur(2px)
-        }
+    .hero-img img {
+      width: 80%;
+      max-width: 420px;
+      border-top-left-radius: 240px;
+      border-top-right-radius: 240px;
+      border-bottom-right-radius: 260px;
+      border-bottom-left-radius: 60px;
+      background-color: #f8fdfd;
+    }
 
-        .arrow svg {
-            width: 20px;
-            height: 20px
-        }
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+      }
 
-        /* floating white disk */
-        .dot {
-            position: absolute;
-            left: 60%;
-            top: 55%;
-            width: 84px;
-            height: 84px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-            z-index: 1;
-        }
+      .hero-img img {
+        width: 70%;
+        margin-top: 40px;
+      }
 
-        /* ===== Responsive ===== */
-        @media (max-width:1100px) {
-            .portrait {
-                width: 440px;
-                height: 480px
-            }
-        }
+      .buttons {
+        justify-content: center;
+      }
+    }
 
-        @media (max-width:900px) {
-            .nav {
-                display: none
-            }
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
 
-            /* keep header simple on mobile */
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 18px;
-                padding: 28px 18px 32px;
-            }
+      .hero-text p {
+        font-size: 0.95rem;
+      }
 
-            .brand img {
-                height: 40px
-            }
+      .btn-primary,
+      .btn-outline {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+      }
 
-            .portrait {
-                justify-self: center;
-                width: min(88%, 360px);
-                aspect-ratio: 1 / 1.1;
-                /* consistent oval on phones */
-                height: auto;
-            }
+      .hero-img img {
+        width: 90%;
+      }
+    }
 
-            .actions {
-                gap: 14px
-            }
+    /* Static number styles */
+    /* wrapper just to center on the page */
+    .page {
+      padding: 24px
+    }
+  /* ===========================================================
+   Hero Banner (responsive centered)
+   =========================================================== */
 
-            .btn {
-                padding: 10px 14px;
-                border-radius: 9px
-            }
-
-            .btn-ghost svg {
-                width: 18px;
-                height: 18px
-            }
-
-            .dot {
-                width: 56px;
-                height: 56px;
-                left: 62%;
-                top: 64%;
-            }
-
-            .arrow {
-                display: none
-            }
-
-            /* hide arrows on mobile like screenshot */
-            /* simplify background on phones */
-            .bg circle {
-                display: none
-            }
-
-            .bg path:first-of-type {
-                opacity: .35
-            }
-        }
-
-        @media (max-width:480px) {
-            .canvas {
-                margin: 8px;
-                border-radius: 18px
-            }
-
-            .top {
-                padding: 12px 14px
-            }
-
-            h1 {
-                font-size: clamp(30px, 9.5vw, 40px);
-                line-height: 1.08;
-            }
-
-            .lead {
-                font-size: 14px;
-                margin: 8px 0 18px
-            }
-        }
 
 
 
@@ -1332,338 +1288,161 @@
             }
         }
 
-        /* Navbar Styles */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #0E4A66;
-            /* Avis Blue */
-            padding: 15px 30px;
-            font-family: 'Poppins', sans-serif;
-        }
 
-        .navbar .logo a {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 600;
-            text-decoration: none;
-        }
+    /* ===========================================================
+       FOOTER
+       =========================================================== */
+    footer {
+      background-color: #c9dede;
+      padding: 40px 60px 10px;
+      color: #0b1f2a;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 30px;
+    }
 
-        .nav-links li {
-            position: relative;
-        }
+    .footer-column img {
+      width: 190px;
+    }
 
-        .nav-links a {
-            color: #0D5174;
-            /* text colour */
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
+    .footer-column h4 {
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
 
-        .nav-links a:hover {
-            color: #FFf;
-            /* gold hover, you can change if needed */
-        }
+    .footer-column p,
+    .footer-column a {
+      font-size: 13px;
+      color: #0b1f2a;
+      text-decoration: none;
+      line-height: 1.8;
+    }
 
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 10px;
+    }
 
-        /* Dropdown */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            min-width: 250px;
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .dropdown-content li {
-            padding: 8px 15px;
-        }
-
-        .dropdown-content a {
-            color: #0E4A66;
-            font-size: 15px;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background: #f0f0f0;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Divider inside dropdown */
-        .divider {
-            border-top: 1px solid #ddd;
-            margin: 8px 0;
-        }
-
-        /* ---------- Header Styles ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        header {
-            width: 100%;
-            background-color: #dceced;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-        }
-
-        .logo img {
-            height: 50px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #0d3a4a;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #0d5174;
-        }
-
-        .btns {
-            background-color: #0d5174;
-            color: white;
-            padding: 8px 18px;
-            border: none;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .btns:hover {
-            background-color: #093e58;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 900px) {
-            nav {
-                display: none;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-        }
-
-        footer {
-  background-color: #c9dede;
-  padding: 40px 60px 10px;
-  color: #0b1f2a;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 30px;
-}
-
-.footer-column img {
-  width: 190px;
-}
-
-.footer-column h4 {
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.footer-column p,
-.footer-column a {
-  font-size: 13px;
-  color: #0b1f2a;
-  text-decoration: none;
-  line-height: 1.8;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-/* bottom note */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  margin-top: 10px;
-  color: #0b1f2a;
-}
-
-.footer-bottom a {
-  text-decoration: none;
-  color: #0b1f2a;
-  margin-left: 10px;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-    </style>
+    .footer-bottom a {
+      text-decoration: none;
+      color: #0b1f2a;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- LANGUAGE–CITY BAR -->
+  <div class="language-city-bar">
+    <select class="selector">
+      <option>English</option>
+      <option>Telugu</option>
+      <option>Kannada</option>
+      <option>Tamil</option>
+    </select>
 
+    <select class="selector">
+      <option>Select City</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+      <option>Pune</option>
+    </select>
+  </div>
 
-    <main class="canvas">
-        <!-- ---------- Language & City Selector Bar ---------- -->
-        <div class="language-city-bar">
-            <div class="right-buttons">
-                <select class="selector">
-                    <option>English</option>
-                    <option>Telugu</option>
-                    <option>Kannada</option>
-                    <option>Tamil</option>
-                    <option>Hindi</option>
-                </select>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+    </div>
 
-                <select class="selector">
-                    <option>Select City</option>
-                    <option>Hyderabad</option>
-                    <option>Bengaluru</option>
-                    <option>Chennai</option>
-                    <option>Vijayawada</option>
-                    <option>Vizag</option>
-                </select>
-            </div>
+    <nav class="nav-links" id="nav-menu">
+      <a href="./index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="./about-us/index.html" class="dropbtn">About Us</a>
+        <div class="dropdown-content">
+          <a href="./about-us/announcements.html">Announcements</a>
+          <a href="./about-us/achievements.html">Achievements</a>
+          <a href="./about-us/testimonials.html">Testimonials</a>
+          <a href="./about-us/faqs.html">FAQs</a>
         </div>
+      </div>
 
-        <!-- header -->
+      <div class="dropdown">
+        <a href="./treatments/index.html" class="dropbtn">Treatments</a>
+        <div class="dropdown-content">
+          <a href="../fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+          <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+          <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+          <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+          <a href="../fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+          <a href="../fw-service/lymphedema.html">Lymphedema</a>
+          <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
+          <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+          <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
+        </div>
+      </div>
 
-         <header>
-            <div class="logo">
-                <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
-            </div>
+      <a href="./our-doctors/index.html">Doctors</a>
 
-            <nav class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../about-us/index.html">About Us</a>
+      <div class="dropdown">
+        <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+        <div class="dropdown-content">
+          <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
+          <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+        </div>
+      </div>
 
-                <div class="dropdown">
-                    <a href="../treatments/index.html" class="dropbtn">Treatments</a>
-                    <div class="dropdown-content">
-                        <a href="../fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
-                        <a href="../fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
-                        <a href="../fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
-                        <a href="../fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
-                        <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
-                        <a href="../fw-service/lymphedema.html">Lymphedema</a>
-                        <a href="../fw-service/fibroids-treatment.html">Fibroids</a>
-                        <a href="../fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
-                        <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
-                    </div>
-                </div>
-                </div>
+      <a href="./Blogs/index.html">Blogs</a>
+      <a href="./contact.html">Contact Us</a>
+    </nav>
 
-                <a href="#">Diseases</a>
-                <a href="../our-doctors/index.html">Doctors</a>
+    <button class="btns">Book Appointment</button>
+    <div class="menu-icon" id="menu-toggle">☰</div>
+  </header>
+  
+  <!-- hero -->
+     <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-text">
+      <h4>Expert Treatment</h4>
+      <h1>Leading Varicose Veins Care in India</h1>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <div class="buttons">
+        <button class="btn-primary">Book A Meet</button>
+        <button class="btn-outline">Schedule Call</button>
+      </div>
+    </div>
 
-                <div class="dropdown">
-                    <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
-                    <div class="dropdown-content">
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
-                          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
-                        <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
-                    </div>
-                </div>
-
-                <a href="../Blogs/index.html">Blogs</a>
-                <a href="../contact.html">Contact Us</a>
-            </nav>
-
-            <button class="btns">Book Appointment</button>
-            <div class="menu-icon" id="menu-toggle">☰</div>
-        </header>
-
-        <!-- hero -->
-        <section class="hero">
-            <div style="align-content: center;">
-                <div class="eyebrow">Expert Treatment</div>
-                <h1>Leading Varicose<br />Veins Care in India</h1>
-                <p class="lead">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-
-                <div class="actions">
-                    <a class="btn btn-primary" href="#">Book A Meet</a>
-                    <a class="btn btn-primary" href="#">Schedule a call </a>
-
-                </div>
-            </div>
-
-            <figure class="doctor-figure" aria-label="Doctor">
-                <img src="../assets/AdobeStock_377949512.png" alt="Doctor portrait" loading="lazy" decoding="async"
-                    style="width: 300; height: 300px;" />
-            </figure>
-
-            <!-- arrows -->
-
-
-            <!-- floating white disk -->
-
-
-            <!-- decorative SVG (waves + thin arcs) -->
-            <svg class="bg" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
-                <!-- soft base wave from left to right -->
-                <path d="M0,520 C320,420 520,380 860,430 1140,470 1280,520 1600,460 L1600,800 L0,800 Z"
-                    fill="var(--surface-2)" opacity="0.55" />
-                <!-- right cut-out curve (matching the screenshot right edge shape) -->
-                <path d="M1300,130 C1490,260 1540,420 1540,520 1540,620 1490,700 1300,740 L1300,130 Z" fill="#fff"
-                    opacity=".0" />
-                <!-- thin circle arcs (white strokes) -->
-                <circle cx="1120" cy="190" r="220" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1" />
-                <circle cx="1120" cy="190" r="330" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width="1" />
-            </svg>
-        </section>
+    <div class="hero-img">
+      <img src="../assets/AdobeStock_377949512.png" alt="Doctor Image" />
+    </div>
+  </section>
+     
+    
     </main>
+
+    <!-- Varicose veins section -->
 
     <div class="section">
         <div class="text">
@@ -1699,6 +1478,7 @@
         </div>
     </div>
 
+    <!-- why treatment is needed  -->
     <div class="sections">
         <h2>Why Treatment is Needed</h2>
         <p>
@@ -1721,6 +1501,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Treatments section -->
 
     <section class="treatments">
         <h2 style="color: white; text-align: center; padding-top: 50px;">Treatment Options Offered</h2>
@@ -1755,6 +1537,8 @@
 
 
     </section>
+
+    <!-- Why Choose us  -->
     <section class="choose-section">
         <h2>Why Choose us</h2>
         <p>
@@ -1802,6 +1586,8 @@
         </div>
     </section>
 
+    <!-- Testimonials   -->
+
     <section style="background-color: #0D5174;" class="test">
         <div class="tag" style="padding-top: 20px;">
             <center>
@@ -1810,7 +1596,7 @@
             </center>
 
         </div>
-        <h4 style="text-align:center; color: #fff;">Clients Feedback</h4>
+        <h4 style="text-align:center; color: #fff; margin-top: 20px;">Clients Feedback</h4>
         <div class="testimonials">
             <div class="white-card">
                 <div>
@@ -1892,6 +1678,8 @@
 
     </section>
 
+    <!-- faq -->
+
     <section class="faq-section">
         <div class="faq-container">
             <!-- Left Side -->
@@ -1948,6 +1736,7 @@
         </div>
     </section>
 
+<!-- Book my appointment -->
 
     <section class="contact-appointment">
         <div class="contact-wrapper">
@@ -1979,157 +1768,67 @@
 
         </div>
     </section>
-<footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+
+
+  
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+      </div>
+
+      <div class="footer-column">
+        <h4>Need Help?</h4>
+        <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+          <a href="tel:+919989527715">+91 9989527715</a><br>
+          Jubilee Hills, Hyderabad
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a><br>
+        <a href="#">Terms & Conditions</a><br>
+        <a href="#">Refund Cancellation</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Social Media</h4>
+        <a href="#">Facebook</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Instagram</a><br>
+        <a href="#">Youtube</a>
+      </div>
     </div>
 
-    <div class="footer-column">
-      <h4>Need Help?</h4>
-      <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
-      <a href="tel:+919989527715">+91 9989527715</a><br>
-      Jubilee Hills, Hyderabad</p>
+    <div class="footer-bottom">
+      <span>All Right Reserved © 2025</span>
+      <span><a href="#">Privacy Policy</a> / <a href="#">Terms & Conditions</a></span>
     </div>
+  </footer>
 
-    <div class="footer-column">
-      <h4>Legal</h4>
-      <a href="#">Privacy Policy</a><br>
-      <a href="#">Terms & Conditions</a><br>
-      <a href="#">Refund Cancellation</a>
-    </div>
+  <!-- ✅ MOBILE MENU SCRIPT -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
-    <div class="footer-column">
-      <h4>Social Media</h4>
-      <a href="#">Face book</a><br>
-      <a href="#">Twitter</a><br>
-      <a href="#">Instagram</a><br>
-      <a href="#">Youtube</a>
-    </div>
-  </div>
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
 
-  <div class="footer-bottom">
-    <span>All Right Reserved © 2025</span>
-    <span>
-      <a href="#">Privacy Policy</a> / 
-      <a href="#">Terms & Conditions</a>
-    </span>
-  </div>
-</footer>
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        // Accordion functionality with only one open at a time
-        const accordions = document.querySelectorAll(".accordion");
-        accordions.forEach(acc => {
-            acc.querySelector(".accordion-header").addEventListener("click", () => {
-                accordions.forEach(a => {
-                    if (a !== acc) a.classList.remove("active");
-                });
-                acc.classList.toggle("active");
-            });
-        });
-    </script>
-
-
-
-    <script>
-        (() => {
-            const prefersReduced = window.matchMedia &&
-                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            function animateCount(el) {
-                const end = parseFloat(el.dataset.value || '0');
-                const decimals = parseInt(el.dataset.decimals || '0', 10);
-                const duration = parseInt(el.dataset.duration || '1500', 10);
-                const start = 0;
-                const formatter = (v) => v.toLocaleString(undefined, {
-                    minimumFractionDigits: decimals, maximumFractionDigits: decimals
-                });
-
-                if (prefersReduced || duration <= 0) {
-                    el.textContent = formatter(end);
-                    return;
-                }
-
-                let startTime = null;
-                function frame(ts) {
-                    if (!startTime) startTime = ts;
-                    const progress = Math.min((ts - startTime) / duration, 1);
-                    // easeOutCubic
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const value = start + (end - start) * eased;
-                    el.textContent = formatter(progress < 1 ? value : end);
-                    if (progress < 1) requestAnimationFrame(frame);
-                }
-                requestAnimationFrame(frame);
-            }
-
-            function setup() {
-                const nums = document.querySelectorAll('.stats .num');
-                if (!('IntersectionObserver' in window)) {
-                    nums.forEach(n => animateCount(n));
-                    return;
-                }
-                const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const el = entry.target;
-                            if (!el.dataset.started) {
-                                el.dataset.started = 'true';
-                                animateCount(el);
-                            }
-                        }
-                    });
-                }, { threshold: 0.4 });
-
-                nums.forEach(n => io.observe(n));
-            }
-
-            document.readyState === 'loading'
-                ? document.addEventListener('DOMContentLoaded', setup)
-                : setup();
-        })();
-    </script>
-
-    <script>
-        document.querySelectorAll(".accordion-header").forEach(header => {
-            header.addEventListener("click", () => {
-                const item = header.parentElement;
-                item.classList.toggle("active");
-
-                // Close others
-                document.querySelectorAll(".accordion-item").forEach(i => {
-                    if (i !== item) i.classList.remove("active");
-                });
-            });
-        });
-    </script>
-    <script>
-        const checkbox = document.getElementById("consentCheckbox");
-        const submitBtn = document.getElementById("submitBtn");
-
-        checkbox.addEventListener("change", function () {
-            if (this.checked) {
-                submitBtn.disabled = false;
-                submitBtn.classList.add("enabled");
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.classList.remove("enabled");
-            }
-        });
-    </script>
-
+    // Toggle dropdowns on mobile tap
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const parent = btn.parentElement;
+          parent.classList.toggle('active');
+        }
+      });
+    });
+  </script>
 
 </body>
-
 </html>
