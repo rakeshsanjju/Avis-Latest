@@ -232,6 +232,60 @@
       }
     }
 
+           /* ====== Sub-Dropdown (Second Level) ====== */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #ffffff;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+}
+
+.sub-dropdown-content a {
+  padding: 10px 16px;
+  color: #0D5174;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.sub-dropdown-content a:hover {
+  background-color: #f5f9ff;
+}
+
+/* Show sub-menu when hovering over state */
+.sub-dropdown:hover .sub-dropdown-content {
+  display: block;
+}
+
+/* ====== Mobile View (Stacked) ====== */
+@media (max-width: 900px) {
+  .sub-dropdown-content {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: #f8f8f8;
+  }
+
+  .sub-dropdown.active .sub-dropdown-content {
+    display: block;
+  }
+
+  .sub-dropdown > a {
+    display: block;
+    padding-left: 20px;
+  }
+}
+
+
  /* ===========================================================
        Hero Banner
     =========================================================== */
@@ -773,7 +827,8 @@
   </div>
 
   <!-- HEADER -->
-  <header>
+   <!-- HEADER -->
+   <header>
     <div class="logo">
       <img src="../assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
     </div>
@@ -805,24 +860,127 @@
           <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
         </div>
       </div>
+           <!-- LOCATIONS DROPDOWN -->
+<div class="dropdown">
+  <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+  <div class="dropdown-content">
 
-      <a href="../our-doctors/index.html">Doctors</a>
+    <!-- Andhra Pradesh -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh </a>
+      <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-vijayawada.html">Vijayawada</a>
+       <a href="../vascular-centers/varicose-vein-hospitals-in-guntur.html">Guntur</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-visakhapatnam.html">Visakhapatnam</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-rajahmundry.html">Rajahmundry</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-kadapa.html">kadapa</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-kurnool.html">Kurnool</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-tirupati.html">Tirupati</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-anantapur.html">Ananthapur</a>
 
-      <div class="dropdown">
-        <a href="../vascular-centers/index.html" class="dropbtn">Locations</a>
+      </div>
+    </div>
+
+    <!-- Telangana -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana </a>
+      <div class="sub-dropdown-content">
+        <a href="#">Hyderabad</a>
+        <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-jublieehills.html">Jublieehills</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-kondapur.html">Kondapur</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-kukatpally.html">Kukatpally</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-secunderabad.html">Secunderabad</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-dilsukhnagar.html">Dilsukhnagar</a>
+      </div>
+      </div>
+    </div>
+
+    <!-- Karnataka -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka </a>
+      <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-bangalore.html">Bengaluru</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-mysore.html">Mysuru</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-mangalore.html">Mangalore</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-belagavi.html">Belagavi</a>
+      </div>
+    </div>
+
+    <!-- Tamil Nadu -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu </a>
+      <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-chennai.html">Chennai</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-coimbatore.html">Coimbatore</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-madurai.html">Madurai</a>
+      </div>
+    </div>
+
+    <!-- West Bengal -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal </a>
+      <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-kolkata.html">Kolkata</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-siliguri.html">Siliguri</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-durgapur.html">Durgapur</a>
+      </div>
+    </div>
+
+    <!-- Maharashtra -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra </a>
+      <div class="sub-dropdown-content">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-pune.html">Pune</a>
+
+      </div>
+    </div>
+
+    <!-- Delhi -->
+    <div class="sub-dropdown">
+      <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi </a>
+      <div class="sub-dropdown-content">
+        <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+        <a href="../vascular-centers/varicose-vein-hospitals-in-gurgaon.html">Gurgaon</a>
+       
+      </div>
+    </div>
+
+  </div>
+</div>
+
+     <div class="dropdown">
+        <a href="../our-doctors/index.html" class="dropbtn">Doctors</a>
         <div class="dropdown-content">
-          <a href="../vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra</a>
-          <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+          <a href="../our-doctors/rajah.html">Dr Rajah V Koppala</a>
+          <a href="../our-doctors/hareesh-reddy.html">Dr Hareesh Reddy</a>
+          <a href="../our-doctors/manimaran-govindaraju.html">Dr Manimaran Govindaraju</a>
+          <a href="../our-doctors/chandru-reddy.html">Dr. Chandru Reddy</a>
+          <a href="../our-doctors/ashish.html">Dr.Ashish</a>
+          <a href="../our-doctors/prasanth-jv.html">Dr.Prashanth JV</a>
+          <a href="../our-doctors/deb-kumar.html">Dr.Deb Kumar</a>
         </div>
       </div>
+       <div class="dropdown">
+        <a href="../diseases/index.html" class="dropbtn">Diseases</a>
+        <div class="dropdown-content">
+          <a href="../diseases/deep-vein-thrombosys.html">Deep Vein Thrombosys</a>
+          <a href="../diseases/leg-ulcers.html">Leg Ulcers</a>
+          <a href="../diseases/lymphedema.html">Lymphedema</a>
+          <a href="../diseases/pain-management.html">Pain Management</a>
+          <a href="../diseases/spider-veins.html">Spider Veins</a>
+          <a href="../diseases/varicose-veins.html">Varicose Veins</a>
+          <a href="../diseases/uteroine-fibroids.html">Uteroine Fibroids</a>
+          <a href="../diseases/varicocele.html">Varicocele</a>
+        </div>
+      </div>
+       
+
+
+
 
       <a href="../Blogs/index.html">Blogs</a>
-      <a href="../contact.html">Contact Us</a>
+      <a href="./contact.html">Contact Us</a>
     </nav>
 
     <button class="btns">Book Appointment</button>
