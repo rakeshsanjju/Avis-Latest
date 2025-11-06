@@ -286,902 +286,140 @@
     }
 
 
-    /* ===========================================================
-       HERO SECTION
-       =========================================================== */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 8%;
-      flex-wrap: wrap;
-      min-height: 100vh;
-      background-color: #e3eff0;
-      margin-top: -50px;
-    }
+    /* Semi circle */
 
-    .hero-text {
-      flex: 1 1 45%;
-      max-width: 550px;
-    }
+    /* MAIN SECTION (SEMI-CIRCLE) */
+        .semi-circle-section {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background-color: #d1e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
 
-    .hero-text h4 {
-      font-size: 1rem;
-      color: #133A45;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
+        .semi-circle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 250px;
+            background-color: #e2f3f3;
+            border-radius: 250px 250px 0 0;
+            z-index: 1;
+        }
 
-    .hero-text h1 {
-      font-size: 3rem;
-      line-height: 1.2;
-      font-weight: 700;
-      color: #0a0a0a;
-      margin-bottom: 20px;
-    }
+        .title {
+            position: relative;
+            z-index: 2;
+            color: #0e4a66;
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 90px;
+        }
 
-    .hero-text p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 35px;
-    }
+        @media (max-width: 600px) {
+            .semi-circle-section {
+                height: 200px;
+            }
 
-    .buttons {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+            .semi-circle {
+                width: 280px;
+                height: 140px;
+                border-radius: 140px 140px 0 0;
+            }
 
-    .btn-primary {
-      background-color: #0D5174;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 8px;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+            .title {
+                font-size: 22px;
+                margin-bottom: 55px;
+            }
+        }
 
-    .btn-primary:hover {
-      background-color: #08384f;
-    }
+        @media (max-width: 400px) {
+            .semi-circle-section {
+                height: 180px;
+            }
 
-    .btn-outline {
-      background-color: transparent;
-      border: 1.5px solid #0D5174;
-      color: #0D5174;
-      padding: 12px 26px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+            .semi-circle {
+                width: 220px;
+                height: 110px;
+                border-radius: 110px 110px 0 0;
+            }
 
-    .btn-outline:hover {
-      background-color: #0D5174;
-      color: #fff;
-    }
+            .title {
+                font-size: 20px;
+                margin-bottom: 45px;
+            }
+        }
 
-    .hero-img {
-      flex: 1 1 45%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-img img {
-      width: 80%;
-      max-width: 420px;
-      border-top-left-radius: 240px;
-      border-top-right-radius: 240px;
-      border-bottom-right-radius: 200px;
-      border-bottom-left-radius: 0;
-      background-color: #f8fdfd;
-    }
-
-    @media (max-width: 992px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 5%;
-      }
-
-      .hero-img img {
-        width: 70%;
-        margin-top: 40px;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .hero-text p {
-        font-size: 0.95rem;
-      }
-
-      .btn-primary,
-      .btn-outline {
-        padding: 10px 22px;
-        font-size: 0.9rem;
-      }
-
-      .hero-img img {
-        width: 90%;
-      }
-    }
-
-    /* Static number styles */
-    /* wrapper just to center on the page */
-    .page {
-      padding: 24px
-    }
-
-    /* the bar */
-    .stats {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--bar);
-      color: var(--text);
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .08) inset, 0 2px 8px rgba(0, 0, 0, .06);
-      padding: 22px 28px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      align-items: center;
-      text-align: center;
-      background-color: #0D5174;
-      color: white;
-      border-radius: 25px;
-    }
-
-    .stat .value {
-      font-weight: 800;
-      font-size: 32px;
-      /* looks like your mock */
-      line-height: 1.1;
-      letter-spacing: -.02em;
-    }
-
-    .stat .value .unit {
-      /* e.g., 'yrs' */
-      font-weight: 700;
-      font-size: .65em;
-      margin-left: .15em;
-      opacity: .95;
-    }
-
-    .stat .label {
-      margin-top: 6px;
-      font-size: 16px;
-      font-weight: 500;
-      opacity: .92;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width:900px) {
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 18px
-      }
-    }
-
-    @media (max-width:480px) {
-      .stats {
-        grid-template-columns: 1fr;
-        padding: 18px
-      }
-
-      .stat .value {
-        font-size: 30px
-      }
-
-      .stat .label {
-        font-size: 15px
-      }
-    }
-
-
-    /* -----Treatment Section--------- */
-
-
-    /* ===== SECTION ===== */
-    .treatment-section {
-      text-align: center;
-      padding: 80px 8%;
-      background-color: #e3eff0;
-      position: relative;
-    }
-
-    /* ===== TITLE BADGE ===== */
-    .section-badge {
-      display: inline-block;
-      background-color: #0D5174;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 6px 18px;
-      border-radius: 30px;
-      margin-bottom: 16px;
-    }
-
-    /* ===== HEADING ===== */
-    .treatment-section h2 {
-      font-size: 2rem;
-      color: #261e40;
-      font-weight: 700;
-      margin-bottom: 50px;
-    }
-
-    /* ===== GRID LAYOUT (3 per row) ===== */
-    .treatment-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      justify-items: center;
-    }
-
-    /* ===== CARD ===== */
-    .treatment-card {
-      background: #fff;
-      border: 1.5px solid #b3e1e4;
-      border-radius: 14px;
-      width: 100%;
-      max-width: 340px;
-      padding: 25px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      text-align: left;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .treatment-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    /* ===== ICON CIRCLE ===== */
-    .icon-circle {
-      background-color: #0D5174;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .icon-circle img {
-      width: 32px;
-      height: 32px;
-      filter: brightness(0) invert(1);
-    }
-
-    /* ===== TEXT ===== */
-    .card-text h3 {
-      font-size: 1.1rem;
-      color: #0D5174;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-
-    .card-text p {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.4;
-    }
-
-    /* ===== ACTIVE CARD ===== */
-    .treatment-card.active {
-      background-color: #0D5174;
-      color: #fff;
-      border: none;
-    }
-
-    .treatment-card.active .icon-circle {
+        .awards-section {
+      padding: 60px 10%;
       background-color: #fff;
+      text-align: center;
     }
 
-    .treatment-card.active .icon-circle img {
-      filter: none;
+    .awards-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a0b41;
+      margin-bottom: 40px;
     }
 
-    .treatment-card.active h3,
-    .treatment-card.active p {
-      color: #fff;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .treatment-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .treatment-section {
-        padding: 60px 6%;
-      }
-
-      .treatment-section h2 {
-        font-size: 1.7rem;
-      }
-
-      .treatment-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .treatment-card {
-        flex-direction: row;
-        padding: 20px;
-      }
-
-      .icon-circle {
-        width: 50px;
-        height: 50px;
-      }
-
-      .card-text h3 {
-        font-size: 1rem;
-      }
-
-      .card-text p {
-        font-size: 0.85rem;
-      }
-    }
-
-
-    /* ----------need help banner---------- */
-
-    .need {
-      background-color: #e3eff0;
-      overflow-x: hidden;
+    .awards-grid {
       display: flex;
       justify-content: center;
-      align-items: center;
-
-    }
-
-    /* ===== BANNER WRAPPER ===== */
-    .doctor-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #0D5174;
-      color: #fff;
-      border-radius: 20px;
-      padding: 40px 60px;
-      width: 100%;
-      max-width: 2000px;
-      overflow: hidden;
-      height: 350px;
-
-      /* ✅ Correct background image setup */
-      background-image: url("./assets/Rectangle 42383.png");
-      /* Replace with your image path */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      /* Optional: add dark overlay for text visibility */
-      position: relative;
-    }
-
-    /* ===== LEFT CONTENT ===== */
-    .banner-text {
-      flex: 1;
-      max-width: 500px;
-    }
-
-    .banner-text h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .banner-text p {
-      font-size: 1rem;
-      color: #cfe6eb;
-      margin-bottom: 20px;
-    }
-
-    .banner-text h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    /* ===== RIGHT IMAGE ===== */
-    .banner-image {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .banner-image img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 0 20px 20px 0;
-      object-fit: cover;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .doctor-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 30px;
-      }
-
-      .banner-image {
-        justify-content: center;
-        margin-top: 25px;
-      }
-
-      .banner-image img {
-        max-width: 320px;
-        border-radius: 14px;
-      }
-
-      .banner-text h2 {
-        font-size: 1.6rem;
-      }
-
-      .banner-text h3 {
-        font-size: 1.4rem;
-      }
-    }
-
-
-    /* -------------why to choose us --------------- */
-
-    /* ===== Container ===== */
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px;
-      gap: 40px;
-    }
-
-    /* ===== Left Side ===== */
-    .left {
-      flex: 1;
-      position: relative;
-    }
-
-    .left img {
-      width: 100%;
-      border-radius: 20px;
-      object-fit: cover;
-    }
-
-    .small-circle {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 6px solid white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .small-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ===== Right Side ===== */
-    .right {
-      flex: 1;
-    }
-
-    .right h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-      color: #2c1258;
-    }
-
-    .right p {
-      font-size: 14px;
-      margin-bottom: 24px;
-      color: #555;
-    }
-
-    /* ===== Accordion Cards ===== */
-    .accordion {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      background: #f9f9f9;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .accordion-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 20px;
-      cursor: pointer;
-    }
-
-    .accordion-header h3 {
-      margin: 0;
-      font-size: 16px;
-      color: #0080ff;
-    }
-
-    .accordion-header .arrow {
-      transition: transform 0.3s ease;
-      font-size: 18px;
-      color: #0080ff;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding: 0 20px;
-      background: #fff;
-    }
-
-    .accordion-content p {
-      margin: 12px 0;
-      font-size: 14px;
-      color: #444;
-    }
-
-    .accordion.active .accordion-content {
-      max-height: 200px;
-      padding: 15px 20px;
-    }
-
-    .accordion.active .accordion-header .arrow {
-      transform: rotate(90deg);
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 980px) {
-      .container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .small-circle {
-        right: 50%;
-        transform: translateX(50%);
-      }
-    }
-
-    /* -----------Doc------------- */
-    /* badge */
-    .tag {
-      width: max-content;
-      margin: 0 auto 12px;
-      padding: 6px 16px;
-      background: #0c2a3f;
-      color: #fff;
-      border-radius: 999px;
-      font: 600 13px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
-
-    }
-
-    .tag .dot,
-    .tag .dot2 {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%
-    }
-
-    .tag .dot {
-      background: #4ad0bf
-    }
-
-    .tag .dot2 {
-      background: #b2c7cf
-    }
-
-    .doc-order {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin-top: 50px;
-    }
-
-    .doc-img {
-      width: 300px;
-      height: 300px;
-      margin-left: 30px;
-    }
-
-    .doc-card {
-      width: 110%;
-      height: 220px;
-      /* adjust height as needed */
-      border: 2px solid #4AB7C3;
-      border-radius: 30px;
-      /* rounded bottom corners */
-      padding: 16px;
-      box-sizing: border-box;
-      background: #fff;
-      margin-top: -150px;
-    }
-
-    @media (max-width: 768px) {
-      .doc-order {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 30px;
-      }
-
-      .doc-img {
-        width: 220px;
-        height: 220px;
-        margin-left: 0;
-      }
-
-      .doc-card {
-        width: 90%;
-        height: auto;
-        margin-top: -100px;
-        margin-bottom: 40px;
-      }
-
-      .doc-card h3 {
-        margin-top: 100px;
-        font-size: 18px;
-      }
-
-      .doc-card h5 {
-        font-size: 14px;
-        margin-top: -10px;
-      }
-    }
-
-
-    /* ----------Contact------ */
-    /* Top Info */
-    .appointment-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 40px;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
-    .appointment-header h2 {
-      font-size: 32px;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    .appointment-header p {
-      font-size: 14px;
-      max-width: 450px;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .appointment-header .contact {
-      font-size: 14px;
-      color: #008080;
-      margin-top: 8px;
-    }
-
-    .appointment-header .contact a {
-      color: #0080c0;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* Main Box */
-    .appointment-box {
-      position: relative;
-      border-radius: 12px;
+    .award-card {
+      background-color: #fff;
+      border: 1px solid #b7e0e5;
+      border-radius: 18px;
       overflow: hidden;
-      background: #f8fbfd;
+      width: 180px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
 
-    .appointment-box .left {
+    .award-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .award-card img {
       width: 100%;
-      height: 500px;
-    }
-
-    .appointment-box .left img {
-      width: 60%;
-      height: 100%;
+      height: 130px;
       object-fit: cover;
-      border-radius: 12px;
-      display: block;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
     }
 
-    .appointment-box .right {
-      position: absolute;
-      top: 50%;
-      right: 30px;
-      transform: translateY(-50%);
-      width: 50%;
-      background: #0c4a6e;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Form (desktop default) */
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    form input,
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #67bcd3;
-      border-radius: 6px;
-      background: transparent;
-      color: #fff;
+    .award-name {
+      background-color: #fff;
+      color: #0b1f2a;
+      font-weight: 600;
       font-size: 14px;
-    }
-
-    form input::placeholder,
-    form textarea::placeholder {
-      color: #cce7ef;
-    }
-
-    form textarea {
-      grid-column: span 2;
-      min-height: 100px;
-      resize: none;
-    }
-
-    form .full {
-      grid-column: span 2;
-    }
-
-    /* Button */
-    .btn {
-      grid-column: span 2;
-      background: linear-gradient(90deg, #34d399, #0891b2);
-      border: none;
-      border-radius: 25px;
-      padding: 14px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    /* ✅ Mobile Fix - stacked column layout */
-    @media (max-width: 900px) {
-      .appointment-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .appointment-box .left {
-        height: auto;
-      }
-
-      .appointment-box .left img {
-        height: auto;
-        border-radius: 12px 12px 0 0;
-        width: 95%;
-      }
-
-      .appointment-box .right {
-        position: relative;
-        top: 0;
-        right: 0;
-        transform: none;
-        width: 95%;
-        margin-top: 0;
-        border-radius: 0 0 12px 12px;
-        margin-right: 10px;
-      }
-
-      /* stack fields one by one */
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      form textarea,
-      .btn,
-      .full {
-        width: 100%;
-      }
-    }
-
-    /* -----------Testimonials---------------- */
-
-    /* testimonials */
-    .white-card {
-      width: 350px;
-      height: 200px;
-      border: 2px solid #fff;
-      /* ✅ white border */
-      border-radius: 12px;
-      /* ✅ rounded corners */
-      background: #0c4a6e;
-      /* dark background so white border shows */
-      color: #fff;
-      padding: 16px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-    }
-
-    .testimonials {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      height: 300px;
-    }
-
-    /* ✅ Mobile layout (up to 768px) */
-    @media (max-width: 768px) {
-      .testimonials {
-        flex-direction: column;
-        align-items: center;
-        /* center each card */
-        height: 800px;
-      }
-
-      .white-card {
-        width: 90%;
-        /* take most of screen width */
-
-        /* auto height for text */
-      }
-    }
-
-    .drname {
-      margin-top: 150px;
+      padding: 12px;
+      border-top: 1px solid #b7e0e5;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
     }
 
     @media (max-width: 768px) {
-      .drname {
-        margin-top: 100px;
+      .award-card {
+        width: 150px;
       }
     }
 
 
 
 
+
+    
     /* ===========================================================
        FOOTER
        =========================================================== */
@@ -1231,6 +469,26 @@
       color: #0b1f2a;
       margin-left: 10px;
     }
+
+   
+
+
+
+    
+
+   
+
+   
+
+   
+   
+
+  
+
+
+
+
+
   </style>
 </head>
 
@@ -1415,519 +673,74 @@
     <div class="menu-icon" id="menu-toggle">☰</div>
   </header>
 
-  <!-- HERO BANNER -->
-  <section class="hero">
-    <div class="hero-text">
-      <h4>Cutting-Edge Technology, Compassionate Care. </h4>
-      <h1>India’s leading chain of varicose vein centers.</h1>
-      <p>
-        Your veins are precious, let us focus on your veins for you. At India’s leading varicose veins centres, We bring
-        the latest, image-guided techniques to Hyderabad in order to treat a patient’s vascular concerns. We close the
-        faulty veins safely; enhance circulation and help you return to your normal routine with assurance.
-        Specialist-planned, minimally invasive, with same-day discharge in most varicose veins treatments in Hyderabad.
-      </p>
-      <div class="buttons">
-        <button class="btn-primary">Book A Meet</button>
-        <button class="btn-outline">Schedule Call</button>
-      </div>
-    </div>
-
-    <div class="hero-img">
-      <img src="./assets/rajah-sir.webp" alt="Doctor Image" />
-    </div>
-  </section>
-
-  <div class="page">
-    <section class="stats" aria-label="Key metrics">
-      <div class="stat">
-        <div class="value">
-          <span class="num" data-value="55000" data-duration="1500">0</span>
-          <span class="unit">+</span>
-        </div>
-        <div class="label">Patients Treated</div>
-      </div>
-
-      <div class="stat">
-        <div class="value">
-          <span class="num" data-value="29" data-duration="1200">0</span>
-          <span class="unit">years</span>
-        </div>
-        <div class="label">
-Trusted expertise</div>
-      </div>
-
-      <div class="stat">
-        <div class="value">
-          <span class="num" data-value="98" data-duration="1200">0</span>
-          <span class="unit">%</span>
-        </div>
-        <div class="label">
-Successful outcomes </div>
-      </div>
-
-      <div class="stat">
-        <div class="value">
-          <span class="num" data-value="25" data-duration="1200">0</span>
-          <span class="unit">+</span>
-        </div>
-        <div class="label">
-Dedicated clinics</div>
-      </div>
+    <!-- Semi Circle Section -->
+    <section class="semi-circle-section" style="background-color: #D8E9E9;">
+        <div class="semi-circle"></div>
+        <h2 class="title"> Awards</h2>
     </section>
-  </div>
 
+    <section class="awards-section">
+    <h2 class="awards-title">Our Awards</h2>
 
-  <!-- ----------------------Treatments section------------------------ -->
-  <section class="treatment-section">
-    <div class="section-badge">Treatments</div>
-    <h2>Highlighting the Care & Support</h2>
-
-    <div class="treatment-grid">
-      <!-- Card 1 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Varicose Veins Icon">
-        </div>
-        <div class="card-text">
-          <h3>Varicocele Treatment</h3>
-          <p>Overview & care</p>
-        </div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
       </div>
-
-      <!-- Card 2 (Active) -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="RFA Icon">
-        </div>
-        <div class="card-text">
-          <h3>Radiofrequency Ablation(RFA)</h3>
-          <p>Radiofrequency Ablation</p>
-        </div>
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
+      </div>
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
+      </div>
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="EVLA Icon">
-        </div>
-        <div class="card-text">
-          <h3>Endovenous Laser Ablation
-            (EVLT)</h3>
-          <p>Laser Ablation</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="CLACS Icon">
-        </div>
-        <div class="card-text">
-          <h3>CLACS</h3>
-          <p>Sclerotherapy + Laser</p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Phlebectomy Icon">
-        </div>
-        <div class="card-text">
-          <h3>Stab Phlebectomy</h3>
-          <p>Outpatient removal</p>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Lymphedema Icon">
-        </div>
-        <div class="card-text">
-          <h3>Lymphedema</h3>
-          <p>Swelling care</p>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Lymphedema Icon">
-        </div>
-        <div class="card-text">
-          <h3>Leg Ulcer Management
-            (LUM)</h3>
-          <p>Swelling care</p>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Lymphedema Icon">
-        </div>
-        <div class="card-text">
-          <h3>Uterine fibroids treatment</h3>
-          <p>Swelling care</p>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="treatment-card">
-        <div class="icon-circle">
-          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Lymphedema Icon">
-        </div>
-        <div class="card-text">
-          <h3>Thyroid Nodule Embolization</h3>
-          <p>Swelling care</p>
-        </div>
-      </div>
+     
     </div>
-  </section>
-
-  <!-- --------need check up image ------------ -->
-
-  <section class="need">
-    <div class="doctor-banner">
-      <div class="banner-text">
-        <h2>Need a Doctor for Check-up?</h2>
-        <p>Your first step towards the right solution. Call for an Appointment.</p>
-        <h3>+91 9989527715</h3>
+     <div class="awards-grid">
+      <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
       </div>
-      <div class="banner-image">
-        <img src="./assets/doctor-examining-elderly-patient-with-venous-thrombosis-varicose-veins-generative-ai 1.png"
-          alt="Doctor examining patient's leg">
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
       </div>
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
+      </div>
+       <div class="award-card">
+        <img src="./assets/Rectangle 42436 (1).png" alt="Award 1">
+        <div class="award-name">Award 1</div>
+      </div>
+
+     
     </div>
   </section>
 
 
-  <!-- -------------------Why Choose us ------- -->
-  <section>
-    <div class="container">
-      <!-- Left Side -->
-      <div class="left">
-        <img src="./assets/Group 143886 (1).png" alt="Doctors">
-        <div class="small-circle">
-          <img src="./assets/Ellipse 202.png" alt="Varicose Veins">
-        </div>
-      </div>
 
-      <!-- Right Side -->
-      <div class="right">
-        <h2 style="text-align: left;">Why Choose Us</h2>
-        <p>Adobe Systems, ushered lorem ipsum into the information age with its desktop publishing software
-          Aldus PageMaker.</p>
-
-        <div class="accordion">
-          <div class="accordion-header">
-            <h3>Advanced Technology (RF, Laser)</h3>
-            <img src="./assets/Group 475.png" alt="Varicose Veins">
-
-          </div>
-          <div class="accordion-content">
-            <p>Creation timelines for the standard lorem ipsum passage vary, with some citing the 15th
-              century and others the 20th.</p>
-          </div>
-        </div>
-
-        <div class="accordion">
-          <div class="accordion-header">
-            <h3>Experienced Vascular Surgeons</h3>
-            <img src="./assets/Group 475.png" alt="Varicose Veins">
-          </div>
-          <div class="accordion-content">
-            <p>Our team of experts specialise in minimally invasive vascular treatments.</p>
-          </div>
-        </div>
-
-        <div class="accordion">
-          <div class="accordion-header">
-            <h3>Insurance & EMI available</h3>
-            <img src="./assets/Group 475.png" alt="Varicose Veins">
-          </div>
-          <div class="accordion-content">
-            <p>Flexible payment options with insurance support.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- -------Doctor Section--------- -->
-
-  <section style="background-image: url('./assets/Group\ 143874.png'); 
-                 background-size: cover; 
-                 background-position: center; 
-                 padding: 60px 20px; 
-                 color: #fff;">
-    <div class="tag">
-      <span class="dot2"></span> Meet the Team <span class="dot2"></span>
-    </div>
-    <div>
-      <h2 style="color: #190038; text-align: center;">Our Specialists</h2>
-      <p style="color: #000000; text-align: center;">We offer highly specialised medical care, on one site,<br>
-        from some of the foremost national and international specialists in their fields of medicine.</p>
-    </div>
-
-    <div class="doc-order">
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42385.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center;" class="drname">
-            Dr. Manimaran Govindaraju</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Varicose Veins Specialist (General Surgeon)
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42386.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Sourav Chakraborty</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Minimal Access & Endovascular Surgeon
-          </h5>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <section style="background-image: url('./assets/Group\ 143874.png'); 
-                 background-size: cover; 
-                 background-position: center; 
-                 padding: 60px 20px; 
-                 color: #fff;">
-
-
-    <div class="doc-order">
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section style="background-image: url('./assets/Group\ 143874.png'); 
-                 background-size: cover; 
-                 background-position: center; 
-                 padding: 60px 20px; 
-                 color: #fff;">
-
-
-    <div class="doc-order">
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; " class="drname">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-      <div>
-        <img class="doc-img" src="./assets/Rectangle 42384.png" />
-        <div class="doc-card">
-          <h3 style="color: #0D5174; display: flex;   justify-content: center; align-items: center; margin-top: 130px;">
-            Dr. Rajah V. Koppala</h3>
-          <h5
-            style="color: #0D5174; display: flex; justify-content: center; align-items: center; margin-top: 5px; text-align: center; ">
-            Vascular & Interventional Radiologist
-          </h5>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ----------Appointment Head----------- -->
-
-  <section>
-    <!-- Top Header -->
-    <div class="appointment-header" style="margin-left: 30px; margin-top: 30px;">
-      <div>
-        <small style="color:#64748b; font-size:13px; text-align:center;">— Appointment</small>
-        <h2>Book Your <br>Appointment Today</h2>
-      </div>
-      <div>
-        <p>The purpose of lorem ipsum is to create a natural looking block of text that doesn't distract from
-          the layout. Duis aute irure dolor in reprehenderit in voluptate.</p>
-        <p class="contact">📞 +91 9989527715</p>
-        <p class="contact">✉️ <a href="mailto:info@avishospitals.com">info@avishospitals.com</a></p>
-      </div>
-    </div>
-
-    <!-- Image + Form -->
-    <div class="appointment-box" style="margin-left: 30px;">
-      <!-- Left -->
-      <div class="left">
-        <img src="./assets/hospital-10.jpg 1.png" alt="Doctors">
-      </div>
-
-      <!-- Right -->
-      <div class="right">
-        <form>
-          <input type="text" placeholder="Full Name">
-          <input type="email" placeholder="Email">
-          <input type="text" placeholder="Mobile">
-          <select>
-            <option>Choose City</option>
-            <option>Hyderabad</option>
-            <option>Bangalore</option>
-            <option>Chennai</option>
-          </select>
-          <input type="text" class="full" placeholder="Treatment of interest">
-          <textarea placeholder="Symptoms (optional)"></textarea>
-          <button type="submit" class="btn">Schedule Appointment</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- -----------Testimonials-------- -->
-
-  <section style="background-color: #0D5174; " class="test">
-    <!-- <div class="tag"  >
-            <span class="dot2" ></span> Testimonials <span class="dot2"></span>
-        </div> -->
-    <h4 style="text-align:center; color:#fff; ">Testimonials</h4>
-
-    <h4 style="text-align:center;">Clients Feedback</h4>
-    <div class="testimonials">
-      <div class="white-card">
-        <div>
-          <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
-            ad
-            minim veniam..</p>
-
-
-        </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 130px;">
-          <div style="margin-top: 10px;">
-            <span>⭐⭐⭐⭐⭐</span>
-            <p>Rakesh Dasari</p>
-          </div>
-          <div>
-            <img src="./assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
-          </div>
-        </div>
+   
 
 
 
-      </div>
-      <div class="white-card">
-        <div>
-          <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
-            ad
-            minim veniam..</p>
 
 
-        </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 130px;">
-          <div style="margin-top: 10px;">
-            <span>⭐⭐⭐⭐⭐</span>
-            <p>Rakesh Dasari</p>
-          </div>
-          <div>
-            <img src="./assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
-          </div>
-        </div>
+  
 
 
+  
 
-      </div>
-      <div class="white-card">
-        <div>
-          <p style="font-size: 8px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident Ut enim
-            ad
-            minim veniam..</p>
+  
 
 
-        </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 130px;">
-          <div style="margin-top: 10px;">
-            <span>⭐⭐⭐⭐⭐</span>
-            <p>Rakesh Dasari</p>
-          </div>
-          <div>
-            <img src="./assets/Ellipse 9.png" style="height: 60px; width: 60px;" />
-          </div>
-        </div>
-
-
-
-      </div>
-
-
-
-    </div>
-
-
-  </section>
+  
 
 
   <!-- FOOTER -->
@@ -2056,6 +869,22 @@ Dedicated clinics</div>
           if (a !== acc) a.classList.remove("active");
         });
         acc.classList.toggle("active");
+      });
+    });
+  </script>
+
+    <script>
+    // Accordion Functionality
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach((item) => {
+      const question = item.querySelector(".accordion-question");
+      question.addEventListener("click", () => {
+        const openItem = document.querySelector(".accordion-item.active");
+        if (openItem && openItem !== item) {
+          openItem.classList.remove("active");
+        }
+        item.classList.toggle("active");
       });
     });
   </script>

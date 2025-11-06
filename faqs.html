@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avis Hospitals | Static Header</title>
+
+  <style>
+    /* ===========================================================
+       TOP LANGUAGE–CITY BAR
+       =========================================================== */
+    .language-city-bar {
+      width: 100%;
+      background-color: #0D5174;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2000;
+    }
+
+    .selector {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 12px;
+      padding-right: 28px;
+      min-width: 140px;
+    }
+
+    @media (max-width: 768px) {
+      .language-city-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 15px;
+      }
+
+      .selector {
+        font-size: 13px;
+        min-width: 120px;
+      }
+    }
+
+    /* ===========================================================
+       BASIC RESET
+       =========================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #0b1f2a;
+      overflow-x: hidden;
+      padding-top: 145px;
+    }
+
+    /* ===========================================================
+       MAIN HEADER
+       =========================================================== */
+    header {
+      width: 100%;
+      background-color: #d8e9e9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: fixed;
+      top: 40px;
+      left: 0;
+      z-index: 1900;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      transition: all 0.3s ease;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0d3a4a;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0d5174;
+    }
+
+    .btns {
+      background-color: #0d5174;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btns:hover {
+      background-color: #093e58;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #0d5174;
+    }
+
+    /* ===========================================================
+       DROPDOWN MENU
+       =========================================================== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 0;
+      color: #0d3a4a;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 220px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      top: 100%;
+      left: 0;
+      z-index: 9999;
+    }
+
+    .dropdown-content a {
+      color: #0D5174;
+      padding: 10px 16px;
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f9ff;
+    }
+
+    /* ✅ Keep dropdown open while hovering anywhere inside it */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ---------- MOBILE HEADER ---------- */
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        background-color: #d8e9e9;
+        position: fixed;
+        top: 113px;
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - 130px);
+        padding: 40px 0;
+        text-align: center;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+        z-index: 1800;
+        border-top-left-radius: 20px;
+        overflow-y: auto;
+      }
+
+      nav.active {
+        right: 0;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .btns {
+        display: none;
+      }
+
+      nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
+      }
+
+      /* Mobile dropdown */
+      .dropdown-content {
+        position: static;
+        background: #fff;
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+      }
+
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+    }
+
+    /* ====== Sub-Dropdown (Second Level) ====== */
+    .sub-dropdown {
+      position: relative;
+    }
+
+    .sub-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #ffffff;
+      min-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      z-index: 10000;
+    }
+
+    .sub-dropdown-content a {
+      padding: 10px 16px;
+      color: #0D5174;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .sub-dropdown-content a:hover {
+      background-color: #f5f9ff;
+    }
+
+    /* Show sub-menu when hovering over state */
+    .sub-dropdown:hover .sub-dropdown-content {
+      display: block;
+    }
+
+    /* ====== Mobile View (Stacked) ====== */
+    @media (max-width: 900px) {
+      .sub-dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: #f8f8f8;
+      }
+
+      .sub-dropdown.active .sub-dropdown-content {
+        display: block;
+      }
+
+      .sub-dropdown>a {
+        display: block;
+        padding-left: 20px;
+      }
+    }
+
+
+    /* Semi circle */
+
+    /* MAIN SECTION (SEMI-CIRCLE) */
+        .semi-circle-section {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background-color: #d1e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .semi-circle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 250px;
+            background-color: #e2f3f3;
+            border-radius: 250px 250px 0 0;
+            z-index: 1;
+        }
+
+        .title {
+            position: relative;
+            z-index: 2;
+            color: #0e4a66;
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        @media (max-width: 600px) {
+            .semi-circle-section {
+                height: 200px;
+            }
+
+            .semi-circle {
+                width: 280px;
+                height: 140px;
+                border-radius: 140px 140px 0 0;
+            }
+
+            .title {
+                font-size: 22px;
+                margin-bottom: 55px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .semi-circle-section {
+                height: 180px;
+            }
+
+            .semi-circle {
+                width: 220px;
+                height: 110px;
+                border-radius: 110px 110px 0 0;
+            }
+
+            .title {
+                font-size: 20px;
+                margin-bottom: 45px;
+            }
+        }
+
+
+
+    
+    /* ===========================================================
+       FOOTER
+       =========================================================== */
+    footer {
+      background-color: #c9dede;
+      padding: 40px 60px 10px;
+      color: #0b1f2a;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 30px;
+    }
+
+    .footer-column img {
+      width: 190px;
+    }
+
+    .footer-column h4 {
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      font-size: 13px;
+      color: #0b1f2a;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom a {
+      text-decoration: none;
+      color: #0b1f2a;
+      margin-left: 10px;
+    }
+
+    .rfa-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 10%;
+      background-color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .rfa-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .rfa-text h2 {
+      color: #1a0b41;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .rfa-text p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .rfa-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rfa-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .rfa-section {
+        flex-direction: column;
+        text-align: left;
+        padding: 40px 8%;
+      }
+      .rfa-text h2 {
+        font-size: 24px;
+      }
+    }
+
+     /* SECTION */
+        .tips-section {
+            background-color: #0e4a66;
+            text-align: center;
+            padding: 80px 100px;
+           
+        }
+
+        .tips-section h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        /* CONTAINER FOR TWO BOXES */
+        .tips-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* COLUMN BOXES */
+        .tips-column {
+            background-color: #0d425b;
+            border-radius: 12px;
+            padding: 30px 25px;
+            width: 430px;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        /* EACH TIP */
+        .tip {
+            border: 1px solid #85b4c5;
+
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-align: left;
+            background-color: transparent;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .tip:hover {
+            background-color: #105877;
+            border-color: #a7d1e2;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .tips-section {
+                padding: 60px 40px;
+            }
+
+            .tips-container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tips-section {
+                padding: 50px 20px;
+            }
+
+            .tips-section h2 {
+                font-size: 20px;
+            }
+
+            .tips-column {
+                max-width: 100%;
+                padding: 25px 20px;
+            }
+
+            .tip {
+                font-size: 13px;
+            }
+        }
+
+        .rf-section {
+      padding: 60px 10%;
+      background-color: #f2f9f9;
+    }
+
+    .rf-section h2 {
+      font-size: 26px;
+      color: #1a0b41;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .rf-section p {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #222;
+    }
+
+    .rf-section p strong {
+      font-weight: 600;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .rf-section {
+        padding: 40px 8%;
+      }
+      .rf-section h2 {
+        font-size: 22px;
+      }
+    }
+
+      /* Container */
+    .faq-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0 20px;
+      gap: 40px;
+    }
+
+    /* Left Side Text */
+    .faq-text {
+      flex: 1;
+    }
+
+    .faq-text h5 {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .faq-text h2 {
+      font-size: 40px;
+      color: #0D1B2A;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .faq-text p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* Right Image */
+    .faq-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .faq-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px 0 0 20px;
+      object-fit: cover;
+    }
+
+    /* Accordion Container */
+    .accordion-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+      padding: 18px 0;
+    }
+
+    .accordion-question {
+      font-size: 16px;
+      font-weight: 500;
+      color: #0D1B2A;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .accordion-question:hover {
+      color: #0D5174;
+    }
+
+    .accordion-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-answer p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .accordion-item.active .accordion-answer {
+      max-height: 300px;
+    }
+
+    .accordion-item.active .accordion-question {
+      color: #0D5174;
+    }
+
+    /* Arrow */
+    .arrow {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .faq-section {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .faq-image {
+        justify-content: center;
+      }
+
+      .faq-image img {
+        max-width: 100%;
+        border-radius: 15px;
+      }
+
+      .faq-text h2 {
+        font-size: 32px;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LANGUAGE–CITY BAR -->
+  <div class="language-city-bar">
+    <select class="selector">
+      <option>English</option>
+      <option>Telugu</option>
+      <option>Kannada</option>
+      <option>Tamil</option>
+    </select>
+
+    <select class="selector">
+      <option>Select City</option>
+      <option>Hyderabad</option>
+      <option>Bengaluru</option>
+      <option>Chennai</option>
+      <option>Pune</option>
+    </select>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="./assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+    </div>
+
+    <nav class="nav-links" id="nav-menu">
+      <a href="./index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="./about-us/index.html" class="dropbtn">About Us</a>
+        <div class="dropdown-content">
+          <a href="./about-us/announcements.html">Announcements</a>
+          <a href="./about-us/achievements.html">Achievements</a>
+          <a href="./about-us/testimonials.html">Testimonials</a>
+          <a href="./about-us/faqs.html">FAQs</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="./treatments/index.html" class="dropbtn">Treatments</a>
+        <div class="dropdown-content">
+          <a href="./fw-service/radio-frequency-ablation.html">Radio Frequency Ablation</a>
+          <a href="./fw-service/endovenous-laser-ablation-evla.html">Endovenous Laser Ablation</a>
+          <a href="./fw-service/leg-ulcer-management.html">Leg Ulcer Management</a>
+          <a href="./fw-service/stab-phlebectomy.html">Stab Phlebectomy</a>
+          <a href="./fw-service/cryo-laser-and-cryo-sclerotherapy.html">Cryo Laser & Sclerotherapy</a>
+          <a href="./fw-service/lymphedema.html">Lymphedema</a>
+          <a href="./fw-service/fibroids-treatment.html">Fibroids</a>
+          <a href="./fw-service/thyroid-nodule-embolization.html">Thyroid Nodule Embolization</a>
+          <a href="./fw-service/varicocele-treatment.html">Varicocele</a>
+        </div>
+      </div>
+      <!-- LOCATIONS DROPDOWN -->
+      <div class="dropdown">
+        <a href="./vascular-centers/index.html" class="dropbtn">Locations</a>
+        <div class="dropdown-content">
+
+          <!-- Andhra Pradesh -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-andhra-pradesh.html">Andhra Pradesh </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-vijayawada.html">Vijayawada</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-guntur.html">Guntur</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-visakhapatnam.html">Visakhapatnam</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-rajahmundry.html">Rajahmundry</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-kadapa.html">kadapa</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-kurnool.html">Kurnool</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-tirupati.html">Tirupati</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-anantapur.html">Ananthapur</a>
+
+            </div>
+          </div>
+
+          <!-- Telangana -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-telangana.html">Telangana </a>
+            <div class="sub-dropdown-content">
+              <a href="#">Hyderabad</a>
+              <div class="sub-dropdown-content">
+                <a href="./vascular-centers/varicose-vein-hospitals-in-jublieehills.html">Jublieehills</a>
+                <a href="./vascular-centers/varicose-vein-hospitals-in-kondapur.html">Kondapur</a>
+                <a href="./vascular-centers/varicose-vein-hospitals-in-kukatpally.html">Kukatpally</a>
+                <a href="./vascular-centers/varicose-vein-hospitals-in-secunderabad.html">Secunderabad</a>
+                <a href="./vascular-centers/varicose-vein-hospitals-in-dilsukhnagar.html">Dilsukhnagar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Karnataka -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-karnataka.html">Karnataka </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-bangalore.html">Bengaluru</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-mysore.html">Mysuru</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-mangalore.html">Mangalore</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-belagavi.html">Belagavi</a>
+            </div>
+          </div>
+
+          <!-- Tamil Nadu -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-tamilnadu.html">Tamil Nadu </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-chennai.html">Chennai</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-coimbatore.html">Coimbatore</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-madurai.html">Madurai</a>
+            </div>
+          </div>
+
+          <!-- West Bengal -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-westbengal.html">West Bengal </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-kolkata.html">Kolkata</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-siliguri.html">Siliguri</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-durgapur.html">Durgapur</a>
+            </div>
+          </div>
+
+          <!-- Maharashtra -->
+          <div class="sub-dropdown">
+            <a href="./vascular-centers/varicose-vein-hospitals-in-maharashtra.html">Maharashtra </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-pune.html">Pune</a>
+
+            </div>
+          </div>
+
+          <!-- Delhi -->
+          <div class="sub-dropdown">
+            <a href="../vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi </a>
+            <div class="sub-dropdown-content">
+              <a href="./vascular-centers/varicose-vein-hospitals-in-delhi.html">Delhi</a>
+              <a href="./vascular-centers/varicose-vein-hospitals-in-gurgaon.html">Gurgaon</a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="./our-doctors/index.html" class="dropbtn">Doctors</a>
+        <div class="dropdown-content">
+          <a href="./our-doctors/rajah.html">Dr Rajah V Koppala</a>
+          <a href="./our-doctors/hareesh-reddy.html">Dr Hareesh Reddy</a>
+          <a href="./our-doctors/manimaran-govindaraju.html">Dr Manimaran Govindaraju</a>
+          <a href="./our-doctors/chandru-reddy.html">Dr. Chandru Reddy</a>
+          <a href="./our-doctors/ashish.html">Dr.Ashish</a>
+          <a href="./our-doctors/prasanth-jv.html">Dr.Prashanth JV</a>
+          <a href="./our-doctors/deb-kumar.html">Dr.Deb Kumar</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="./diseases/index.html" class="dropbtn">Diseases</a>
+        <div class="dropdown-content">
+          <a href="./diseases/deep-vein-thrombosys.html">Deep Vein Thrombosys</a>
+          <a href="./diseases/leg-ulcers.html">Leg Ulcers</a>
+          <a href="./diseases/lymphedema.html">Lymphedema</a>
+          <a href="./diseases/pain-management.html">Pain Management</a>
+          <a href="./diseases/spider-veins.html">Spider Veins</a>
+          <a href="./diseases/varicose-veins.html">Varicose Veins</a>
+          <a href="./diseases/uteroine-fibroids.html">Uteroine Fibroids</a>
+          <a href="../fw-service/varicocele-treatment.html">Varicocele</a>
+        </div>
+      </div>
+
+
+
+
+
+      <a href="./Blogs/index.html">Blogs</a>
+      <a href="./contact.html">Contact Us</a>
+    </nav>
+
+    <button class="btns">Book Appointment</button>
+    <div class="menu-icon" id="menu-toggle">☰</div>
+  </header>
+
+    <!-- Semi Circle Section -->
+    <section class="semi-circle-section" style="background-color: #D8E9E9;">
+        <div class="semi-circle"></div>
+        <h2 class="title"> Frequently Asked <br> Questions</h2>
+    </section>
+
+
+  
+
+
+  
+
+     <section class="faq-section">
+    <div class="faq-text">
+      <h5>Got a question?</h5>
+      <h2>Frequently Asked<br>Questions</h2>
+      <p>
+        Cover symptoms, causes, prevention, and treatments, which range from self-care like
+        exercise and compression stockings to medical procedures such as sclerotherapy (injections),
+        radiofrequency ablation, and laser therapy.
+      </p>
+    </div>
+    <div class="faq-image">
+      <img src="./assets/AdobeStock_599329045 (1).png" alt="Doctor Discussion">
+    </div>
+  </section>
+
+  <!-- Accordion -->
+  <div class="accordion-container">
+    <div class="accordion-item">
+      <div class="accordion-question">
+        Where does Dr. [Doctor’s Name] practice and what are the consultation timings?
+        <span class="arrow">›</span>
+      </div>
+      <div class="accordion-answer">
+        <p>Consultations are available at multiple Avis Hospitals branches across India. Please contact your nearest
+          centre for timing details.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item active">
+      <div class="accordion-question">
+        What conditions does Dr. [Doctor’s Name] treat?
+        <span class="arrow">›</span>
+      </div>
+      <div class="accordion-answer">
+        <p>Minor muscle strains might take weeks to months, while severe surgery could take many months to a year for
+          complete recovery. Factors like age, overall health, and access to treatment play a crucial role.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-question">
+        What procedures does Dr. [Doctor’s Name] perform?
+        <span class="arrow">›</span>
+      </div>
+      <div class="accordion-answer">
+        <p>Dr. [Doctor’s Name] performs advanced minimally invasive treatments including laser therapy, radiofrequency
+          ablation, and sclerotherapy for varicose and spider veins.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-question">
+        What languages does Dr. [Doctor’s Name] speak?
+        <span class="arrow">›</span>
+      </div>
+      <div class="accordion-answer">
+        <p>English, Hindi, Telugu, and Tamil (depending on the branch location).</p>
+      </div>
+    </div>
+  </div>
+  
+
+
+  
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="./assets/Avis_Logo-1.webp" alt="Avis Hospitals Logo" />
+      </div>
+
+      <div class="footer-column">
+        <h4>Need Help?</h4>
+        <p><a href="mailto:info@avishospitals.com">info@avishospitals.com</a><br>
+          <a href="tel:+919989527715">+91 9989527715</a><br>
+          Jubilee Hills, Hyderabad
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a><br>
+        <a href="#">Terms & Conditions</a><br>
+        <a href="#">Refund Cancellation</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Social Media</h4>
+        <a href="#">Facebook</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Instagram</a><br>
+        <a href="#">Youtube</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>All Right Reserved © 2025</span>
+      <span><a href="#">Privacy Policy</a> / <a href="#">Terms & Conditions</a></span>
+    </div>
+  </footer>
+
+  <!-- ✅ MOBILE MENU SCRIPT -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Toggle dropdowns on mobile tap
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const parent = btn.parentElement;
+          parent.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+
+  <script>
+    (() => {
+      const prefersReduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function animateCount(el) {
+        const end = parseFloat(el.dataset.value || '0');
+        const decimals = parseInt(el.dataset.decimals || '0', 10);
+        const duration = parseInt(el.dataset.duration || '1500', 10);
+        const start = 0;
+        const formatter = (v) => v.toLocaleString(undefined, {
+          minimumFractionDigits: decimals, maximumFractionDigits: decimals
+        });
+
+        if (prefersReduced || duration <= 0) {
+          el.textContent = formatter(end);
+          return;
+        }
+
+        let startTime = null;
+        function frame(ts) {
+          if (!startTime) startTime = ts;
+          const progress = Math.min((ts - startTime) / duration, 1);
+          // easeOutCubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = start + (end - start) * eased;
+          el.textContent = formatter(progress < 1 ? value : end);
+          if (progress < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+
+      function setup() {
+        const nums = document.querySelectorAll('.stats .num');
+        if (!('IntersectionObserver' in window)) {
+          nums.forEach(n => animateCount(n));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              if (!el.dataset.started) {
+                el.dataset.started = 'true';
+                animateCount(el);
+              }
+            }
+          });
+        }, { threshold: 0.4 });
+
+        nums.forEach(n => io.observe(n));
+      }
+
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', setup)
+        : setup();
+    })();
+  </script>
+
+  <script>
+    // Accordion functionality with only one open at a time
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(acc => {
+      acc.querySelector(".accordion-header").addEventListener("click", () => {
+        accordions.forEach(a => {
+          if (a !== acc) a.classList.remove("active");
+        });
+        acc.classList.toggle("active");
+      });
+    });
+  </script>
+
+    <script>
+    // Accordion Functionality
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach((item) => {
+      const question = item.querySelector(".accordion-question");
+      question.addEventListener("click", () => {
+        const openItem = document.querySelector(".accordion-item.active");
+        if (openItem && openItem !== item) {
+          openItem.classList.remove("active");
+        }
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

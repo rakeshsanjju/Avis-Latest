@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -653,14 +654,20 @@
            
         }
 
-        .card-img {
-            width: 260px;
+         .card-img {
+            display: block;
+            /* ✅ ensures width/height apply correctly */
+            width: 300px;
+            /* fixed width */
             height: 200px;
+            /* fixed height */
             object-fit: cover;
-            border-radius: 4px;
-
-            /* push the image 80px outside the left border */
+            /* keeps aspect ratio inside box */
+            border-radius: 8px;
+            flex-shrink: 0;
+            /* ✅ prevents flexbox parent from resizing it */
             margin-left: -100px;
+            /* push image left by 100px */
         }
 
         .card-content {
@@ -1090,15 +1097,15 @@
     </section>
     <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in AndhraPradesh</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/avis-ananthapur.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Ananthapur</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1111,10 +1118,9 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Sreenivasa Speciality Hospital, 28-271, Near Iron Bridge, Subhash Road, Anantapur, Andhra Pradesh 515005
                         </p>
                     </div>
                 </div>
@@ -1122,9 +1128,9 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/kadapa.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Kadapa</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1137,10 +1143,9 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                           Uma Maheshwari Hospital, Christian Line Rd, Maria Puram, Kadapa, Andhra Pradesh 516001
                         </p>
                     </div>
                 </div>
@@ -1151,9 +1156,9 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/kurnool.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Kurnool</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1166,10 +1171,9 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                           Avis Hospital - Avis Hospitals India Limited, Nihal Central, 50/753/NHL 2nd Floor, Shilpa Birla Compound, Kurnool – 518002.  A.P.
                         </p>
                     </div>
                 </div>
@@ -1177,9 +1181,9 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/rajahmundry.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Rajahmundry</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1192,10 +1196,114 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Avis hospitals, Hp gas line road, Round park opposite, Megha medicals 2nd floor, Danavai peta, Rajahmundry
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/tirupati.jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Tirupati</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                           Avis Hospitals India Limited No: 10-13-514, Tilak Road, 3rd Floor, Reddy & Reddy's Colony, Tirupati, Andhra Pradesh 517501
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/vijayawada.jpeg"alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Vijayawada</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Avis Hospitals India Limited, D.No. 33-21-11A, 3rd & 4th Floor Sitarampuram Signal, Eluru Road VIJAYAWADA, Pin: 520002
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/vizag.jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Visakhapatnam</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                          Medcy Hospitals Plot 9A, Health City, Chinna Gadhili, Chinnagadili, Visakhapatnam, Andhra Pradesh 530040
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/guntur.jpg" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Guntur</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            St.joseph general hospital AC college road ,kanna vari thota, Guntur, Andhra Pradesh 522004 
                         </p>
                     </div>
                 </div>
@@ -1212,7 +1320,7 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/jubilee.png" alt="Card image" />
                 <div class="card-content">
                     <h3>Avis Hospital Jublieehills</h3>
 
@@ -1227,7 +1335,7 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
                             Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
                             Telangana, 500033
@@ -1238,9 +1346,9 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/kuktapally.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Kukatpally</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1253,10 +1361,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                          Avis Hospitals - Doctors Road, MIG 248, Road, 4, Remedy Hospital lane, 
+                          Kukatpally Housing Board Colony, Hyderabad, Telangana 500072 Kukatpally, Telangana, India3
                         </p>
                     </div>
                 </div>
@@ -1267,9 +1375,9 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/Secunderabad.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Secunderabad</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1282,10 +1390,65 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Avis hospitals, Paradise back side, HDFC Bank building Secundrebad
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/dilsukhnagar.jpeg" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Dilsukhnagar</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Chaitanya Chambers,Chaitanyapuri, Dilsukhnagar,
+                                Hyderabad-500060.Flat No. 108 &09.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+                <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/kondapur.jpeg" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Kondapur</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 987654 43212</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                           Avis Vascular Centre - Ravi Enclave, PN 12/15 26/28, Hanuman Nagar,
+                            KothariCentrum, Kondapur, Serilingampalle (M), Hyderabad, Telangana 500084
                         </p>
                     </div>
                 </div>
@@ -1295,7 +1458,7 @@
             <div class="info-cards">
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Khammam</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
@@ -1308,33 +1471,35 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Sairam hospital,Revathi center beside Reliance digital, Nehru Nagar,
+                             khammam, Telangana, 507001
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
 
     </section>
      <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in Karnataka</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/ban" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Jayanagar, Bangalore</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 91549 85052</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1343,10 +1508,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Avis Hospitals3rd Floor, 71, 8th C Main Road, 4th T Block East, 4th Block, 
+                            Jayanagar, Bengaluru, Karnataka 560041
                         </p>
                     </div>
                 </div>
@@ -1356,11 +1521,11 @@
             <div class="info-cards">
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Mathikere, Bangalore</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 91549 85052</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1369,10 +1534,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Smile Hospitals Mathikere Main Rd, near SBI Bank, Gokula 1st Stage, HMT Layout, Mathikere,
+                             Bengaluru, Karnataka
                         </p>
                     </div>
                 </div>
@@ -1385,11 +1550,11 @@
             <div class="info-card">
                 <img class="card-img" src="../assets/img-1.png" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Rajajinagar, Bangalore</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 91549 85052</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1398,10 +1563,9 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Avis Hospital Dr. Rajkumar Road, 1st Main Rd, 2nd Block, 1st Main, Rajajinagar, Bengaluru, Karnataka 560010
                         </p>
                     </div>
                 </div>
@@ -1409,13 +1573,13 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/belagavi.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Belagavi</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 91549 85052</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1424,33 +1588,88 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                           Shri Prabha Hospital Ayodhya Nagar, Sadashiv Nagar, Belagavi, Karnataka 590019
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+                <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/mangalore.jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Mangaluru</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 91549 85052</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                           Indira Hospital, Falnir Road, Bendoor, Mangaluru, Karnataka 575002 Mangaluru, Karnataka, India
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-cards">
+                <img class="card-img" src="../assets/Mysore.jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Mysuru</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 91549 85052</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                          CEG multi-speciality, 17/1, 624/1, KRS Rd, Gokulam 1st Stage,
+                        Vontikoppal, Mysuru, Karnataka 570020, India
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </section>
      <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in Tamil Nadu</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/chennai.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Chennai</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 74160 29900</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1459,10 +1678,9 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Avis Hospital,150, Luz Church Rd, Kattukoil Garden, Mylapore, Chennai, Tamil Nadu 600004
                         </p>
                     </div>
                 </div>
@@ -1470,13 +1688,13 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/comibatore.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Coimbatore</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 74160 29900</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1485,10 +1703,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                           V G M Hospitals VGM Hospital Busstop, 2100, Trichy Rd, Rajiv Gandhi Nagar,
+                            Singanallur, Coimbatore, Tamil Nadu 641005
                         </p>
                     </div>
                 </div>
@@ -1499,13 +1717,13 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/madurai.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Madurai</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 74160 29900</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1514,59 +1732,34 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Vikram Multispeciality Hospital, 3/424, Sivagangai Main Rd, 
+                            near Pandi Kovil, Madurai, Tamil Nadu 625020
                         </p>
                     </div>
                 </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
-                <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/email.png" style="height:20px;" />
-                        <p style="margin-left:10px;">info@avishospitals.com</p>
-                    </div>
-
-                    <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
-                        <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
     </section>
+
+
+
      <section>
         <div class="vvh-banner">
-            <h2>Our Varicose Veins Hospitals in Telangana</h2>
+            <h2>Our Varicose Veins Hospitals in West Bengal</h2>
         </div>
         <!-- Row wrapper -->
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/kolkata new.webp" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Kolkata</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 72079 48073</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1575,10 +1768,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            AVIS VASCULAR CENTRE Avis vascular center , H-No: 1/4 1st Floor, 
+                            Bawali mondal road, Mudiali kolkata 700026
                         </p>
                     </div>
                 </div>
@@ -1586,13 +1779,13 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/Durgapur.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Durgapur</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 72079 48073</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1601,10 +1794,10 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            IQ City Medical College - IQ City Rd, Durgapur, 
+                            Paschim Bardhaman, West Bengal 713206 Durgapur, West Bengal, India Durgapur, West Bengal, India
                         </p>
                     </div>
                 </div>
@@ -1615,13 +1808,13 @@
         <div class="cards-row">
             <!-- Card 1 -->
             <div class="info-card">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/siliguri.jfif" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Siliguri</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 72079 48073</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1630,10 +1823,46 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                            Mitra's Clinic & Nursing Home Tilak Road, Hakim Para, Siliguri 
+                            West Bengal, PIN - 734001 Near Kanchanjungha Stadium & Bhutia Market
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+
+
+<section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Maharashtra</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/apollo spectra.jpg" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Pune, Sadashiv Peth</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 7396958585</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                            Apollo Spectra Hospitals, Saras Baug Rd, opp. Sanas Play Ground,
+                            Saras Baug, Sadashiv Peth, Pune, Maharashtra 411030
                         </p>
                     </div>
                 </div>
@@ -1641,13 +1870,13 @@
 
             <!-- Card 2 -->
             <div class="info-cards">
-                <img class="card-img" src="../assets/img-1.png" alt="Card image" />
+                <img class="card-img" src="../assets/pimple nillakh.jpg" alt="Card image" />
                 <div class="card-content">
-                    <h3>Avis Hospital Jublieehills</h3>
+                    <h3>Avis Hospital Pune, Pimple Nilakh</h3>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
                         <img src="../assets/call.png" style="height:20px;" />
-                        <p style="margin-left:10px;">+91 987654 43212</p>
+                        <p style="margin-left:10px;">+91 7396958585</p>
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
@@ -1656,22 +1885,85 @@
                     </div>
 
                     <div style="display:flex;flex-direction:row;margin-top:10px;">
-                        <img src="../assets/pic1.png" style="height:20px;" />
+                        <img src="../assets/location.png" style="height:20px;" />
                         <p style="margin-left:10px;">
-                            Door No 99, Jubilee Hills Co Operative Society, Road Number 1, Jubilee Hills, Hyderabad,
-                            Telangana, 500033
+                           Vencer Hospital - Savitribai Phule Udyan, chowk, Wakad - Bhosari BRTS Rd, opposite Gyanjyoti,
+                            near Jagtap Dairy, Madhuban Colony, Jagtap Dairy, Pimple Nilakh, Pune, Pimpri-Chinchwad, Maharashtra 411027
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </section>
-
-
-
+</section>
   
+
+<section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Delhi</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/delhi.jfif" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Greater Kailash</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 7673958585</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                          SCI International Hospital M 4, Near M Block, Greater Kailash-1, New Delhi 110048 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+<section>
+        <div class="vvh-banner">
+            <h2>Our Varicose Veins Hospitals in Haryana</h2>
+        </div>
+        <!-- Row wrapper -->
+        <div class="cards-row">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <img class="card-img" src="../assets/gurugram.jpg" alt="Card image" />
+                <div class="card-content">
+                    <h3>Avis Hospital Greater Gurugram</h3>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/call.png" style="height:20px;" />
+                        <p style="margin-left:10px;">+91 7673958585</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/email.png" style="height:20px;" />
+                        <p style="margin-left:10px;">info@avishospitals.com</p>
+                    </div>
+
+                    <div style="display:flex;flex-direction:row;margin-top:10px;">
+                        <img src="../assets/location.png" style="height:20px;" />
+                        <p style="margin-left:10px;">
+                          SCI Hospital Plot No. 7, Golf Course Rd, Sector 43, Gurugram, Haryana 122009
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
 
   <footer>
